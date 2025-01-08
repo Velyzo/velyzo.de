@@ -1,1 +1,303 @@
-Velis :D
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Velis: An organization focused on cutting-edge software development.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="Velis Team">
+    <title>Velis - Development Organization</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'SF Pro Display', Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar {
+            background-color: #000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .nav-link {
+            color: #ccc !important;
+            font-size: 1rem;
+        }
+
+        .nav-link:hover {
+            color: #ff6f00 !important;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #fff, #f4f4f4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ff6f00;
+            opacity: 0.9;
+            animation: fadeInDown 1.5s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #333;
+            opacity: 0.8;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .hero button {
+            background-color: #ff6f00;
+            color: #fff;
+            font-size: 1.25rem;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            margin: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInUp 2s ease-out;
+            gap: 10px;
+        }
+
+        .hero button a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .hero button:hover {
+            background-color: #ff4500;
+            transform: translateY(-3px);
+        }
+
+        .hero button i {
+            font-size: 1.2rem;
+        }
+
+        .video-section {
+            display: flex;
+            justify-content: center;
+            padding: 50px 20px;
+            background-color: #222;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        iframe {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 1000px;
+            height: 562px;
+            transition: transform 0.6s ease, box-shadow 0.6s ease;
+        }
+
+        .graph-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: #f4f4f4;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .graph-section:hover {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .graph-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff6f00;
+            margin-bottom: 30px;
+        }
+
+        .graph-desc {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.8;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        .graph-desc p {
+            margin: 15px 0;
+        }
+
+        #badgeChart {
+            display: block;
+            margin: 50px auto;
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        #totalLOCDisplay,
+        #developmentLOCDisplay {
+            font-size: 1.25rem;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        #totalLOCDisplay {
+            font-weight: bold;
+        }
+
+        #developmentLOCDisplay {
+            color: #ff6f00;
+            font-weight: 600;
+        }
+
+        .tooltip {
+            background-color: #333 !important;
+            color: #fff !important;
+            border-radius: 4px;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(145deg, #f4f4f4, #ddd);
+        }
+
+        .content-section h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #ff6f00;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #222;
+            color: #fff;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <h1 class="navbar-brand">Velis</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#explore">Explore</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#loc">Lines of Code</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <h1>Welcome to Velis</h1>
+        <p>We are an organization focused on building cutting-edge software solutions. Our team codes, develops, and
+            innovates.</p>
+        <button class="btn btn-primary">
+            <i class="fas fa-arrow-right"></i><a href="https://velis.me">Join Us</a>
+        </button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Velis - All Rights Reserved</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
