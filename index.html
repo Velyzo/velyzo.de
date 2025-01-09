@@ -4,58 +4,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Velis: A forward-thinking organization focused on cutting-edge software development, innovation, and digital transformation.">
-    <meta name="keywords" content="Velis, software development, technology, innovation, digital transformation, coding, development team">
+    <meta name="description"
+        content="Velis: An open-source, non-commercial software development organization. We provide cutting-edge tech solutions with a focus on innovation and collaboration.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Velis Team">
-    <meta property="og:title" content="Velis - Development Organization">
-    <meta property="og:description" content="Velis: Building cutting-edge software solutions that transform businesses.">
+    <meta name="keywords"
+        content="open-source, software development, non-commercial, innovation, technology, Velis, programming solutions, collaborative development">
+    <meta property="og:title" content="Velis - Open-Source Software Development Organization">
+    <meta property="og:description"
+        content="Velis is a non-commercial, open-source software development organization. We strive to provide innovative software solutions with a focus on quality and collaboration.">
     <meta property="og:image" content="https://github.com/VelisCore/VelisCore/blob/main/icon_512x512@2x.png?raw=true">
     <meta property="og:url" content="https://velis.me">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Velis - Development Organization">
-    <meta name="twitter:description" content="Velis: Building cutting-edge software solutions that transform businesses.">
-    <meta name="twitter:image" content="https://github.com/VelisCore/VelisCore/blob/main/icon_512x512@2x.png?raw=true">
-    <meta name="twitter:creator" content="@VelisTeam">
+    <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#ff6f00">
-    <title>Velis - Development Organization</title>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Velis">
+    <meta name="msapplication-TileColor" content="#ff6f00">
+    <meta name="msapplication-TileImage"
+        content="https://github.com/VelisCore/VelisCore/blob/main/icon_512x512@2x.png?raw=true">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Velis - Open-Source Software Development Organization">
+    <meta name="twitter:description"
+        content="Velis is a non-commercial, open-source software development organization. We strive to provide innovative software solutions with a focus on quality and collaboration.">
+    <meta name="twitter:image" content="https://github.com/VelisCore/VelisCore/blob/main/icon_512x512@2x.png?raw=true">
+    <meta name="twitter:site" content="@velis_software">
+    <meta name="twitter:creator" content="@velis_software">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Velis Team">
+    <title>Velis - Innovation in Open-Source Software Development</title>
+    <link rel="icon" href="https://github.com/VelisCore/VelisCore/blob/main/icon_512x512@2x.png?raw=true"
+        type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="https://github.com/VelisCore/VelisCore/blob/main/icon_512x512@2x.png?raw=true">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* Improved body and navigation styles */
-        body {
-            font-family: 'SF Pro Display', Arial, sans-serif;
-            background-color: #000000;
-            color: #f4f4f4;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', Arial, sans-serif;
+            background: #101010;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
             overflow-x: hidden;
-            transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Poppins', sans-serif;
         }
 
         .navbar {
-            background-color: #000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: #101010;
+            padding: 10px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .navbar-toggler {
+            border-color: #ff6f00;
         }
 
         .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: #fff;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #ff6f00;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #ff4500;
         }
 
         .nav-link {
             color: #ccc !important;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 15px;
+            border-radius: 30px;
+            margin-right: 15px;
+            transition: all 0.3s ease;
         }
 
         .nav-link:hover {
-            color: #ff6f00 !important;
+            color: #fff !important;
+            background-color: #ff6f00;
+            transform: translateY(-3px);
+        }
+
+        .navbar-nav .nav-item {
+            margin-left: 20px;
+        }
+
+        .navbar-nav .nav-item:last-child {
+            margin-right: 0;
+        }
+
+        .smooth-scroll {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         .hero {
@@ -66,27 +127,29 @@
             text-align: center;
             min-height: 100vh;
             padding: 50px 20px;
-            background: linear-gradient(135deg, #fff, #f4f4f4);
+            background: linear-gradient(135deg, #1f1f1f, #333);
             position: relative;
             overflow: hidden;
+            animation: fadeIn 1.5s ease-out;
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.8rem;
             font-weight: 700;
-            margin-bottom: 20px;
             color: #ff6f00;
-            opacity: 0.9;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
             animation: fadeInDown 1.5s ease-out;
         }
 
         .hero p {
             font-size: 1.5rem;
+            color: #ccc;
             max-width: 700px;
             margin: 0 auto;
-            line-height: 1.6;
-            color: #333;
-            opacity: 0.8;
+            line-height: 1.8;
+            opacity: 0.85;
+            margin-bottom: 30px;
             animation: fadeInUp 2s ease-out;
         }
 
@@ -97,19 +160,16 @@
             padding: 12px 30px;
             border: none;
             border-radius: 50px;
-            margin: 15px;
+            margin-top: 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s ease;
             animation: fadeInUp 2s ease-out;
             gap: 10px;
-        }
-
-        .hero button a {
-            color: #fff;
-            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .hero button:hover {
@@ -117,132 +177,106 @@
             transform: translateY(-3px);
         }
 
-        .hero button i {
-            font-size: 1.2rem;
-        }
-
-        .video-section {
-            display: flex;
-            justify-content: center;
-            padding: 50px 20px;
-            background-color: #222;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        iframe {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-            width: 90%;
-            max-width: 1000px;
-            height: 562px;
-            transition: transform 0.6s ease, box-shadow 0.6s ease;
-        }
-
-        .graph-section {
-            padding: 80px 20px;
-            text-align: center;
-            background: #f4f4f4;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .graph-section:hover {
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .graph-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #ff6f00;
-            margin-bottom: 30px;
-        }
-
-        .graph-desc {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            color: #333;
-            line-height: 1.8;
-            text-align: center;
-            opacity: 0.9;
-        }
-
-        .graph-desc p {
-            margin: 15px 0;
-        }
-
-        #badgeChart {
-            display: block;
-            margin: 50px auto;
-            max-width: 500px;
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        #totalLOCDisplay,
-        #developmentLOCDisplay {
-            font-size: 1.25rem;
-            color: #333;
-            margin-top: 20px;
-        }
-
-        #totalLOCDisplay {
-            font-weight: bold;
-        }
-
-        #developmentLOCDisplay {
-            color: #ff6f00;
-            font-weight: 600;
-        }
-
-        .tooltip {
-            background-color: #333 !important;
-            color: #fff !important;
-            border-radius: 4px;
-            padding: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
         .content-section {
             padding: 80px 20px;
             text-align: center;
-            background: linear-gradient(145deg, #f4f4f4, #ddd);
+            background: linear-gradient(145deg, #2b2b2b, #444);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            animation: fadeIn 2s ease-out;
         }
 
         .content-section h2 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 600;
             color: #ff6f00;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            letter-spacing: 1.5px;
         }
 
         .content-section p {
             font-size: 1.25rem;
+            color: #ccc;
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.8;
-            color: #333;
+            opacity: 0.9;
+            margin-bottom: 40px;
         }
 
+        /* Contact Section */
+        .contact-section {
+            background-color: #222;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-section h2 {
+            color: #ff6f00;
+            margin-bottom: 20px;
+        }
+
+        .contact-section form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+        }
+
+        .contact-section input,
+        .contact-section textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 2px solid #444;
+            background: #333;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s ease;
+        }
+
+        .contact-section input:focus,
+        .contact-section textarea:focus {
+            border-color: #ff6f00;
+        }
+
+        .contact-section button {
+            background-color: #ff6f00;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-section button:hover {
+            background-color: #ff4500;
+        }
+
+        /* Footer */
         footer {
             padding: 20px;
             text-align: center;
             background-color: #222;
             color: #fff;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        footer p {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             font-size: 1rem;
         }
 
+        footer p {
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        /* Animations */
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(-30px);
             }
 
             to {
@@ -254,7 +288,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
 
             to {
@@ -272,43 +306,232 @@
                 opacity: 1;
             }
         }
+
+        /* Responsive Styles for smaller screens */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .content-section h2 {
+                font-size: 2rem;
+            }
+
+            .content-section p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .navbar-nav {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .nav-item {
+                margin: 10px 0;
+            }
+
+            .navbar-brand {
+                font-size: 1.6rem;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.3rem;
+                max-width: 600px;
+            }
+
+            .hero button {
+                font-size: 1.1rem;
+                padding: 10px 20px;
+            }
+
+            .content-section {
+                padding: 60px 20px;
+            }
+
+            .content-section h2 {
+                font-size: 2rem;
+            }
+
+            .content-section p {
+                font-size: 1.15rem;
+                max-width: 700px;
+            }
+
+            .contact-section {
+                padding: 50px 20px;
+            }
+
+            .contact-section form {
+                max-width: 500px;
+            }
+
+            .contact-section input,
+            .contact-section textarea {
+                font-size: 0.9rem;
+            }
+
+            .contact-section button {
+                font-size: 1.1rem;
+                padding: 10px 20px;
+            }
+
+            footer {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-toggler {
+                padding: 10px;
+            }
+
+            .navbar-nav {
+                display: block;
+                margin-top: 20px;
+            }
+
+            .nav-item {
+                margin: 10px 0;
+            }
+
+            .hero {
+                padding: 30px 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+
+            .content-section {
+                padding: 50px 20px;
+            }
+
+            .contact-section {
+                padding: 40px 20px;
+            }
+
+            footer {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+
+            .hero button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+
+            .content-section {
+                padding: 40px 20px;
+            }
+
+            .contact-section {
+                padding: 30px 20px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <h1 class="navbar-brand">Velis</h1>
+            <a class="navbar-brand" href="#">Velis</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link smooth-scroll" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link smooth-scroll" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link smooth-scroll" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/VelisCore" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+
     <section class="hero" id="hero">
         <h1>Welcome to Velis</h1>
-        <p>We are an organization focused on building cutting-edge software solutions. Our team codes, develops, and
-            innovates.</p>
+        <p>We are a non-commercial, open-source software development organization. Our goal is to innovate and
+            collaborate in developing cutting-edge tech solutions that benefit the community. We do not engage in any
+            commercial activities.</p>
         <button class="btn btn-primary">
-            <i class="fas fa-arrow-right"></i><a href="https://velis.me">Join Us</a>
+            <i class="fas fa-arrow-right"></i><a href="https://velis.me"
+                style="color: white; text-decoration: none;">Join Us</a>
         </button>
     </section>
 
+    <section id="about" class="content-section">
+        <h2>About Velis</h2>
+        <p>Velis is an open-source, non-commercial organization created to provide innovative software solutions. We
+            believe in sharing knowledge, collaboration, and creating for the greater good. Our mission is to contribute
+            to the open-source ecosystem, empower developers, and make an impact in technology without profit-driven
+            motives.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <form action="mailto:contact@velis.me" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
     <footer>
-        <p>&copy; 2025 Velis - All Rights Reserved</p>
+        <p>&copy; 2025 Velis - All Rights Reserved | Non-Commercial Open-Source Projects</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init();
     </script>
 </body>
-
 </html>
