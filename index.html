@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Velis: a non-commercial open-source software development organization offering innovative solutions in Mannheim. Learn more about Velis, a digital solutions provider with a focus on collaboration and technology.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Velis Team">
+    <meta name="keywords"
+        content="open-source software, Mannheim, software development, web development, digital solutions, programming, non-commercial, technology, innovation">
+    <meta property="og:title" content="Velis - Open-Source Software Development in Mannheim">
+    <meta property="og:description"
+        content="Velis provides innovative software development and digital solutions from Mannheim. We specialize in open-source solutions and focus on collaboration and impact.">
+    <meta property="og:image" content="https://velis.me/icon.png">
+    <meta property="og:url" content="https://velis.me">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Velis - Open-Source Software Development">
+    <meta name="twitter:description"
+        content="Velis offers innovative software and digital solutions for businesses in Mannheim and the Rhein-Neckar region.">
+    <meta name="twitter:image" content="https://velis.me/icon.png">
+    <meta name="twitter:site" content="@velis_software">
+    <meta name="twitter:creator" content="@velis_core">
+    <title>Velis - Open-Source Software Development</title>
+    <link rel="icon" href="https://velis.me/icon.png" type="image/x-icon">
+    <link href="https://velis.me/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Redirecting...</h1>
+    <p>If you are not automatically redirected, click <a href="https://velis.me">here</a>.</p>
+
+    <script>
+        // Get the user's language from the browser settings
+        var userLang = navigator.language || navigator.userLanguage;
+
+        // Extract language code (first two characters of the language string, e.g. "en", "de", "es")
+        var langCode = userLang.split('-')[0].toLowerCase();
+
+        // Map common language codes to their respective site paths (you can expand this as needed)
+        var supportedLanguages = ['en', 'de', 'es', 'pt'];
+
+        // If the user's language is supported, redirect them to the appropriate page
+        if (supportedLanguages.includes(langCode)) {
+            window.location.href = 'https://velis.me/' + langCode;
+        } else {
+            // Default to English if the user's language is not supported
+            window.location.href = 'https://velis.me/en';
+        }
+    </script>
+</body>
+
+</html>
