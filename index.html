@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +24,8 @@
     <meta name="twitter:creator" content="@velis_core">
     <title>Velis - Open-Source Software Development</title>
     <link rel="icon" href="https://velis.me/icon.png" type="image/x-icon">
+    <link href="https://velis.me/styles.css" rel="stylesheet">
+
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -51,7 +54,52 @@
         }
     </script>
 
-    <link href="https://velis.me/styles.css" rel="stylesheet">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Velis",
+            "url": "https://velis.me",
+            "sameAs": [
+                "https://twitter.com/velis_software",
+                "https://github.com/VelisCore"
+            ]
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Velis - Open-Source Software Development",
+            "url": "https://velis.me",
+            "mainEntityOfPage": "https://velis.me",
+            "description": "Velis provides innovative open-source software solutions and services from Mannheim.",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Velis",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://velis.me/icon.png"
+                }
+            }
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://velis.me"
+                }
+            ]
+        }
+    </script>
 
     <style>
         .loading-container {
@@ -113,6 +161,7 @@
             color: #ff6f00;
             font-weight: bold;
         }
+
         a {
             color: #ff6f00;
             text-decoration: none;
@@ -152,7 +201,6 @@
             }
         }
     </style>
-
 </head>
 
 <body class="black-orange-theme">
@@ -167,16 +215,15 @@
         var userLang = navigator.language || navigator.userLanguage;
         var langCode = userLang.split('-')[0].toLowerCase();
         var supportedLanguages = ['de', 'en', 'es', 'fr', 'ja', 'nl', 'pt'];
+
         setTimeout(function () {
             document.getElementById('loading-container').style.display = 'none';
+            if (supportedLanguages.includes(langCode)) {
+                window.location.href = 'https://velis.me/' + langCode;
+            } else {
+                window.location.href = 'https://velis.me/en';
+            }
         }, 2000);
-        if (supportedLanguages.includes(langCode)) {
-            window.location.href = 'https://velis.me/' + langCode;
-        } else {
-            window.location.href = 'https://velis.me/en';
-        }
     </script>
-
 </body>
-
 </html>

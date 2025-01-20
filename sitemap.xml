@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- Sitemap für velis.me -->
     <url>
         <loc>https://velis.me/</loc>
         <lastmod>2025-01-09</lastmod>
@@ -8,26 +7,45 @@
         <priority>1.00</priority>
     </url>
     <url>
-        <loc>https://velis.me/#home</loc>
+        <loc>https://velis.me/pt</loc>
         <lastmod>2025-01-09</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://velis.me/#about</loc>
+        <loc>https://velis.me/nl</loc>
         <lastmod>2025-01-09</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.70</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://velis.me/#contact</loc>
+        <loc>https://velis.me/ja</loc>
         <lastmod>2025-01-09</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.70</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://eulionline.velis.me/</loc>
-        <lastmod>2025-01-12</lastmod>
-        <priority>1.0</priority>
+        <loc>https://velis.me/fr</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://velis.me/es</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://velis.me/en</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://velis.me/de</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
     </url>
 </urlset>
