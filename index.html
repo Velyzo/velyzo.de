@@ -67,6 +67,7 @@
             0% {
                 transform: rotate(0deg);
             }
+
             100% {
                 transform: rotate(360deg);
             }
@@ -83,6 +84,7 @@
             0% {
                 opacity: 0;
             }
+
             100% {
                 opacity: 1;
             }
@@ -129,27 +131,82 @@
         setInterval(() => {
             factIndex = (factIndex + 1) % facts.length;
             document.getElementById("facts").innerText = facts[factIndex];
-        }, 4000); // Display facts for 4 seconds each
+        }, 5000); // Display facts for 5 seconds each
 
         const benchmarks = [
-            "Initializing systems...",
-            "Loading modules...",
-            "Optimizing performance...",
-            "Verifying configurations...",
-            "Finalizing setup..."
+            {
+                name: "Initializing systems",
+                process: () => new Promise(resolve => setTimeout(resolve, Math.random() * 500 + 500))
+            },
+            {
+                name: "Performing high-intensity CPU-bound calculations",
+                process: async () => {
+                    let sum = 0;
+                    for (let i = 0; i < 100000000; i++) {
+                        sum += Math.sqrt(i);
+                    }
+                    await new Promise(resolve => setTimeout(resolve, Math.random() * 700 + 800));
+                    return sum;
+                }
+            },
+            {
+                name: "Simulating memory load",
+                process: async () => {
+                    const arr = [];
+                    const arrSize = Math.floor(Math.random() * 10 + 10) * 1000000; // 10-20 million integers
+                    for (let i = 0; i < arrSize; i++) {
+                        arr.push(Math.random());
+                    }
+                    await new Promise(resolve => setTimeout(resolve, Math.random() * 800 + 600));
+                    return arr.length;
+                }
+            },
+            {
+                name: "Loading and optimizing resources",
+                process: () => new Promise(resolve => setTimeout(resolve, Math.random() * 800 + 900))
+            },
+            {
+                name: "Simulating high I/O operations",
+                process: async () => {
+                    const promises = [];
+                    for (let i = 0; i < 5; i++) {
+                        promises.push(new Promise(resolve => setTimeout(resolve, Math.random() * 500 + 300)));
+                    }
+                    await Promise.all(promises);
+                    return true;
+                }
+            },
+            {
+                name: "Finalizing benchmark results",
+                process: () => new Promise(resolve => setTimeout(resolve, Math.random() * 400 + 500))
+            }
         ];
 
-        let benchmarkIndex = 0;
-        const benchmarkElement = document.getElementById("benchmark");
+        let totalScore = 0;
+        let benchmarkCount = 0;
 
-        function runBenchmarks() {
-            if (benchmarkIndex < benchmarks.length) {
-                benchmarkElement.innerText = benchmarks[benchmarkIndex];
-                benchmarkIndex++;
-                setTimeout(runBenchmarks, 600); // 0.6 seconds per benchmark
-            } else {
-                benchmarkElement.innerText = "Benchmarks Complete! Redirecting...";
+        async function runBenchmarks() {
+            const benchmarkElement = document.getElementById("benchmark");
+            for (let i = 0; i < benchmarks.length; i++) {
+                const start = performance.now();
+                await benchmarks[i].process();
+                const end = performance.now();
+                const duration = end - start;
+
+                // Calculate score based on time (lower time = higher score)
+                const score = Math.max(0, 2000 - Math.round(duration)); // Increase the score penalty for longer tasks
+                totalScore += score;
+                benchmarkCount++;
+
+                benchmarkElement.innerText = `${benchmarks[i].name} - Time: ${duration.toFixed(2)} ms - Score: ${score}`;
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Delay to simulate real-time feedback
             }
+
+            const avgScore = (totalScore / benchmarkCount).toFixed(2);
+            benchmarkElement.innerText = `Benchmarks Complete! VelisBenchScore: ${avgScore}`;
+            setTimeout(() => {
+                window.location.href = "https://velis.me";
+            }, 2000); // Redirect after 2 seconds
         }
 
         runBenchmarks();
@@ -164,7 +221,7 @@
             } else {
                 window.location.href = 'https://velis.me/en';
             }
-        }, 7000); // Redirect after 7 seconds
+        }, 10000); // Redirect after 10 seconds if benchmark finishes
     </script>
 </body>
 
