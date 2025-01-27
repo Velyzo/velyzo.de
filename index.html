@@ -32,13 +32,58 @@
             gap: 20px;
         }
 
-        .loading-circle {
-            width: 60px;
-            height: 60px;
-            border: 6px solid rgba(255, 255, 255, 0.2);
-            border-top: 6px solid #ff6f00;
+        .loading-animation {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        .loading-animation span {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6f00;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: loadingAnim 1.5s infinite ease-in-out;
+        }
+
+        .loading-animation span:nth-child(1) {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 0s;
+        }
+
+        .loading-animation span:nth-child(2) {
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+            animation-delay: 0.3s;
+        }
+
+        .loading-animation span:nth-child(3) {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 0.6s;
+        }
+
+        .loading-animation span:nth-child(4) {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            animation-delay: 0.9s;
+        }
+
+        @keyframes loadingAnim {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
         }
 
         .loading-text {
@@ -48,71 +93,32 @@
             animation: pulse 1.5s infinite;
         }
 
-        .loading-icons {
-            display: flex;
-            gap: 10px;
-            font-size: 1.5rem;
-        }
-
-        .loading-icons i {
-            color: #ff6f00;
-            animation: bounce 1.5s infinite;
-        }
-
-        .loading-icons i:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        .loading-icons i:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .loading-icons i:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
         @keyframes pulse {
             0%, 100% {
                 opacity: 1;
             }
-
             50% {
                 opacity: 0.5;
             }
         }
 
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+        a {
+            color: #ff6f00;
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
     <div class="loading-container">
-        <div class="loading-circle"></div>
-        <div class="loading-text">Redirecting...</div>
-        <div class="loading-icons">
-            <i>&#x1F4BB;</i>
-            <i>&#x1F4C8;</i>
-            <i>&#x1F680;</i>
+        <div class="loading-animation">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <p>If you are not automatically redirected, click <a href="https://velis.me" style="color: #ff6f00; text-decoration: underline;">here</a>.</p>
+        <div class="loading-text">Redirecting...</div>
+        <p>If you are not automatically redirected, click <a href="https://velis.me">here</a>.</p>
     </div>
 
     <script>
