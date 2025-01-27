@@ -6,7 +6,7 @@
 
 body {
     font-family: 'SF Pro Display', Arial, sans-serif;
-    background: #101010;
+    background: #101010; /* Dark black background */
     color: #e0e0e0;
     margin: 0;
     padding: 0;
@@ -86,7 +86,7 @@ html {
     text-align: center;
     min-height: 100vh;
     padding: 50px 20px;
-    background: linear-gradient(135deg, #5a2d8c, #6a1b9a);
+    background: #333; /* Dark grey background */
     position: relative;
     overflow: hidden;
     animation: fadeIn 1.5s ease-out;
@@ -101,18 +101,15 @@ html {
     animation: fadeInDown 1.5s ease-out;
 }
 
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 100vh;
-    padding: 50px 20px;
-    background: #333;
-    position: relative;
-    overflow: hidden;
-    animation: fadeIn 1.5s ease-out;
+.hero p {
+    font-size: 1.5rem;
+    color: #ccc;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+    opacity: 0.85;
+    margin-bottom: 30px;
+    animation: fadeInUp 2s ease-out;
 }
 
 .hero button {
@@ -142,8 +139,7 @@ html {
 .content-section {
     padding: 80px 20px;
     text-align: center;
-    background-color:#333;
-    background: linear-gradient(145deg, #5a2d8c, #7a32a3);
+    background: #444; /* Dark grey background */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: fadeIn 2s ease-out;
 }
@@ -168,7 +164,7 @@ html {
 
 /* Contact Section */
 .contact-section {
-    background-color: #222;
+    background-color: #222; /* Darker grey background */
     padding: 60px 20px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -223,7 +219,7 @@ html {
 footer {
     padding: 20px;
     text-align: center;
-    background-color: #222;
+    background-color: #222; /* Dark grey background */
     color: #fff;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 1rem;
