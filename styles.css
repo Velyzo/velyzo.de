@@ -139,7 +139,7 @@ html {
 .content-section {
     padding: 80px 20px;
     text-align: center;
-    background: linear-gradient(145deg, #3e1f5d, #101010);
+    background: #202020;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: fadeIn 2s ease-out;
 }
