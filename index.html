@@ -4,125 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Velis is a non-commercial open-source software development organization offering innovative solutions in Mannheim. Learn more about Velis, a digital solutions provider with a focus on collaboration and technology.">
-    <meta name="robots" content="index, follow">
-    <title>Velis : Non-commercial Open-Source Software Development Organization </title></title>
-    <meta name="author" content="Velis Team">
-    <meta name="keywords"
-        content="open-source software, Mannheim, software development, web development, digital solutions, programming, technology, innovation, non-commercial, digital transformation, software engineering, software consultancy, tech innovation">
-    <meta property="og:title" content="Velis - Open-Source Software Development in Mannheim">
-    <meta property="og:description"
-        content="Velis offers innovative software development solutions from Mannheim, specializing in open-source solutions with a focus on collaboration and impact.">
-    <meta property="og:image" content="https://velis.me/icon.png">
-    <meta property="og:url" content="https://velis.me">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Velis - Open-Source Software Development">
-    <meta name="twitter:description"
-        content="Velis provides innovative software and digital solutions for businesses in Mannheim and the Rhein-Neckar region, focusing on open-source technology.">
-    <meta name="twitter:image" content="https://velis.me/icon.png">
-    <meta name="twitter:site" content="@velis_software">
-    <meta name="twitter:creator" content="@velis_core">
-    <title>Velis - Open-Source Software Development</title>
+    <title>Velis - Redirecting</title>
     <link rel="icon" href="https://velis.me/icon.png" type="image/x-icon">
-    <link href="https://velis.me/styles.css" rel="stylesheet">
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Velis",
-            "url": "https://velis.me",
-            "logo": "https://velis.me/icon.png",
-            "sameAs": [
-                "https://twitter.com/velis_software",
-                "https://github.com/VelisCore"
-            ],
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+49-123-456-7890",
-                "contactType": "Customer Support",
-                "areaServed": "DE",
-                "availableLanguage": "English"
-            },
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Mannheimer Str. 12",
-                "addressLocality": "Mannheim",
-                "postalCode": "68159",
-                "addressCountry": "DE"
-            }
-        }
-    </script>
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Velis",
-            "url": "https://velis.me",
-            "sameAs": [
-                "https://twitter.com/velis_software",
-                "https://github.com/VelisCore"
-            ]
-        }
-    </script>
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "Velis - Open-Source Software Development",
-            "url": "https://velis.me",
-            "mainEntityOfPage": "https://velis.me",
-            "description": "Velis provides innovative open-source software solutions and services from Mannheim.",
-            "publisher": {
-                "@type": "Organization",
-                "name": "Velis",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://velis.me/icon.png"
-                }
-            }
-        }
-    </script>
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://velis.me"
-                }
-            ]
-        }
-    </script>
-
     <style>
-        .loading-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
             display: flex;
-            align-items: center;
             justify-content: center;
-            z-index: 9999;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
         }
 
         .loading-circle {
-            border: 4px solid transparent;
-            border-top: 4px solid #ff6f00;
+            width: 60px;
+            height: 60px;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            border-top: 6px solid #ff6f00;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
             animation: spin 1s linear infinite;
+        }
+
+        .loading-text {
+            font-size: 1.5rem;
+            color: #ff6f00;
+            font-weight: bold;
+            animation: pulse 1.5s infinite;
+        }
+
+        .loading-icons {
+            display: flex;
+            gap: 10px;
+            font-size: 1.5rem;
+        }
+
+        .loading-icons i {
+            color: #ff6f00;
+            animation: bounce 1.5s infinite;
+        }
+
+        .loading-icons i:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .loading-icons i:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading-icons i:nth-child(3) {
+            animation-delay: 0.4s;
         }
 
         @keyframes spin {
@@ -135,82 +81,39 @@
             }
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: black;
-            color: white;
-            line-height: 1.6;
-        }
-
-        .black-orange-theme {
-            background-color: black;
-            color: white;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: #ff6f00;
-            font-weight: bold;
-        }
-
-        a {
-            color: #ff6f00;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #fff;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        p {
-            font-size: 1.2rem;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 10px;
-            background-color: #333;
-        }
-
-        @media screen and (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
             }
 
-            p {
-                font-size: 1rem;
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
             }
         }
     </style>
 </head>
 
-<body class="black-orange-theme">
-    <div class="loading-container" id="loading-container">
+<body>
+    <div class="loading-container">
         <div class="loading-circle"></div>
+        <div class="loading-text">Redirecting...</div>
+        <div class="loading-icons">
+            <i>&#x1F4BB;</i>
+            <i>&#x1F4C8;</i>
+            <i>&#x1F680;</i>
+        </div>
+        <p>If you are not automatically redirected, click <a href="https://velis.me" style="color: #ff6f00; text-decoration: underline;">here</a>.</p>
     </div>
-
-    <h1>Redirecting...</h1>
-    <p>If you are not automatically redirected, click <a href="https://velis.me">here</a>.</p>
 
     <script>
         var userLang = navigator.language || navigator.userLanguage;
@@ -218,13 +121,13 @@
         var supportedLanguages = ['de', 'en', 'es', 'fr', 'ja', 'nl', 'pt'];
 
         setTimeout(function () {
-            document.getElementById('loading-container').style.display = 'none';
             if (supportedLanguages.includes(langCode)) {
                 window.location.href = 'https://velis.me/' + langCode;
             } else {
                 window.location.href = 'https://velis.me/en';
             }
-        }, 1000);
+        }, 3000);
     </script>
 </body>
+
 </html>
