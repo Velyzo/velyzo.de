@@ -6,7 +6,7 @@
 
 body {
     font-family: 'SF Pro Display', Arial, sans-serif;
-    background: #101010; /* Dark black background */
+    background: #101010;
     color: #e0e0e0;
     margin: 0;
     padding: 0;
@@ -22,7 +22,7 @@ h2 {
 .navbar {
     background-color: #101010;
     padding: 10px 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     z-index: 1000;
 }
 
@@ -86,7 +86,7 @@ html {
     text-align: center;
     min-height: 100vh;
     padding: 50px 20px;
-    background: #333; /* Dark grey background */
+    background: linear-gradient(135deg, #5a2d8c, #6a1b9a);
     position: relative;
     overflow: hidden;
     animation: fadeIn 1.5s ease-out;
@@ -139,7 +139,7 @@ html {
 .content-section {
     padding: 80px 20px;
     text-align: center;
-    background: #444; /* Dark grey background */
+    background: linear-gradient(145deg, #5a2d8c, #7a32a3);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: fadeIn 2s ease-out;
 }
@@ -164,7 +164,7 @@ html {
 
 /* Contact Section */
 .contact-section {
-    background-color: #222; /* Darker grey background */
+    background-color: #222;
     padding: 60px 20px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -192,12 +192,13 @@ html {
     color: #fff;
     font-size: 1rem;
     outline: none;
-    transition: border 0.3s ease;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-section input:focus,
 .contact-section textarea:focus {
     border-color: #9b4dca;
+    box-shadow: 0 0 8px rgba(155, 77, 202, 0.6);
 }
 
 .contact-section button {
@@ -208,18 +209,19 @@ html {
     border-radius: 50px;
     font-size: 1.25rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .contact-section button:hover {
     background-color: #7a32a3;
+    transform: translateY(-3px);
 }
 
 /* Footer */
 footer {
     padding: 20px;
     text-align: center;
-    background-color: #222; /* Dark grey background */
+    background-color: #222;
     color: #fff;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 1rem;
