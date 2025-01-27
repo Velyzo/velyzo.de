@@ -168,6 +168,7 @@ html {
     padding: 60px 20px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s ease-out;
 }
 
 .contact-section h2 {
