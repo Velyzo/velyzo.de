@@ -17,13 +17,19 @@ body {
 h1,
 h2 {
     font-family: 'Poppins', sans-serif;
+    font-weight: 700;
 }
 
 .navbar {
     background-color: #101010;
-    padding: 10px 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    padding: 15px 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
     z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+    background-color: #151515;
 }
 
 .navbar-toggler {
@@ -31,11 +37,10 @@ h2 {
 }
 
 .navbar-brand {
-    font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #9b4dca;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     transition: color 0.3s ease;
 }
 
@@ -49,7 +54,7 @@ h2 {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 8px 15px;
+    padding: 8px 18px;
     border-radius: 30px;
     margin-right: 15px;
     transition: all 0.3s ease;
@@ -58,7 +63,7 @@ h2 {
 .nav-link:hover {
     color: #fff !important;
     background-color: #9b4dca;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
 }
 
 .navbar-nav .nav-item {
@@ -70,8 +75,12 @@ h2 {
 }
 
 .smooth-scroll {
-    transition: all 0.3s ease;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.smooth-scroll:hover {
+    transform: scale(1.1);
 }
 
 html {
@@ -93,11 +102,11 @@ html {
 }
 
 .hero h1 {
-    font-size: 4.8rem;
-    font-weight: 700;
+    font-size: 5rem;
     color: #9b4dca;
     margin-bottom: 20px;
     letter-spacing: 3px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     animation: fadeInDown 1.5s ease-out;
 }
 
@@ -116,7 +125,7 @@ html {
     background-color: #9b4dca;
     color: #fff;
     font-size: 1.25rem;
-    padding: 12px 30px;
+    padding: 15px 40px;
     border: none;
     border-radius: 50px;
     margin-top: 20px;
@@ -129,11 +138,13 @@ html {
     gap: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(155, 77, 202, 0.3);
 }
 
 .hero button:hover {
     background-color: #7a32a3;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 15px rgba(155, 77, 202, 0.4);
 }
 
 .content-section {
@@ -142,14 +153,16 @@ html {
     background: #202020;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: fadeIn 2s ease-out;
+    position: relative;
+    overflow: hidden;
 }
 
 .content-section h2 {
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: 2.8rem;
     color: #9b4dca;
     margin-bottom: 30px;
     letter-spacing: 1.5px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .content-section p {
@@ -162,7 +175,6 @@ html {
     margin-bottom: 40px;
 }
 
-/* Contact Section */
 .contact-section {
     background-color: #222;
     padding: 60px 20px;
@@ -174,6 +186,7 @@ html {
 .contact-section h2 {
     color: #9b4dca;
     margin-bottom: 20px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .contact-section form {
@@ -206,7 +219,7 @@ html {
     background-color: #9b4dca;
     color: #fff;
     border: none;
-    padding: 12px 25px;
+    padding: 15px 25px;
     border-radius: 50px;
     font-size: 1.25rem;
     cursor: pointer;
@@ -215,12 +228,11 @@ html {
 
 .contact-section button:hover {
     background-color: #7a32a3;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
 }
 
-/* Footer */
 footer {
-    padding: 20px;
+    padding: 25px 20px;
     text-align: center;
     background-color: #222;
     color: #fff;
@@ -271,19 +283,19 @@ footer p {
 /* Responsive Styles for smaller screens */
 @media (max-width: 1200px) {
     .hero h1 {
-        font-size: 3.5rem;
+        font-size: 4rem;
     }
 
     .hero p {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     .content-section h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .content-section p {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -306,7 +318,7 @@ footer p {
     }
 
     .hero h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 
     .hero p {
@@ -316,7 +328,7 @@ footer p {
 
     .hero button {
         font-size: 1.1rem;
-        padding: 10px 20px;
+        padding: 12px 25px;
     }
 
     .content-section {
