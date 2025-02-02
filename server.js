@@ -3,12 +3,20 @@ const path = require('path');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const compression = require('compression');
-const http = require('http');
+const https = require('https');
+const fs = require('fs'); // For loading certificate files
 require('dotenv').config(); // Load environment variables
 
 const app = express();
 const port = process.env.PORT || 3000;
 const environment = process.env.NODE_ENV || 'development';
+
+// SSL certificates (replace with actual paths)
+const privateKey = fs.readFileSync(path.join(__dirname, 'private.key'), 'utf8');
+const certificate = fs.readFileSync(path.join(__dirname, 'certificate.crt'), 'utf8');
+
+// Combine the private key and certificate
+const credentials = { key: privateKey, cert: certificate };
 
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
@@ -37,8 +45,6 @@ app.use(helmet({
         directives: cspDirectives
     }
 }));
-
-
 
 // Use compression for faster responses
 app.use(compression());
@@ -76,29 +82,7 @@ app.get('/en', (req, res) => {
     res.render('en/index');
 });
 
-app.get('/de', (req, res) => {
-    res.render('de/index');
-});
-
-app.get('/es', (req, res) => {
-    res.render('es/index');
-});
-
-app.get('/fr', (req, res) => {
-    res.render('fr/index');
-});
-
-app.get('/ja', (req, res) => {
-    res.render('ja/index');
-});
-
-app.get('/nl', (req, res) => {
-    res.render('nl/index');
-});
-
-app.get('/pt', (req, res) => {
-    res.render('pt/index');
-});
+// More routes for other languages...
 
 // Handle 404 for undefined routes
 app.use((req, res, next) => {
@@ -111,7 +95,14 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something went wrong!');
 });
 
-// Start the server
-http.createServer(app).listen(port, () => {
-    console.log(`Velis website running at http://localhost:${port}`);
+// Start the server with HTTPS
+https.createServer(credentials, app).listen(443, () => {
+    console.log(`Velis website running at https://localhost:443`);
 });
+
+// Optional: Redirect HTTP to HTTPS for added security
+const http = require('http');
+http.createServer((req, res) => {
+    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+    res.end();
+}).listen(80);
