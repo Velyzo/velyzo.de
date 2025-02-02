@@ -17,7 +17,28 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Use Helmet for security headers
-app.use(helmet());
+const cspDirectives = {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com", "'unsafe-inline'"],
+    styleSrc: ["'self'", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com", "https://velis.me", "'unsafe-inline'"],
+    imgSrc: ["'self'", "https://velis.me", "data:"],
+    connectSrc: ["'self'"],
+    fontSrc: ["'self'", "https://cdnjs.cloudflare.com"],
+    objectSrc: ["'none'"],
+    frameSrc: ["'none'"],
+    childSrc: ["'none'"],
+    formAction: ["'self'"],
+    frameAncestors: ["'none'"],
+    upgradeInsecureRequests: [],
+};
+
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: cspDirectives
+    }
+}));
+
+
 
 // Use compression for faster responses
 app.use(compression());
