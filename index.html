@@ -129,20 +129,19 @@
         setInterval(() => {
             factIndex = (factIndex + 1) % facts.length;
             document.getElementById("facts").innerText = facts[factIndex];
-        }, 5000); // Display facts for 5 seconds each
+        }, 5000);
 
         var userLang = navigator.language || navigator.userLanguage;
         var langCode = userLang.split('-')[0].toLowerCase();
         var supportedLanguages = ['de', 'en', 'es', 'fr', 'ja', 'nl', 'pt'];
 
-        // Faster redirection
         setTimeout(function () {
             if (supportedLanguages.includes(langCode)) {
                 window.location.href = 'https://velis.me/' + langCode;
             } else {
                 window.location.href = 'https://velis.me/en';
             }
-        }, 0); // Quick redirection after 0.5s
+        }, 0);
     </script>
 </body>
 
