@@ -131,7 +131,7 @@ html {
 }
 
 .hero button:hover {
-    background-color: #9c27b0; /* Helleres Lila für Hover-Effekt */
+    background-color: #2c2c2c; /* Helleres Lila für Hover-Effekt */
     transform: translateY(-3px);
 }
 
