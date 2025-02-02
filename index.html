@@ -8,18 +8,25 @@
     <link rel="icon" href="https://velis.me/icon.png" type="image/x-icon">
 
     <!-- Meta Data -->
-    <meta name="description" content="Velis - An open-source, non-commercial organization focused on innovation and digital accessibility.">
-    <meta name="keywords" content="Velis, VelisCore, open-source, innovation, technology, non-commercial, digital accessibility">
+    <meta name="description"
+        content="Velis - An open-source, non-commercial organization focused on innovation and digital accessibility.">
+    <meta name="keywords"
+        content="Velis, VelisCore, open-source, innovation, technology, non-commercial, digital accessibility">
     <meta name="author" content="Velis">
     <meta property="og:title" content="Velis - Redirecting">
-    <meta property="og:description" content="Discover Velis, a non-commercial open-source organization dedicated to delivering impactful technology solutions.">
+    <meta property="og:description"
+        content="Discover Velis, a non-commercial open-source organization dedicated to delivering impactful technology solutions.">
     <meta property="og:url" content="https://velis.me">
     <meta property="og:image" content="https://velis.me/icon.png">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Velis - Redirecting">
-    <meta name="twitter:description" content="Velis is an innovative, non-commercial, open-source organization making technology accessible for everyone.">
+    <meta name="twitter:description"
+        content="Velis is an innovative, non-commercial, open-source organization making technology accessible for everyone.">
     <meta name="twitter:image" content="https://velis.me/icon.png">
+
+    <!-- Meta redirect for fallback -->
+    <meta http-equiv="refresh" content="2; url=https://velis.me/en">
 
     <style>
         /* Updated Color (purple) */
@@ -27,12 +34,12 @@
             0% {
                 transform: rotate(0deg);
             }
-        
+
             100% {
                 transform: rotate(360deg);
             }
         }
-        
+
         body {
             font-family: Arial, sans-serif;
             background-color: #000;
@@ -43,8 +50,9 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
+            margin: 0;
         }
-        
+
         .loading-container {
             display: flex;
             flex-direction: column;
@@ -52,38 +60,43 @@
             text-align: center;
             gap: 20px;
         }
-        
+
         .loading-animation .ring:nth-child(1) {
-            border-top: 4px solid #800080; /* changed to purple */
+            border-top: 4px solid #800080;
+            /* changed to purple */
             animation-delay: -0.3s;
         }
-        
+
         .loading-animation .ring:nth-child(2) {
-            border-right: 4px solid #800080; /* changed to purple */
+            border-right: 4px solid #800080;
+            /* changed to purple */
             animation-delay: -0.6s;
         }
-        
+
         .loading-animation .ring:nth-child(3) {
-            border-bottom: 4px solid #800080; /* changed to purple */
+            border-bottom: 4px solid #800080;
+            /* changed to purple */
             animation-delay: -0.9s;
         }
-        
+
         .loading-text {
             font-size: 1.2rem;
-            color: #800080; /* changed to purple */
+            color: #800080;
+            /* changed to purple */
             font-weight: bold;
             animation: fadeIn 1s ease-in-out;
         }
-        
+
         .facts {
             margin-top: 20px;
             font-size: 1rem;
             color: #888;
             font-style: italic;
         }
-        
+
         a {
-            color: #800080; /* changed to purple */
+            color: #800080;
+            /* changed to purple */
             text-decoration: underline;
         }
     </style>
@@ -122,13 +135,14 @@
         var langCode = userLang.split('-')[0].toLowerCase();
         var supportedLanguages = ['de', 'en', 'es', 'fr', 'ja', 'nl', 'pt'];
 
+        // Faster redirection
         setTimeout(function () {
             if (supportedLanguages.includes(langCode)) {
                 window.location.href = 'https://velis.me/' + langCode;
             } else {
                 window.location.href = 'https://velis.me/en';
             }
-        });
+        }, 500); // Quick redirection after 0.5s
     </script>
 </body>
 
