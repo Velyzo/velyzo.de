@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velis - Redirecting</title>
+    <link rel="icon" href="https://velis.me/icon.png" type="image/x-icon">
+
+    <!-- Meta Data -->
+    <meta name="description" content="Velis - An open-source, non-commercial organization focused on innovation and digital accessibility.">
+    <meta name="keywords" content="Velis, VelisCore, open-source, innovation, technology, non-commercial, digital accessibility">
+    <meta name="author" content="Velis">
+    <meta property="og:title" content="Velis - Redirecting">
+    <meta property="og:description" content="Discover Velis, a non-commercial open-source organization dedicated to delivering impactful technology solutions.">
+    <meta property="og:url" content="https://velis.me">
+    <meta property="og:image" content="https://velis.me/icon.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Velis - Redirecting">
+    <meta name="twitter:description" content="Velis is an innovative, non-commercial, open-source organization making technology accessible for everyone.">
+    <meta name="twitter:image" content="https://velis.me/icon.png">
+
+    <style>
+        /* Updated Color (purple) */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+        
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+        
+        .loading-animation .ring:nth-child(1) {
+            border-top: 4px solid #800080; /* changed to purple */
+            animation-delay: -0.3s;
+        }
+        
+        .loading-animation .ring:nth-child(2) {
+            border-right: 4px solid #800080; /* changed to purple */
+            animation-delay: -0.6s;
+        }
+        
+        .loading-animation .ring:nth-child(3) {
+            border-bottom: 4px solid #800080; /* changed to purple */
+            animation-delay: -0.9s;
+        }
+        
+        .loading-text {
+            font-size: 1.2rem;
+            color: #800080; /* changed to purple */
+            font-weight: bold;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .facts {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #888;
+            font-style: italic;
+        }
+        
+        a {
+            color: #800080; /* changed to purple */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading-container">
+        <div class="loading-animation">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+        </div>
+        <div class="loading-text">Redirecting...</div>
+        <div class="facts" id="facts">Velis is a non-commercial open-source organization dedicated to innovation.</div>
+        <p>If you are not automatically redirected, click <a href="https://velis.me">here</a>.</p>
+    </div>
+
+    <script>
+        const facts = [
+            "Velis supports over 7 programming languages.",
+            "Velis is built on open-source principles, emphasizing collaboration.",
+            "Our team has contributors from 5 continents.",
+            "We focus on making digital solutions accessible to everyone.",
+            "Velis started in Mannheim in 2020.",
+            "Velis strives to deliver impactful technology without commercial interests.",
+            "Our projects are guided by transparency and community input."
+        ];
+
+        let factIndex = 0;
+        setInterval(() => {
+            factIndex = (factIndex + 1) % facts.length;
+            document.getElementById("facts").innerText = facts[factIndex];
+        }, 5000); // Display facts for 5 seconds each
+
+        var userLang = navigator.language || navigator.userLanguage;
+        var langCode = userLang.split('-')[0].toLowerCase();
+        var supportedLanguages = ['de', 'en', 'es', 'fr', 'ja', 'nl', 'pt'];
+
+        setTimeout(function () {
+            if (supportedLanguages.includes(langCode)) {
+                window.location.href = 'https://velis.me/' + langCode;
+            } else {
+                window.location.href = 'https://velis.me/en';
+            }
+        }, 0);
+    </script>
+</body>
+
+</html>
