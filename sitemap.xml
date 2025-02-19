@@ -13,7 +13,19 @@
         <priority>0.80</priority>
     </url>
     <url>
+        <loc>https://velis.me/pt/contacto</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
         <loc>https://velis.me/nl</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://velis.me/nl/contact</loc>
         <lastmod>2025-01-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
@@ -25,7 +37,19 @@
         <priority>0.80</priority>
     </url>
     <url>
+        <loc>https://velis.me/ja/お問い合わせ</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
         <loc>https://velis.me/fr</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://velis.me/fr/contacto</loc>
         <lastmod>2025-01-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
@@ -37,7 +61,19 @@
         <priority>0.80</priority>
     </url>
     <url>
+        <loc>https://velis.me/es/contacto</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
         <loc>https://velis.me/en</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://velis.me/en/contact</loc>
         <lastmod>2025-01-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
@@ -47,5 +83,29 @@
         <lastmod>2025-01-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://velis.me/de/kontakt</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://velis.me/discord</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
+        <loc>https://velis.me/x</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
+        <loc>https://velis.me/whatsapp</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
     </url>
 </urlset>
