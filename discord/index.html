@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velis Discord Server - Redirecting</title>
+    <link rel="icon" href="https://velis.me/icon.png" type="image/x-icon">
+
+    <!-- Meta Data for Discord Server -->
+    <meta name="description"
+        content="Join the Velis Discord server to connect with our community, collaborate, and stay updated with the latest in technology and innovation.">
+    <meta name="keywords"
+        content="Velis, Velis Discord, open-source, community, innovation, technology, collaboration, chat">
+    <meta name="author" content="Velis">
+    <meta property="og:title" content="Velis Discord Server - Redirecting">
+    <meta property="og:description"
+        content="Join the Velis Discord community for discussions, collaboration, and more. Stay connected with the latest updates and technology news.">
+    <meta property="og:url" content="http://discord.velis.me">
+    <meta property="og:image" content="https://velis.me/icon.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Velis Discord Server - Redirecting">
+    <meta name="twitter:description"
+        content="Join the Velis Discord server to be part of the community and collaborate on open-source projects.">
+    <meta name="twitter:image" content="https://velis.me/icon.png">
+
+    <!-- Meta redirect for fallback -->
+    <meta http-equiv="refresh" content="2; url=http://discord.velis.me">
+
+    <style>
+        /* Updated Color (purple) */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .loading-animation .ring:nth-child(1) {
+            border-top: 4px solid #800080;
+            /* changed to purple */
+            animation-delay: -0.3s;
+        }
+
+        .loading-animation .ring:nth-child(2) {
+            border-right: 4px solid #800080;
+            /* changed to purple */
+            animation-delay: -0.6s;
+        }
+
+        .loading-animation .ring:nth-child(3) {
+            border-bottom: 4px solid #800080;
+            /* changed to purple */
+            animation-delay: -0.9s;
+        }
+
+        .loading-text {
+            font-size: 1.2rem;
+            color: #800080;
+            /* changed to purple */
+            font-weight: bold;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .facts {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        a {
+            color: #800080;
+            /* changed to purple */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading-container">
+        <div class="loading-animation">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+        </div>
+        <div class="loading-text">Redirecting...</div>
+        <div class="facts" id="facts">Join the Velis Discord server to connect with our community.</div>
+        <p>If you are not automatically redirected, click <a href="http://discord.velis.me">here</a>.</p>
+    </div>
+
+    <script>
+        const facts = [
+            "Join the Velis Discord to chat with community members from around the world.",
+            "Stay updated with the latest technology and innovation news on our Discord.",
+            "Collaborate on open-source projects and share ideas with our team and community.",
+            "The Velis Discord server is a place for learning, sharing, and building together."
+        ];
+
+        let factIndex = 0;
+        setInterval(() => {
+            factIndex = (factIndex + 1) % facts.length;
+            document.getElementById("facts").innerText = facts[factIndex];
+        }, 5000);
+
+        var userLang = navigator.language || navigator.userLanguage;
+        var langCode = userLang.split('-')[0].toLowerCase();
+        var supportedLanguages = ['de', 'en', 'es', 'fr', 'ja', 'nl', 'pt'];
+
+        setTimeout(function () {
+            window.location.href = 'http://discord.velis.me';
+        }, 0);
+    </script>
+</body>
+
+</html>

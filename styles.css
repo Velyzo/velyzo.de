@@ -164,7 +164,6 @@ html {
     padding: 70px 20px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 2s ease-out;
 }
 
 .contact-section h2 {
@@ -373,4 +372,13 @@ footer p {
     .contact-section {
         padding: 30px 20px;
     }
+}
+
+* {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velis Core on X (Twitter) - Redirecting</title>
+    <link rel="icon" href="https://velis.me/icon.png" type="image/x-icon">
+
+    <!-- Meta Data for X (Twitter) Account -->
+    <meta name="description"
+        content="Follow Velis Core on X (formerly Twitter) for updates, news, and insights on open-source innovation and technology.">
+    <meta name="keywords"
+        content="Velis, VelisCore, Twitter, X, open-source, innovation, technology, updates, news">
+    <meta name="author" content="Velis">
+    <meta property="og:title" content="Velis Core on X (Twitter) - Redirecting">
+    <meta property="og:description"
+        content="Follow Velis Core on X for the latest updates on technology, innovation, and open-source projects.">
+    <meta property="og:url" content="https://x.com/velis_core">
+    <meta property="og:image" content="https://velis.me/icon.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Velis Core on X (Twitter) - Redirecting">
+    <meta name="twitter:description"
+        content="Stay updated with Velis Core on X (formerly Twitter) for news and insights into open-source and technology.">
+    <meta name="twitter:image" content="https://velis.me/icon.png">
+
+    <!-- Meta redirect for fallback -->
+    <meta http-equiv="refresh" content="2; url=https://x.com/velis_core">
+
+    <style>
+        /* Updated Color (purple) */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .loading-animation .ring:nth-child(1) {
+            border-top: 4px solid #800080;
+            /* changed to purple */
+            animation-delay: -0.3s;
+        }
+
+        .loading-animation .ring:nth-child(2) {
+            border-right: 4px solid #800080;
+            /* changed to purple */
+            animation-delay: -0.6s;
+        }
+
+        .loading-animation .ring:nth-child(3) {
+            border-bottom: 4px solid #800080;
+            /* changed to purple */
+            animation-delay: -0.9s;
+        }
+
+        .loading-text {
+            font-size: 1.2rem;
+            color: #800080;
+            /* changed to purple */
+            font-weight: bold;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .facts {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        a {
+            color: #800080;
+            /* changed to purple */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading-container">
+        <div class="loading-animation">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+        </div>
+        <div class="loading-text">Redirecting...</div>
+        <div class="facts" id="facts">Follow Velis Core on X (Twitter) for the latest updates!</div>
+        <p>If you are not automatically redirected, click <a href="https://x.com/velis_core">here</a>.</p>
+    </div>
+
+    <script>
+        const facts = [
+            "Follow Velis Core on X for the latest updates on open-source technology.",
+            "Join the conversation with Velis Core on X and stay informed on innovation.",
+            "Stay up to date with Velis Core's latest news and open-source projects on X.",
+            "Velis Core shares insights and progress on X (formerly Twitter)."
+        ];
+
+        let factIndex = 0;
+        setInterval(() => {
+            factIndex = (factIndex + 1) % facts.length;
+            document.getElementById("facts").innerText = facts[factIndex];
+        }, 5000);
+
+        setTimeout(function () {
+            window.location.href = 'https://x.com/velis_core';
+        }, 0);
+    </script>
+</body>
+
+</html>
