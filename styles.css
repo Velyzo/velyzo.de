@@ -120,7 +120,7 @@ h1 {
 }
 
 .content-section {
-    padding: 100px 30px;
+    padding-top: 120px;
     text-align: center;
     background: #1f1f1f; /* Noch dunklerer Hintergrund für den Inhalt */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -136,6 +136,7 @@ h1 {
 }
 
 .contact-section {
+    margin-top: 80px;
     background-color: #121212;
     padding: 80px 30px;
     text-align: center;
