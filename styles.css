@@ -6,8 +6,8 @@
 
 body {
     font-family: 'SF Pro Display', Arial, sans-serif;
-    background: #101010;
-    color: #f5f5f5;
+    background: #121212; /* Dunkleres Hintergrund, sanftes Schwarz */
+    color: #e0e0e0; /* Hellgrau für besseren Kontrast */
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -19,37 +19,42 @@ h1, h2 {
     font-weight: 600;
 }
 
+h1 {
+    font-family: 'Merriweather', serif; /* Serif font for main headers */
+    font-weight: bold;
+}
+
 .navbar {
-    background-color: #1c1c1c;
-    padding: 15px 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background-color: #333; /* Sanfteres Dunkelgrau */
+    padding: 20px 30px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     z-index: 1000;
 }
 
 .navbar-toggler {
-    border-color: #ff6f61;
+    border-color: #ff7f50; /* Korallenrot für visuelle Akzente */
 }
 
 .navbar-brand {
     font-weight: 700;
-    font-size: 2rem;
-    color: #ff6f61;
+    font-size: 2.3rem;
+    color: #ff7f50;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     transition: color 0.3s ease;
 }
 
 .navbar-brand:hover {
-    color: #f96b4f;
+    color: #ff6347; /* Hellere Koralle beim Hover */
 }
 
 .nav-link {
     color: #bbb !important;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 8px 20px;
+    padding: 10px 25px;
     border-radius: 30px;
     margin-right: 15px;
     transition: all 0.3s ease;
@@ -57,8 +62,8 @@ h1, h2 {
 
 .nav-link:hover {
     color: #fff !important;
-    background-color: #ff6f61;
-    transform: translateY(-3px);
+    background-color: #ff7f50;
+    transform: translateY(-4px);
 }
 
 .hero {
@@ -68,40 +73,41 @@ h1, h2 {
     justify-content: center;
     text-align: center;
     min-height: 100vh;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, #ff6f61, #00bfae);
+    padding: 80px 30px;
+    background: linear-gradient(135deg, #ff7f50, #1e90ff); /* Sanfter Übergang zwischen Koralle und Blau */
     position: relative;
     overflow: hidden;
     animation: fadeIn 1.5s ease-out;
 }
 
 .hero h1 {
-    font-size: 4.5rem;
+    font-size: 5rem;
     color: #fff;
-    margin-bottom: 20px;
-    letter-spacing: 4px;
+    margin-bottom: 25px;
+    letter-spacing: 6px;
+    font-family: 'Merriweather', serif; /* Serif for the main hero headline */
     animation: fadeInDown 1.5s ease-out;
 }
 
 .hero p {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #fff;
     max-width: 750px;
     margin: 0 auto;
     line-height: 1.8;
     opacity: 0.9;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     animation: fadeInUp 2s ease-out;
 }
 
 .hero button {
-    background: linear-gradient(135deg, #ff6f61, #00bfae);
+    background: linear-gradient(135deg, #ff7f50, #1e90ff);
     color: #fff;
-    font-size: 1.25rem;
-    padding: 14px 32px;
+    font-size: 1.3rem;
+    padding: 16px 35px;
     border: none;
     border-radius: 50px;
-    margin-top: 20px;
+    margin-top: 30px;
     cursor: pointer;
     transition: all 0.3s ease;
     animation: fadeInUp 2s ease-out;
@@ -109,76 +115,78 @@ h1, h2 {
 }
 
 .hero button:hover {
-    background: linear-gradient(135deg, #f96b4f, #00a88f);
-    transform: translateY(-3px);
+    background: linear-gradient(135deg, #ff6347, #4682b4); /* Warmer und tiefblauer Übergang */
+    transform: translateY(-4px);
 }
 
 .content-section {
-    padding: 90px 20px;
+    padding: 100px 30px;
     text-align: center;
-    background: #2a2a2a;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: #1f1f1f; /* Noch dunklerer Hintergrund für den Inhalt */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     animation: fadeIn 2s ease-out;
 }
 
 .content-section h2 {
-    font-size: 2.8rem;
-    color: #ff6f61;
-    margin-bottom: 30px;
+    font-size: 3rem;
+    color: #ff7f50;
+    margin-bottom: 35px;
     letter-spacing: 2px;
+    font-family: 'Merriweather', serif; /* Serif for content section headings */
 }
 
 .contact-section {
-    background-color: #101010;
-    padding: 70px 20px;
+    background-color: #121212;
+    padding: 80px 30px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 .contact-section h2 {
-    color: #ff6f61;
-    margin-bottom: 20px;
+    color: #ff7f50;
+    margin-bottom: 30px;
+    font-family: 'Merriweather', serif; /* Serif for contact section heading */
 }
 
 .contact-section input,
 .contact-section textarea {
     width: 100%;
-    padding: 14px;
-    border-radius: 8px;
+    padding: 16px;
+    border-radius: 10px;
     border: 2px solid #444;
-    background: #2e2e2e;
+    background: #2a2a2a;
     color: #f5f5f5;
-    font-size: 1rem;
+    font-size: 1.1rem;
     outline: none;
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-section input:focus,
 .contact-section textarea:focus {
-    border-color: #ff6f61;
-    box-shadow: 0 0 10px rgba(255, 111, 97, 0.6);
+    border-color: #ff7f50;
+    box-shadow: 0 0 12px rgba(255, 127, 80, 0.7); /* Sanfte Korallen-Highlight */
 }
 
 .contact-section button {
-    background: linear-gradient(135deg, #ff6f61, #00bfae);
+    background: linear-gradient(135deg, #ff7f50, #1e90ff);
     color: #fff;
     border: none;
-    padding: 14px 30px;
+    padding: 16px 35px;
     border-radius: 50px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .contact-section button:hover {
-    background: linear-gradient(135deg, #f96b4f, #00a88f);
-    transform: translateY(-3px);
+    background: linear-gradient(135deg, #ff6347, #4682b4);
+    transform: translateY(-4px);
 }
 
 footer {
-    padding: 20px;
+    padding: 25px;
     text-align: center;
-    background-color: #1c1c1c;
+    background-color: #333;
     color: #fff;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 1rem;
