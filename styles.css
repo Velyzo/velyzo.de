@@ -73,7 +73,7 @@ h1 {
     justify-content: center;
     text-align: center;
     min-height: 100vh;
-    padding: 80px 30px;
+    padding-top: 140px;
     background: linear-gradient(135deg, #ff7f50, #1e90ff); /* Sanfter Übergang zwischen Koralle und Blau */
     position: relative;
     overflow: hidden;
