@@ -29,12 +29,12 @@
             0% {
                 transform: rotate(0deg);
             }
-
+        
             100% {
                 transform: rotate(360deg);
             }
         }
-
+        
         body {
             font-family: Arial, sans-serif;
             background-color: #000;
@@ -47,7 +47,7 @@
             overflow: hidden;
             margin: 0;
         }
-
+        
         .loading-container {
             display: flex;
             flex-direction: column;
@@ -55,40 +55,40 @@
             text-align: center;
             gap: 20px;
         }
-
+        
         .loading-animation .ring:nth-child(1) {
-            border-top: 4px solid #800080;
+            border-top: 4px solid #ff7f50;
             animation-delay: -0.3s;
         }
-
+        
         .loading-animation .ring:nth-child(2) {
-            border-right: 4px solid #800080;
+            border-right: 4px solid #ff7f50;
             animation-delay: -0.6s;
         }
-
+        
         .loading-animation .ring:nth-child(3) {
-            border-bottom: 4px solid #800080;
+            border-bottom: 4px solid #ff7f50;
             animation-delay: -0.9s;
         }
-
+        
         .loading-text {
             font-size: 1.2rem;
-            color: #800080;
+            color: #1e90ff;
             font-weight: bold;
             animation: fadeIn 1s ease-in-out;
         }
-
+        
         .facts {
             margin-top: 20px;
             font-size: 1rem;
             color: #888;
             font-style: italic;
         }
-
+        
         a {
-            color: #800080;
+            color: #1e90ff;
             text-decoration: underline;
-        }
+        }        
     </style>
 </head>
 
@@ -106,11 +106,9 @@
 
     <script>
         const facts = [
-            "Velis supports over 7 programming languages.",
-            "Velis is built on open-source principles, emphasizing collaboration.",
-            "Our team has contributors from 5 continents.",
+            "Our team only has German contributors.",
             "We focus on making digital solutions accessible to everyone.",
-            "Velis started in Mannheim in 2020.",
+            "Velis started in 2024.",
             "Velis strives to deliver impactful technology without commercial interests.",
             "Our projects are guided by transparency and community input."
         ];
