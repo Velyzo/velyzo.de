@@ -121,6 +121,7 @@ h1 {
 
 .content-section {
     padding-top: 120px;
+    padding-bottom: 50px;
     text-align: center;
     background: #1f1f1f;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
