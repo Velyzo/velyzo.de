@@ -6,8 +6,8 @@
 
 body {
     font-family: 'SF Pro Display', Arial, sans-serif;
-    background: #121212; /* Dunkleres Hintergrund, sanftes Schwarz */
-    color: #e0e0e0; /* Hellgrau für besseren Kontrast */
+    background: #121212;
+    color: #e0e0e0;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -20,19 +20,19 @@ h1, h2 {
 }
 
 h1 {
-    font-family: 'Merriweather', serif; /* Serif font for main headers */
+    font-family: 'Merriweather', serif;
     font-weight: bold;
 }
 
 .navbar {
-    background-color: #333; /* Sanfteres Dunkelgrau */
+    background-color: #333;
     padding: 20px 30px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     z-index: 1000;
 }
 
 .navbar-toggler {
-    border-color: #ff7f50; /* Korallenrot für visuelle Akzente */
+    border-color: #ff7f50;
 }
 
 .navbar-brand {
@@ -45,7 +45,7 @@ h1 {
 }
 
 .navbar-brand:hover {
-    color: #ff6347; /* Hellere Koralle beim Hover */
+    color: #ff6347;
 }
 
 .nav-link {
@@ -74,7 +74,7 @@ h1 {
     text-align: center;
     min-height: 100vh;
     padding-top: 140px;
-    background: linear-gradient(135deg, #ff7f50, #1e90ff); /* Sanfter Übergang zwischen Koralle und Blau */
+    background: linear-gradient(135deg, #ff7f50, #1e90ff);
     position: relative;
     overflow: hidden;
     animation: fadeIn 1.5s ease-out;
@@ -85,7 +85,7 @@ h1 {
     color: #fff;
     margin-bottom: 25px;
     letter-spacing: 6px;
-    font-family: 'Merriweather', serif; /* Serif for the main hero headline */
+    font-family: 'Merriweather', serif;
     animation: fadeInDown 1.5s ease-out;
 }
 
@@ -115,14 +115,14 @@ h1 {
 }
 
 .hero button:hover {
-    background: linear-gradient(135deg, #ff6347, #4682b4); /* Warmer und tiefblauer Übergang */
+    background: linear-gradient(135deg, #ff6347, #4682b4);
     transform: translateY(-4px);
 }
 
 .content-section {
     padding-top: 120px;
     text-align: center;
-    background: #1f1f1f; /* Noch dunklerer Hintergrund für den Inhalt */
+    background: #1f1f1f;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     animation: fadeIn 2s ease-out;
 }
@@ -132,7 +132,7 @@ h1 {
     color: #ff7f50;
     margin-bottom: 35px;
     letter-spacing: 2px;
-    font-family: 'Merriweather', serif; /* Serif for content section headings */
+    font-family: 'Merriweather', serif;
 }
 
 .contact-section {
@@ -146,7 +146,7 @@ h1 {
 .contact-section h2 {
     color: #ff7f50;
     margin-bottom: 30px;
-    font-family: 'Merriweather', serif; /* Serif for contact section heading */
+    font-family: 'Merriweather', serif;
 }
 
 .contact-section input,
@@ -165,7 +165,7 @@ h1 {
 .contact-section input:focus,
 .contact-section textarea:focus {
     border-color: #ff7f50;
-    box-shadow: 0 0 12px rgba(255, 127, 80, 0.7); /* Sanfte Korallen-Highlight */
+    box-shadow: 0 0 12px rgba(255, 127, 80, 0.7);
 }
 
 .contact-section button {
@@ -224,7 +224,6 @@ footer {
     }
 }
 
-/* Scrollbar verstecken */
 * {
     -ms-overflow-style: none;
     scrollbar-width: none;
