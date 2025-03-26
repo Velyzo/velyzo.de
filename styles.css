@@ -125,6 +125,7 @@ h1 {
     background: #1f1f1f;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     animation: fadeIn 2s ease-out;
+    margin: 0px;
 }
 
 .content-section h2 {
