@@ -1,137 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velis - Redirecting</title>
-    <link rel="icon" href="https://velis.me/icon.png" type="image/x-icon">
-    <meta name="description"
-        content="Velis - An open-source, non-commercial organization focused on innovation and digital accessibility.">
-    <meta name="keywords"
-        content="Velis, VelisCore, open-source, innovation, technology, non-commercial, digital accessibility">
-    <meta name="author" content="Velis">
-    <meta property="og:title" content="Velis - Redirecting">
-    <meta property="og:description"
-        content="Discover Velis, a non-commercial open-source organization dedicated to delivering impactful technology solutions.">
-    <meta property="og:url" content="https://velis.me">
-    <meta property="og:image" content="https://velis.me/icon.png">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Velis - Redirecting">
-    <meta name="twitter:description"
-        content="Velis is an innovative, non-commercial, open-source organization making technology accessible for everyone.">
-    <meta name="twitter:image" content="https://velis.me/icon.png">
-    <meta http-equiv="refresh" content="2; url=https://velis.me/en">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3166078894407448"
-     crossorigin="anonymous"></script>
-    <style>
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-        
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            margin: 0;
-        }
-        
-        .loading-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 20px;
-        }
-        
-        .loading-animation .ring:nth-child(1) {
-            border-top: 4px solid #ff7f50;
-            animation-delay: -0.3s;
-        }
-        
-        .loading-animation .ring:nth-child(2) {
-            border-right: 4px solid #ff7f50;
-            animation-delay: -0.6s;
-        }
-        
-        .loading-animation .ring:nth-child(3) {
-            border-bottom: 4px solid #ff7f50;
-            animation-delay: -0.9s;
-        }
-        
-        .loading-text {
-            font-size: 1.2rem;
-            color: #1e90ff;
-            font-weight: bold;
-            animation: fadeIn 1s ease-in-out;
-        }
-        
-        .facts {
-            margin-top: 20px;
-            font-size: 1rem;
-            color: #888;
-            font-style: italic;
-        }
-        
-        a {
-            color: #1e90ff;
-            text-decoration: underline;
-        }        
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velis – Build Smarter. Create Freely.</title>
+  <meta name="description" content="VelisCore ist ein Kollektiv aus Tools, Plattformen und Open Technology. Von UI bis Infrastruktur – wir unterstützen dich beim Erschaffen und Skalieren erfüllender Projekte." />
+  <meta name="keywords" content="Velis, VelisCore, Open Platform, Web Tools, Dev Infrastructure, UI Kits, Design System" />
+  <meta name="author" content="VelisCore" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Velis – Build Smarter. Create Freely." />
+  <meta property="og:description" content="Von Design bis Deployment: VelisCore hilft Machern, digitale Erlebnisse schneller und eleganter zu realisieren." />
+  <meta property="og:image" content="https://velis.me/meta-image.png" />
+  <meta property="og:url" content="https://velis.me" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://velis.me/icon.png" type="image/png" />
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <style>
+    :root {
+      --accent: #4f46e5;
+      --muted: #6b7280;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #111; 
+      background-color: #fff;
+    }
+
+    .display-4 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      justify-content: center;
+      align-items: center;
+      height: 50%;
+      color: black;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+        color: #6b7280;
+    }
+
+    .hero {
+        background: url('https://velis.me/hero-bg.jpg') no-repeat center center/cover;
+        padding: 8rem 1rem 4rem;
+        color: rgb(0, 0, 0);
+        height: 35rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+    }
+
+    .hero .btn-accent {
+      background-color: var(--accent);
+      color: #fff;
+    }
+
+    .section {
+      padding: 4rem 1rem;
+    }
+
+    .card h3 {
+      color: var(--accent);
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .btn-accent:hover {
+      background-color: #3730a3;
+    }
+    .projects-section {
+        padding: 4rem 2rem;
+        background-color: #f9f9f9;
+        color: #1a1a1a;
+        font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+      }
+      
+      .projects-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+      
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .project-card {
+        background: #ffffff;
+        border: 1px solid #e6e6e6;
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        text-align: left;
+      }
+      
+      .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 20px rgba(75, 0, 130, 0.1);
+      }
+      
+      .project-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+      
+      .project-card p {
+        font-size: 1rem;
+        color: #000000;
+        margin-bottom: 1rem;
+      }
+      
+      .project-card a {
+        color: #000000;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+      
+      .project-card a:hover {
+        color: #2e2e2e;
+      }
+      
+    
+  </style>
 </head>
-
 <body>
-    <div class="loading-container">
-        <div class="loading-animation">
-            <div class="ring"></div>
-            <div class="ring"></div>
-            <div class="ring"></div>
-        </div>
-        <div class="loading-text">Redirecting...</div>
-        <div class="facts" id="facts">Velis is a non-commercial open-source organization dedicated to innovation.</div>
-        <p>If you are not automatically redirected, click <a href="https://velis.me">here</a>.</p>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold accent" href="#">VelisCore</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#vision">Vision</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tools">Tools</a></li>
+          <li class="nav-item"><a class="nav-link" href="#community">Community</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <script>
-        const facts = [
-            "Our team only has German contributors.",
-            "We focus on making digital solutions accessible to everyone.",
-            "Velis started in 2024.",
-            "Velis strives to deliver impactful technology without commercial interests.",
-            "Our projects are guided by transparency and community input."
-        ];
+  <!-- Hero Section -->
+  <section class="hero text-center text-white">
+    <div class="container">
+      <h1 class="display-4">Build Smarter. Create Freely.</h1>
+      <p class="lead mb-4">VelisCore vereint Tools, Bibliotheken und Ideen, um Entwicklern und Designern beim Gestalten bedeutungsvoller digitaler Erlebnisse zu helfen – schneller, sauberer und mit Sinn.</p>
+      <a href="https://discord.gg/mrgg7vuF48" class="btn btn-accent btn-lg rounded-pill mt-3" role="button">Community beitreten</a>
+    </div>
+  </section>
 
-        let factIndex = 0;
-        setInterval(() => {
-            factIndex = (factIndex + 1) % facts.length;
-            document.getElementById("facts").innerText = facts[factIndex];
-        }, 5000);
+  <section class="projects-section">
+    <h2>Unsere Projekte</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>🔗 Velink</h3>
+        <p>Minimalistischer Link-Manager für persönliche und geschäftliche Profile.</p>
+        <a href="https://link.velis.me" target="_blank">link.velis.me →</a>
+      </div>
+  
+      <div class="project-card">
+        <h3>🛠️ Destor</h3>
+        <p>Minecraft-Server-Manager für einfache Verwaltung und Konfiguration.</p>
+        <a href="https://github.com/VelisCore/Destor" target="_blank">Zum Repository →</a>
+      </div>
+  
+      <div class="project-card">
+        <h3>🤖 Velaris</h3>
+        <p>Open-Source Discord-Bot für Communitys und Automatisierung.</p>
+        <a href="https://github.com/VelisCore/Velaris" target="_blank">Zum Repository →</a>
+      </div>
+  
+      <div class="project-card">
+        <h3>📱 Connecto</h3>
+        <p>Apple Watch App für direkte Netzwerk-Anfragen.</p>
+        <a href="https://github.com/VelisCore/Connecto" target="_blank">Zum Repository →</a>
+      </div>
+  
+      <div class="project-card">
+        <h3>🔐 diec</h3>
+        <p>Datenunabhängige Verschlüsselung und Kompression für sensible Inhalte.</p>
+        <a href="https://github.com/VelisCore/diec" target="_blank">Zum Repository →</a>
+      </div>
+  
+      <div class="project-card">
+        <h3>📝 InsightLog</h3>
+        <p>Strukturiertes Logging-Tool für besseres Debugging und Protokollierung.</p>
+        <a href="https://github.com/VelisCore/InsightLog" target="_blank">Zum Repository →</a>
+      </div>
+    </div>
+  </section>  
+  
 
-        var userLang = navigator.language || navigator.userLanguage;
-        var langCode = userLang.split('-')[0].toLowerCase();
-        var supportedLanguages = ['de', 'en', 'es', 'fr', 'ja', 'nl', 'pt'];
+  <!-- Community Section -->
+  <section id="community" class="section">
+    <div class="container text-center">
+      <h2 class="fw-semibold">Community Driven</h2>
+      <p class="text-muted mx-auto" style="max-width: 640px;">VelisCore ist offen. Jeder kann mitwirken. Entwickler, Designer, Kreative – herzlich willkommen.</p>
+      <a href="https://github.com/VelisCore" class="btn btn-outline-secondary btn-lg rounded-pill mt-3">Auf GitHub ansehen</a>
+    </div>
+  </section>
 
-        setTimeout(function () {
-            if (supportedLanguages.includes(langCode)) {
-                window.location.href = 'https://velis.me/' + langCode;
-            } else {
-                window.location.href = 'https://velis.me/en';
-            }
-        }, 10);
-    </script>
+  <!-- Footer -->
+  <footer class="py-3 bg-dark text-white text-center">
+    <p>&copy; 2025 VelisCore – Alle Rechte vorbehalten.</p>
+  </footer>
+  
 </body>
-
 </html>
