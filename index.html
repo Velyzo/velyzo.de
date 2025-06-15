@@ -1,447 +1,602 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Title & Description -->
-    <title>Velis | Innovative Software Solutions</title>
-    <meta name="description" content="Velis entwickelt innovative Softwarelösungen für moderne Anforderungen – leistungsstark, flexibel und zukunftssicher.">
-
-    <!-- SEO -->
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://velis.me/">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://velis.me/">
-    <meta property="og:title" content="Velis | Innovative Software Solutions">
-    <meta property="og:description" content="Velis entwickelt innovative Softwarelösungen für moderne Anforderungen – leistungsstark, flexibel und zukunftssicher.">
-    <meta property="og:image" content="https://velis.me/vmini.png">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://velis.me/">
-    <meta name="twitter:title" content="Velis | Innovative Software Solutions">
-    <meta name="twitter:description" content="Velis entwickelt innovative Softwarelösungen für moderne Anforderungen – leistungsstark, flexibel und zukunftssicher.">
-    <meta name="twitter:image" content="https://velis.me/vmini.png">
-
-    <!-- Favicon -->
-    <link rel="icon" href="/vmini.png" type="image/png">
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-
-    <!-- Styles & Animations -->
-    <link rel="stylesheet" href="/styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
-
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Velis",
-      "url": "https://velis.me/",
-      "logo": "https://velis.me/vmini.png",
-      "sameAs": [
-        "https://x.com/velis_core",
-        "https://www.instagram.com/veliscore/",
-        "https://discord.gg/mrgg7vuF48"
-      ],
-      "description": "Velis bietet moderne Softwarelösungen für individuelle Anforderungen – effizient, kreativ und leistungsstark."
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velis | Innovative Software Solutions</title>
+  <meta name="description" content="Velis entwickelt innovative Softwarelösungen für moderne Anforderungen – leistungsstark, flexibel und zukunftssicher.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <!-- OpenGraph, Twitter Card, ... -->
+  <meta property="og:title" content="Velis | Innovative Software Solutions">
+  <meta property="og:description" content="Velis entwickelt innovative Softwarelösungen – leistungsstark, flexibel und zukunftssicher.">
+  <meta property="og:image" content="/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <!-- Styles & Animations -->
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
+  <style>
+    :root {
+      --primary: #7c8aa3;
+      --primary-dark: #475569;
+      --accent: #4f7cff;
+      --accent-light: #d0e5fd;
+      --dark: #181b22; 
+      --light: #f8fafc; 
+      --glass-white: rgba(255,255,255,0.54);
+      --glass-blur: blur(18px);
+      --glass-border: rgba(120,130,150,.17);
+      --glass-shadow: 0 10px 32px 0 rgba(38,46,65,0.08), 0 1.5px 7px rgba(123,134,155,0.08);
+      --glass-glow: 0 0 0.8rem 0 rgba(130,184,254,0.10);
+      --radius: 1.65rem;
+      --transition: .41s cubic-bezier(.12,1,.26,1);
     }
-    </script>
-    <style>
-:root {
-    --primary: #64748b;        /* Mittelgrau */
-    --primary-dark: #475569;   /* Dunkleres Grau */
-    --dark: #0f172a;           /* Sehr dunkles Grau (bleibt unverändert, optional) */
-    --light: #f8fafc;          /* Sehr helles Grau (bleibt unverändert, optional) */
-    --gray: #94a3b8;           /* Helleres Grau als primary */
-    --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-
+    html { scroll-behavior: smooth; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    /* Hide scrollbar in all major browsers while allowing scroll */
+    html, body {
+    overflow: auto;                /* Still scrollable */
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE and Edge */
     }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--dark);
-            background-color: var(--light);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 100;
-            padding: 1.5rem 0;
-            transition: var(--transition);
-        }
-        
-        header.scrolled {
-            background-color: rgba(248, 250, 252, 0.95);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(8px);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        nav a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-        
-        nav a:after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary);
-            transition: var(--transition);
-        }
-        
-        nav a:hover:after {
-            width: 100%;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            color: var(--dark);
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            max-width: 600px;
-            z-index: 2;
-        }
-        
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(135deg, #94a3b8, #475569);
-            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
-            z-index: 1;
-        }
-        
-        /* Projects Section */
-        .section {
-            padding: 8rem 0;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .project-card {
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .project-image {
-            height: 200px;
-            width: 100%;
-            background-color: #e2e8f0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .project-content {
-            padding: 1.5rem;
-        }
-        
-        .project-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .project-description {
-            color: var(--gray);
-            margin-bottom: 1rem;
-        }
-        
-        .project-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 4rem 0;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-col h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-col ul {
-            list-style: none;
-        }
-        
-        .footer-col li {
-            margin-bottom: 0.75rem;
-        }
-        
-        .footer-col a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-col a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.25rem;
-        }
-        
-        @media (max-width: 768px) {
-            nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                height: 100vh;
-                background-color: white;
-                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-                transition: var(--transition);
-                z-index: 1000;
-            }
-            
-            nav.active {
-                right: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                padding: 2rem;
-                height: 100%;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-                z-index: 1001;
-            }
-            
-            .hero-bg {
-                width: 100%;
-                opacity: 0.2;
-                clip-path: none;
-            }
-            
-            .hero-content {
-                text-align: center;
-            }
-            
-            .btn-group {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-    </style>
+
+    html::-webkit-scrollbar, 
+    body::-webkit-scrollbar {
+    display: none;                /* Chrome, Safari, Opera */
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--dark);
+      background: linear-gradient(135deg, #eaeef7 0%, #ecf3fa 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: -.01em;
+    }
+    .container {
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 0 2.1rem;
+      width: 100%;
+    }
+    /* --- HEADER --- */
+    header {
+      width: 100%;
+      position: fixed;
+      z-index: 200;
+      top: 0; left: 0;
+      backdrop-filter: var(--glass-blur);
+      background: linear-gradient(135deg, rgba(255,255,255,0.78) 60%, rgba(216,225,243,0.62) 100%);
+      border-bottom: 1.2px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      padding: .95rem 0;
+      transition: background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
+    }
+    header.scrolled {
+      background: linear-gradient(120deg,rgba(255,255,255,0.96) 62%, #eafbff 100%);
+      box-shadow: 0 8px 48px 0 rgba(60,80,120,0.09);
+      backdrop-filter: blur(27px);
+      padding: .7rem 0 .65rem 0;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 2.8em;
+    }
+    .logo {
+      font-size: 1.47rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      letter-spacing: -.031em;
+      text-decoration: none;
+      padding-left: 0.18rem;
+      line-height: 1.0;
+      transition: color var(--transition), text-shadow .35s;
+      outline: none;
+      user-select: none;
+      border-radius: .5em;
+    }
+    .logo:focus, .logo:hover {
+      color: var(--accent);
+      text-shadow: 0 2px 16px #7cb8fa28;
+      background: rgba(154,197,251,0.055);
+      outline: 1.5px solid var(--accent-light);
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      user-select: none;
+    }
+    nav ul {
+      display: flex;
+      gap: 2.3rem;
+      list-style: none;
+      align-items: center;
+      padding: 0;
+    }
+    nav a {
+      color: var(--dark);
+      background: none;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.04rem;
+      letter-spacing: 0.01em;
+      position: relative;
+      padding: .19em .8em .16em .8em;
+      border-radius: 1.1em;
+      transition: background var(--transition), color var(--transition);
+      outline: none;
+      display: inline-block;
+    }
+    nav a:after {
+      content:'';
+      left:0; right:0; bottom:-.13em; height:2px;
+      position:absolute;
+      background: linear-gradient(90deg, #718cec 0, #7c8aa3 100%);
+      border-radius: 3px;
+      width:0;
+      transition: width .35s cubic-bezier(0.5,1,0.7,1);
+    }
+    nav a:focus:after,
+    nav a:hover:after { width:79%; }
+    nav a:hover,
+    nav a:focus {
+      background: rgba(139,163,246,.11);
+      color: var(--primary-dark);
+      outline: none;
+      text-decoration: none;
+    }
+    nav a.active {
+      background: linear-gradient(99deg, #d0e5fd 70%, #c5d6f8 100%);
+      color: #2b3554;
+      font-weight: 700;
+      box-shadow: 0 2px 12px #badaff0c;
+    }
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      color: var(--primary-dark);
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      margin-left: 1.1rem;
+      padding: 0 .15em;
+      outline: none;
+      border-radius: .5em;
+      transition: color .2s;
+      line-height: 1.0;
+      height: 2em;
+      width:2em;
+      position: relative;
+      z-index: 1002;
+    }
+    .mobile-menu-btn:active, .mobile-menu-btn:focus { color: var(--accent);}
+    /* --- HERO --- */
+    .hero {
+      min-height: 99vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      overflow-x: hidden;
+      padding-top: 1.5em;
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0; right: 0; bottom:0;
+      width: 53vw; min-width: 29vw;
+      height: 99vh;
+      background: linear-gradient(125deg, rgba(200,220,254,0.31) 10%, rgba(156,172,244,0.19) 86%, rgba(216,237,255,0.32) 100%);
+      border-radius: 0 34% 80% 90% / 36% 18% 70% 91%;
+      filter: blur(12px);
+      z-index: 1;
+      pointer-events: none;
+      opacity: .78;
+      animation: glassGradient 13s linear infinite alternate;
+      box-shadow: 0 4px 80px 0 rgba(116,142,247,0.12);
+    }
+    @keyframes glassGradient {
+      0% { background-position: 52% 0%; }
+      100% { background-position: 90% 100%; }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 560px;
+      padding: 6.3rem 2.5rem 3.3rem 2.5rem;
+      background: rgba(255,255,255,0.30);
+      border-radius: var(--radius);
+      box-shadow: var(--glass-shadow), var(--glass-glow);
+      backdrop-filter: blur(17px);
+      border: 1.4px solid var(--glass-border);
+      margin-top: 8.5rem;
+      margin-bottom: 8rem;
+      margin-left: 0.2em;
+      text-align: left;
+    }
+    .hero h1 {
+      font-size: clamp(2.3rem, 5vw, 4.18rem);
+      font-weight: 800;
+      line-height: 1.13;
+      color: #223051;
+      letter-spacing: -0.019em;
+      text-shadow: 0 4px 48px #b2cbff25;
+      margin-bottom: 1.1rem;
+      background: linear-gradient(94deg, #222d3c 70%, #8493ea 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.17rem;
+      color: #5e7fac;
+      margin-bottom: 2.3rem;
+      font-weight: 500;
+      text-shadow: 0 0.5px 2px #dbe1fc3a;
+      line-height: 1.72;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1.13rem;
+      align-items: center;
+    }
+    .btn, .btn-outline {
+      display: inline-block;
+      appearance: none;
+      border: none;
+      outline: none;
+      padding: 0.83rem 2.1rem;
+      font-size: 1.04rem;
+      border-radius: 1.9em;
+      font-weight: 700;
+      transition: box-shadow var(--transition), background var(--transition), color var(--transition), border var(--transition);
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      box-shadow: 0 2px 30px 0 rgba(135,148,187,0.10);
+      margin-bottom:0.15em;
+    }
+    .btn {
+      background: linear-gradient(99deg, #4f7cff 0%, #9ac7fb 100%);
+      color: #f9fafc;
+      box-shadow: 0 4px 20px 0 rgba(126,162,229,0.24);
+      border: 0.7px solid rgba(112,136,236, 0.18);
+    }
+    .btn:focus,
+    .btn:hover {
+      background: linear-gradient(90deg, #3357a5 6%, #5496ef 94%);
+      box-shadow: 0 6px 32px 0 rgba(135,187,249,.14);
+      color: #fff;
+    }
+    .btn-outline {
+      background: rgba(247,249,255,0.17);
+      color: var(--primary-dark);
+      border: 1px solid #b0c3e7;
+      box-shadow: none;
+    }
+    .btn-outline:focus,
+    .btn-outline:hover {
+      background: linear-gradient(90deg, #dde9fd 30%, #c5d6f8 100%);
+      color: #2446a9;
+      border: 1px solid #8baaea;
+    }
+    /* SCROLL-TO-TOP Button */
+    #scrollToTopBtn {
+      position: fixed;
+      right: 1.35em;
+      bottom: 1.6em;
+      z-index: 300;
+      background: linear-gradient(93deg,#c3dafe 40%, #a3bffa 100%);
+      color: #32406a;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 4px 24px #7cb8fa22;
+      width: 2.8em;
+      height: 2.8em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .37s, box-shadow .2s, background .17s;
+    }
+    #scrollToTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #scrollToTopBtn:focus,
+    #scrollToTopBtn:hover { background: linear-gradient(93deg,#98bbfa 50%, #7ea6f7 100%);}
+    /* --- PROJECTS --- */
+    .section {
+      padding: 8.8rem 0 7.4rem 0;
+      position:relative;
+      z-index: 5;
+    }
+    .section-title {
+      font-size: 2.63rem;
+      font-weight: 800;
+      margin-bottom: 2.7rem;
+      text-align: center;
+      color: #2c384e;
+      letter-spacing:-0.035em;
+      text-shadow: 0 4px 24px #a5bcf77a;
+      background: linear-gradient(99deg, #323f5b 74%, #7c8aa3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.35rem;
+    }
+    .project-card {
+      background: var(--glass-white);
+      border-radius: var(--radius);
+      border: 1.3px solid var(--glass-border);
+      box-shadow: 0 8px 36px 0 rgba(40,55,80,0.13), 0 1.5px 7px rgba(96,121,157,0.07);
+      backdrop-filter: var(--glass-blur);
+      overflow: hidden;
+      transition: transform .24s cubic-bezier(.25,.82,.29,.98), box-shadow .27s, outline .26s;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 0.85em;
+      outline: .5px solid transparent;
+      outline-offset: -1px;
+    }
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-9px) scale(1.012);
+      box-shadow: 0 16px 42px 0 rgba(98,131,209,0.17);
+      outline: 1.3px solid #b8d9fa7a;
+    }
+    .project-image {
+      height: 175px;
+      width: 100%;
+      background: linear-gradient(102deg, #e6effb 10%, #f5f8fc 100%);
+      display:flex; align-items:center; justify-content:center;
+      overflow: hidden;
+      border-bottom: 1.1px solid #e4e9f5;
+    }
+    .project-image svg text {
+      opacity: .92;
+      font-weight: 900;
+      filter: drop-shadow(0px 2px 16px #5e8ddb12);
+    }
+    .project-content {
+      padding: 1.58rem 1.33rem 1.3rem 1.33rem;
+      background: transparent;
+    }
+    .project-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      letter-spacing: -.011em;
+      margin-bottom: .41rem;
+      color: #465081;
+      text-shadow: 0 1.5px 14px #c0d9ff13;
+    }
+    .project-description {
+      color: #6486b2;
+      margin-bottom: 1.2rem;
+      font-size: 1.03rem;
+      min-height: 41px;
+      line-height: 1.72;
+    }
+    .project-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.01rem;
+      letter-spacing:.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: .51em;
+      border-radius: 1em;
+      padding: .46em 1em .46em .86em;
+      transition: background var(--transition), color var(--transition);
+      background: rgba(205,228,252,.0);
+      border: none;
+    }
+    .project-link:hover, .project-link:focus {
+      background: #eaf1fd;
+      color: #2446a9;
+      outline: none;
+      text-decoration:underline;
+    }
+    /* --- FOOTER --- */
+    footer {
+      padding: 5rem 0 2.6rem 0;
+      background: linear-gradient(120deg,rgba(252,255,255,.81) 5%,rgba(193,208,240,0.83) 53%,rgba(172,192,244,0.89) 100%);
+      box-shadow: 0 -2px 40px 0 rgba(127,149,215,0.08);
+      backdrop-filter: blur(15px);
+      border-top-left-radius: 2.3rem;
+      border-top-right-radius: 2.3rem;
+      margin-top: 8rem;
+      font-size: 1rem;
+      position:relative;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+      gap: 2.9rem;
+      margin-bottom: 2.6rem;
+    }
+    .footer-col h3 {
+      font-size: 1.13rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: #385289;
+      letter-spacing:.015em;
+    }
+    .footer-col p {
+      color: #6878a6;
+      font-size: .98rem;
+      margin-bottom:.11em;
+    }
+    .footer-col ul { list-style: none; padding:0;}
+    .footer-col li { margin-bottom: .91rem; }
+    .footer-col a {
+      color: #4e6ba9;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition), text-decoration .2s;
+      font-size: .97rem;
+      border-radius: .7em;
+      padding: .08em .2em;
+    }
+    .footer-col a:focus,
+    .footer-col a:hover { color: #233a8b; text-decoration:underline; background:rgba(171,199,233,0.08);}
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2.1rem;
+      border-top: 1px solid rgba(49,59,78,0.09);
+      font-size:0.98rem;
+      flex-wrap:wrap;
+      gap: 1.3rem;
+    }
+    .footer-bottom p {
+      color: #5c6d91;
+      font-size: 1rem;
+      letter-spacing:-.01em;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.13rem;
+      margin-right: 2px;
+    }
+    .social-links a {
+      font-size: 1.07rem;
+      font-weight: 700;
+      color: #5b77bb;
+      text-decoration: none;
+      transition: color .18s, text-decoration .18s;
+      letter-spacing:.01em;
+      border-radius:.65em; padding:.08em .21em;
+    }
+    .social-links a:hover, .social-links a:focus {
+      color: #263b85;
+      text-decoration:underline;
+      background:rgba(205,228,252,.18);
+    }
+    /* --- MOBILE --- */
+    @media (max-width: 1100px){
+      .container { max-width: 94vw;}
+      .hero-content{padding:5.3rem 1.15rem 2.7rem 1.15rem;}
+    }
+    @media (max-width: 900px) {
+      .hero-bg { width: 99vw; opacity: .22; border-radius: 0 }
+      .hero-content { max-width: 100%; margin-top: 6rem; }
+      .section {padding:6.5rem 0 5rem 0;}
+      footer{margin-top:5rem; border-radius:1.6rem;}
+    }
+    @media (max-width: 770px) {
+      .container { padding: 0 .7rem;}
+      .header-container { flex-direction: row; }
+      .logo { font-size:1.21rem;}
+      nav {
+        position: fixed;
+        top: 0;
+        right: -130vw;
+        height: 100vh;
+        width: 81vw;
+        min-width:230px;
+        background: rgba(247,250,255,.97);
+        box-shadow: -14px 0 38px rgba(111,127,170,0.08);
+        border-left: 1.5px solid #d2e8ff;
+        border-top: none;
+        backdrop-filter: blur(26px);
+        transition: right .41s cubic-bezier(.29,.89,.53,1.06);
+        z-index: 998;
+        display: block;
+      }
+      nav.active { right: 0;}
+      nav ul { flex-direction: column; padding: 4.1rem 2.1rem; gap: 2.05rem; align-items:flex-start;}
+      nav a {
+        font-size: 1.16rem;
+        padding:.5em .8em;
+        border-radius:1.7em;
+        margin:0;
+      }
+      .mobile-menu-btn { display: block;}
+      .hero-content { text-align: left; padding-top:3.3em; padding-bottom:2.2em; margin-top:5.1em;}
+      .btn-group { flex-direction: column; gap: .91rem; align-items:center;}
+      .section-title{font-size:2.1rem;}
+      .footer-bottom {font-size:.92rem;}
+      #scrollToTopBtn{right:.8em;}
+    }
+    @media (max-width: 600px){
+      .section{padding:4.7em 0 3.1em 0;}
+      .container{padding:0 .23em;}
+      .footer-grid{gap:1.3em;}
+      .footer-bottom{padding-top:.8em; flex-direction:column;align-items:flex-start;gap:1.1em;}
+    }
+    @media (max-width: 450px){
+      .footer-bottom { flex-direction: column; gap:1em;}
+      .hero-content { padding:2.25em .6em 1.7em .7em; margin-top:3.3em;}
+      .section-title{font-size:1.33em;}
+      #scrollToTopBtn{bottom:1em;}
+    }
+    /* Hide scrollbars mobile */
+    ::-webkit-scrollbar { width: 0.55em; background:transparent;}
+    ::-webkit-scrollbar-thumb { background: #dde9fcbd; border-radius:1em;}
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-container container">
-            <a href="#" class="logo">Velis</a>
-            <button class="mobile-menu-btn">☰</button>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="https://github.com/VelisCore" target="_blank">GitHub</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<header>
+  <div class="header-container container">
+    <a href="#" class="logo" tabindex="1">Velis</a>
+    <button class="mobile-menu-btn" aria-label="Öffne Navigation" aria-controls="mainnav" aria-expanded="false" tabindex="2">☰</button>
+    <nav id="mainnav" aria-label="Main Navigation">
+      <ul>
+        <li><a href="#home" tabindex="3">Home</a></li>
+        <li><a href="#projects" tabindex="4">Projects</a></li>
+        <li><a href="#about" tabindex="5">About</a></li>
+        <li><a href="#contact" tabindex="6">Contact</a></li>
+        <li><a href="https://github.com/VelisCore" target="_blank" rel="noopener" tabindex="7">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Building the future of software</h1>
-                <p>Velis creates innovative solutions that push boundaries and redefine user experiences.</p>
-                <div class="btn-group">
-                    <a href="#projects" class="btn">View Projects</a>
-                    <a href="https://github.com/VelisCore" class="btn btn-outline">GitHub</a>
-                </div>
-            </div>
-        </div>
-        <div class="hero-bg"></div>
-    </section>
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Building the future of software</h1>
+      <p>Velis creates <b>innovative solutions</b> that push boundaries and <b>redefine user experiences</b>.</p>
+      <div class="btn-group">
+        <a href="#projects" class="btn" tabindex="8">View Projects</a>
+        <a href="https://github.com/VelisCore" class="btn btn-outline" target="_blank" rel="noopener" tabindex="9">GitHub</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bg" aria-hidden="true"></div>
+</section>
 
-    <section class="section" id="projects">
+<section class="section" id="projects" tabindex="-1">
   <div class="container">
     <h2 class="section-title">Our Projects</h2>
     <div class="projects-grid">
 
       <!-- Velink (V) -->
-      <div class="project-card">
-        <div class="project-image" style="width: 100%; height: 200px;">
-          <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <div class="project-card" tabindex="0" role="group" aria-labelledby="velink-title">
+        <div class="project-image">
+          <svg viewBox="0 0 200 200" width="100%" height="100%" aria-hidden="true">
             <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
                   font-size="120" font-family="Arial, sans-serif" fill="#94a3b8">V</text>
           </svg>
         </div>
         <div class="project-content">
-          <h3 class="project-title">Velink</h3>
+          <h3 id="velink-title" class="project-title">Velink</h3>
           <p class="project-description">A revolutionary link management platform with advanced analytics and customization.</p>
-          <a href="https://velink.me" target="_blank" class="project-link">
-            Visit Project
+          <a href="https://velink.me" target="_blank" rel="noopener" class="project-link" aria-label="Visit Velink project">Visit Project
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
           </a>
@@ -449,20 +604,20 @@
       </div>
 
       <!-- Connecto (C) -->
-      <div class="project-card">
-        <div class="project-image" style="width: 100%px; height: 200px;">
-          <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <div class="project-card" tabindex="0" role="group" aria-labelledby="connecto-title">
+        <div class="project-image">
+          <svg viewBox="0 0 200 200" width="100%" height="100%" aria-hidden="true">
             <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
                   font-size="120" font-family="Arial, sans-serif" fill="#94a3b8">C</text>
           </svg>
         </div>
         <div class="project-content">
-          <h3 class="project-title">Connecto</h3>
+          <h3 id="connecto-title" class="project-title">Connecto</h3>
           <p class="project-description">A powerful messaging gateway and unified communications tool by Velis Core.</p>
-          <a href="https://github.com/VelisCore/Connecto" target="_blank" class="project-link">
+          <a href="https://github.com/VelisCore/Connecto" target="_blank" rel="noopener" class="project-link" aria-label="View Connecto on GitHub">
             View on GitHub
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
           </a>
@@ -470,20 +625,20 @@
       </div>
 
       <!-- Eulionline (E) -->
-      <div class="project-card">
-        <div class="project-image" style="width: 100%; height: 200px;">
-          <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <div class="project-card" tabindex="0" role="group" aria-labelledby="eulionline-title">
+        <div class="project-image">
+          <svg viewBox="0 0 200 200" width="100%" height="100%" aria-hidden="true">
             <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
                   font-size="120" font-family="Arial, sans-serif" fill="#94a3b8">E</text>
           </svg>
         </div>
         <div class="project-content">
-          <h3 class="project-title">Eulionline</h3>
+          <h3 id="eulionline-title" class="project-title">Eulionline</h3>
           <p class="project-description">An online learning portal designed for intuitive, flexible education access — powered by Velis.</p>
-          <a href="https://eulionline.velis.me" target="_blank" class="project-link">
+          <a href="https://eulionline.velis.me" target="_blank" rel="noopener" class="project-link" aria-label="Visit Eulionline Platform">
             Visit Platform
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
           </a>
@@ -494,131 +649,125 @@
   </div>
 </section>
 
+<section class="section" id="about" tabindex="-1">
+  <div class="container">
+    <h2 class="section-title">About Velis</h2>
+    <p style="max-width:650px;margin:0 auto 2.3em auto;text-align:center;color:#5b7293;font-size:1.09em;">
+      Velis stands for <b>technology with vision</b>. Our team blends creative thinking, deep engineering, and
+      forward-thinking product design to shape tomorrow’s digital world. <br>
+      Our approach: <b>Intuitive. Secure. Scalable. Sustainable.</b>
+    </p>
+    <!-- Timeline or Team (optional future extension) -->
+  </div>
+</section>
 
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Velis</h3>
-                    <p>Innovative software solutions for the modern world.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Projects</h3>
-                    <ul>
-                        <li><a href="https://velink.me">Velink</a></li>
-                        <li><a href="https://github.com/VelisCore">VelisCore</a></li>
-                        <li><a href="https://eulionline.velis.me">Eulionline</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="mailto:info@velis.dev">Email</a></li>
-                        <li><a href="https://github.com/VelisCore">GitHub</a></li>
-                        <li><a href="https://x.com/velis_core">Twitter</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 Velis. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="https://github.com/VelisCore">GitHub</a>
-                    <a href="https://x.com/velis_core">Twitter</a>
-                    <a href="https://discord.gg/mrgg7vuF48">Discord</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const nav = document.querySelector('nav');
-        
-        menuBtn.addEventListener('click', () => {
-            nav.classList.toggle('active');
+<footer id="contact" tabindex="-1">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Velis</h3>
+        <p>Innovative software solutions for the modern world.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Projects</h3>
+        <ul>
+          <li><a href="https://velink.me">Velink</a></li>
+          <li><a href="https://github.com/VelisCore">VelisCore</a></li>
+          <li><a href="https://eulionline.velis.me">Eulionline</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Connect</h3>
+        <ul>
+          <li><a href="mailto:info@velis.dev">Email</a></li>
+          <li><a href="https://github.com/VelisCore">GitHub</a></li>
+          <li><a href="https://x.com/velis_core">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="thisYear"></span> Velis. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://github.com/VelisCore" aria-label="GitHub">GitHub</a>
+        <a href="https://x.com/velis_core" aria-label="Twitter">Twitter</a>
+        <a href="https://discord.gg/mrgg7vuF48" aria-label="Discord">Discord</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="scrollToTopBtn" title="Back to top" aria-label="Back to top">
+  <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#32406a" stroke-width="2">
+    <path d="M12 19V6M12 6l-6 6M12 6l6 6" />
+  </svg>
+</button>
+<script>
+  // Mobile menu toggle, ARIA, body scroll lock
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const nav = document.querySelector('nav');
+  menuBtn.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    menuBtn.setAttribute("aria-expanded", nav.classList.contains("active"));
+    document.body.style.overflowY = nav.classList.contains("active") ? "hidden" : "";
+  });
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      menuBtn.setAttribute("aria-expanded", "false");
+      document.body.style.overflowY = "";
+    });
+  });
+  // Scroll to section, set nav active on scroll
+  document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+    link.addEventListener("click", function(e){
+      e.preventDefault();
+      const ref = document.querySelector(this.getAttribute("href"));
+      if(ref){ ref.scrollIntoView({behavior:"smooth",block:"start",inline:"nearest"}); }
+      // Optional: Make the link visually active
+      document.querySelectorAll('nav a').forEach(el=>el.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+  // Section observer for nav active state
+  let sections = document.querySelectorAll("section[id]");
+  let navLinks = document.querySelectorAll("nav a[href^='#']");
+  window.addEventListener("scroll", () => {
+    let scrollPos = window.scrollY+96;
+    sections.forEach(section => {
+      if (scrollPos > section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+        navLinks.forEach(link=>{
+          link.classList.toggle("active", link.getAttribute("href") === "#"+section.id)
         });
-        
-        // Close menu when clicking on a link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('active');
-            });
-        });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                document.querySelector('header').classList.add('scrolled');
-            } else {
-                document.querySelector('header').classList.remove('scrolled');
-            }
-        });
-        
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
-        
-        // Hero animation
-        gsap.from('.hero h1', {
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            ease: 'power3.out'
-        });
-        
-        gsap.from('.hero p', {
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            delay: 0.2,
-            ease: 'power3.out'
-        });
-        
-        gsap.from('.btn-group', {
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            delay: 0.4,
-            ease: 'power3.out'
-        });
-        
-        gsap.from('.hero-bg', {
-            duration: 1.5,
-            x: 100,
-            opacity: 0,
-            ease: 'power3.out'
-        });
-        
-        // Project cards animation
-        gsap.utils.toArray('.project-card').forEach((card, i) => {
-            gsap.from(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 80%',
-                    toggleActions: 'play none none none'
-                },
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                delay: i * 0.1,
-                ease: 'power3.out'
-            });
-        });
-        
-        // Section title animation
-        gsap.utils.toArray('.section-title').forEach(title => {
-            gsap.from(title, {
-                scrollTrigger: {
-                    trigger: title,
-                    start: 'top 80%',
-                    toggleActions: 'play none none none'
-                },
-                y: 30,
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power3.out'
-            });
-        });
-    </script>
+      }
+    });
+  });
+  // Scroll-to-Top button
+  const scrollBtn = document.getElementById('scrollToTopBtn');
+  window.addEventListener('scroll', function(){
+    scrollBtn.classList.toggle("show",window.scrollY > 280);
+  });
+  scrollBtn.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+  // Set year in copyright
+  document.getElementById("thisYear").textContent = new Date().getFullYear();
+  // GSAP Animations
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from('.hero h1', { duration: 1, y:44, opacity: 0, ease: 'power3.out'});
+  gsap.from('.hero p',  { duration: 1.12,y:38, opacity: 0, delay: 0.14, ease: 'power3.out'});
+  gsap.from('.btn-group',{ duration:.91, y:24, opacity: 0, delay:.31, ease:'power3.out' });
+  gsap.from('.hero-bg',  { duration:1.35,x:120, opacity:0, ease:'power3.out'});
+  gsap.utils.toArray('.project-card').forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: { trigger: card, start: 'top 87%', toggleActions: 'play none none none'},
+      y: 51, opacity: 0, duration: .9, delay: i*0.07, ease: 'power2.out'
+    });
+  });
+  gsap.utils.toArray('.section-title').forEach(title => {
+    gsap.from(title, {
+      scrollTrigger: { trigger: title, start: 'top 93%', toggleActions: 'play none none none'},
+      y: 20, opacity: 0, duration: .91, ease: 'power3.out'
+    });
+  });
+</script>
 </body>
 </html>
