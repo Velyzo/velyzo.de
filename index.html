@@ -1,773 +1,1259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Velyzo | Innovative Software Solutions</title>
-  <meta name="description" content="Velyzo entwickelt innovative Softwarelösungen für moderne Anforderungen – leistungsstark, flexibel und zukunftssicher.">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <!-- OpenGraph, Twitter Card, ... -->
-  <meta property="og:title" content="Velyzo | Innovative Software Solutions">
-  <meta property="og:description" content="Velyzo entwickelt innovative Softwarelösungen – leistungsstark, flexibel und zukunftssicher.">
-  <meta property="og:image" content="/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <!-- Styles & Animations -->
-  <link rel="stylesheet" href="/styles.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
-  <style>
-    :root {
-      --primary: #7c8aa3;
-      --primary-dark: #475569;
-      --accent: #4f7cff;
-      --accent-light: #d0e5fd;
-      --dark: #181b22; 
-      --light: #f8fafc; 
-      --glass-white: rgba(255,255,255,0.54);
-      --glass-blur: blur(18px);
-      --glass-border: rgba(120,130,150,.17);
-      --glass-shadow: 0 10px 32px 0 rgba(38,46,65,0.08), 0 1.5px 7px rgba(123,134,155,0.08);
-      --glass-glow: 0 0 0.8rem 0 rgba(130,184,254,0.10);
-      --radius: 1.65rem;
-      --transition: .41s cubic-bezier(.12,1,.26,1);
-    }
-    html { scroll-behavior: smooth; }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    /* Hide scrollbar in all major browsers while allowing scroll */
-    html, body {
-    overflow: auto;                /* Still scrollable */
-    scrollbar-width: none;        /* Firefox */
-    -ms-overflow-style: none;     /* IE and Edge */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velyzo - Premium Coding Organization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    html::-webkit-scrollbar, 
-    body::-webkit-scrollbar {
-    display: none;                /* Chrome, Safari, Opera */
-    }
+        :root {
+            --primary-color: #007AFF;
+            --secondary-color: #5856D6;
+            --accent-color: #FF3B30;
+            --text-primary: #1D1D1F;
+            --text-secondary: #6E6E73;
+            --background: #FBFBFD;
+            --surface: #FFFFFF;
+            --border: #D2D2D7;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+        }
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--dark);
-      background: linear-gradient(135deg, #eaeef7 0%, #ecf3fa 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      letter-spacing: -.01em;
-    }
-    .container {
-      margin: 0 auto;
-      max-width: 1200px;
-      padding: 0 2.1rem;
-      width: 100%;
-    }
-    /* --- HEADER --- */
-    header {
-      width: 100%;
-      position: fixed;
-      z-index: 200;
-      top: 0; left: 0;
-      backdrop-filter: var(--glass-blur);
-      background: linear-gradient(135deg, rgba(255,255,255,0.78) 60%, rgba(216,225,243,0.62) 100%);
-      border-bottom: 1.2px solid var(--glass-border);
-      box-shadow: var(--glass-shadow);
-      padding: .95rem 0;
-      transition: background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
-    }
-    header.scrolled {
-      background: linear-gradient(120deg,rgba(255,255,255,0.96) 62%, #eafbff 100%);
-      box-shadow: 0 8px 48px 0 rgba(60,80,120,0.09);
-      backdrop-filter: blur(27px);
-      padding: .7rem 0 .65rem 0;
-    }
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 2.8em;
-    }
-    .logo {
-      font-size: 1.47rem;
-      font-weight: 800;
-      color: var(--primary-dark);
-      letter-spacing: -.031em;
-      text-decoration: none;
-      padding-left: 0.18rem;
-      line-height: 1.0;
-      transition: color var(--transition), text-shadow .35s;
-      outline: none;
-      user-select: none;
-      border-radius: .5em;
-    }
-    .logo:focus, .logo:hover {
-      color: var(--accent);
-      text-shadow: 0 2px 16px #7cb8fa28;
-      background: rgba(154,197,251,0.055);
-      outline: 1.5px solid var(--accent-light);
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      user-select: none;
-    }
-    nav ul {
-      display: flex;
-      gap: 2.3rem;
-      list-style: none;
-      align-items: center;
-      padding: 0;
-    }
-    nav a {
-      color: var(--dark);
-      background: none;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.04rem;
-      letter-spacing: 0.01em;
-      position: relative;
-      padding: .19em .8em .16em .8em;
-      border-radius: 1.1em;
-      transition: background var(--transition), color var(--transition);
-      outline: none;
-      display: inline-block;
-    }
-    nav a:after {
-      content:'';
-      left:0; right:0; bottom:-.13em; height:2px;
-      position:absolute;
-      background: linear-gradient(90deg, #718cec 0, #7c8aa3 100%);
-      border-radius: 3px;
-      width:0;
-      transition: width .35s cubic-bezier(0.5,1,0.7,1);
-    }
-    nav a:focus:after,
-    nav a:hover:after { width:79%; }
-    nav a:hover,
-    nav a:focus {
-      background: rgba(139,163,246,.11);
-      color: var(--primary-dark);
-      outline: none;
-      text-decoration: none;
-    }
-    nav a.active {
-      background: linear-gradient(99deg, #d0e5fd 70%, #c5d6f8 100%);
-      color: #2b3554;
-      font-weight: 700;
-      box-shadow: 0 2px 12px #badaff0c;
-    }
-    .mobile-menu-btn {
-      display: none;
-      background: transparent;
-      color: var(--primary-dark);
-      border: none;
-      font-size: 2rem;
-      cursor: pointer;
-      margin-left: 1.1rem;
-      padding: 0 .15em;
-      outline: none;
-      border-radius: .5em;
-      transition: color .2s;
-      line-height: 1.0;
-      height: 2em;
-      width:2em;
-      position: relative;
-      z-index: 1002;
-    }
-    .mobile-menu-btn:active, .mobile-menu-btn:focus { color: var(--accent);}
-    /* --- HERO --- */
-    .hero {
-      min-height: 99vh;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      position: relative;
-      overflow-x: hidden;
-      padding-top: 1.5em;
-    }
-    .hero-bg {
-      position: absolute;
-      top: 0; right: 0; bottom:0;
-      width: 53vw; min-width: 29vw;
-      height: 99vh;
-      background: linear-gradient(125deg, rgba(200,220,254,0.31) 10%, rgba(156,172,244,0.19) 86%, rgba(216,237,255,0.32) 100%);
-      border-radius: 0 34% 80% 90% / 36% 18% 70% 91%;
-      filter: blur(12px);
-      z-index: 1;
-      pointer-events: none;
-      opacity: .78;
-      animation: glassGradient 13s linear infinite alternate;
-      box-shadow: 0 4px 80px 0 rgba(116,142,247,0.12);
-    }
-    @keyframes glassGradient {
-      0% { background-position: 52% 0%; }
-      100% { background-position: 90% 100%; }
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 560px;
-      padding: 6.3rem 2.5rem 3.3rem 2.5rem;
-      background: rgba(255,255,255,0.30);
-      border-radius: var(--radius);
-      box-shadow: var(--glass-shadow), var(--glass-glow);
-      backdrop-filter: blur(17px);
-      border: 1.4px solid var(--glass-border);
-      margin-top: 8.5rem;
-      margin-bottom: 8rem;
-      margin-left: 0.2em;
-      text-align: left;
-    }
-    .hero h1 {
-      font-size: clamp(2.3rem, 5vw, 4.18rem);
-      font-weight: 800;
-      line-height: 1.13;
-      color: #223051;
-      letter-spacing: -0.019em;
-      text-shadow: 0 4px 48px #b2cbff25;
-      margin-bottom: 1.1rem;
-      background: linear-gradient(94deg, #222d3c 70%, #8493ea 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p {
-      font-size: 1.17rem;
-      color: #5e7fac;
-      margin-bottom: 2.3rem;
-      font-weight: 500;
-      text-shadow: 0 0.5px 2px #dbe1fc3a;
-      line-height: 1.72;
-    }
-    .btn-group {
-      display: flex;
-      gap: 1.13rem;
-      align-items: center;
-    }
-    .btn, .btn-outline {
-      display: inline-block;
-      appearance: none;
-      border: none;
-      outline: none;
-      padding: 0.83rem 2.1rem;
-      font-size: 1.04rem;
-      border-radius: 1.9em;
-      font-weight: 700;
-      transition: box-shadow var(--transition), background var(--transition), color var(--transition), border var(--transition);
-      cursor: pointer;
-      letter-spacing: 0.01em;
-      box-shadow: 0 2px 30px 0 rgba(135,148,187,0.10);
-      margin-bottom:0.15em;
-    }
-    .btn {
-      background: linear-gradient(99deg, #4f7cff 0%, #9ac7fb 100%);
-      color: #f9fafc;
-      box-shadow: 0 4px 20px 0 rgba(126,162,229,0.24);
-      border: 0.7px solid rgba(112,136,236, 0.18);
-    }
-    .btn:focus,
-    .btn:hover {
-      background: linear-gradient(90deg, #3357a5 6%, #5496ef 94%);
-      box-shadow: 0 6px 32px 0 rgba(135,187,249,.14);
-      color: #fff;
-    }
-    .btn-outline {
-      background: rgba(247,249,255,0.17);
-      color: var(--primary-dark);
-      border: 1px solid #b0c3e7;
-      box-shadow: none;
-    }
-    .btn-outline:focus,
-    .btn-outline:hover {
-      background: linear-gradient(90deg, #dde9fd 30%, #c5d6f8 100%);
-      color: #2446a9;
-      border: 1px solid #8baaea;
-    }
-    /* SCROLL-TO-TOP Button */
-    #scrollToTopBtn {
-      position: fixed;
-      right: 1.35em;
-      bottom: 1.6em;
-      z-index: 300;
-      background: linear-gradient(93deg,#c3dafe 40%, #a3bffa 100%);
-      color: #32406a;
-      border: none;
-      border-radius: 50%;
-      box-shadow: 0 4px 24px #7cb8fa22;
-      width: 2.8em;
-      height: 2.8em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.35rem;
-      cursor: pointer;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .37s, box-shadow .2s, background .17s;
-    }
-    #scrollToTopBtn.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    #scrollToTopBtn:focus,
-    #scrollToTopBtn:hover { background: linear-gradient(93deg,#98bbfa 50%, #7ea6f7 100%);}
-    /* --- PROJECTS --- */
-    .section {
-      padding: 8.8rem 0 7.4rem 0;
-      position:relative;
-      z-index: 5;
-    }
-    .section-title {
-      font-size: 2.63rem;
-      font-weight: 800;
-      margin-bottom: 2.7rem;
-      text-align: center;
-      color: #2c384e;
-      letter-spacing:-0.035em;
-      text-shadow: 0 4px 24px #a5bcf77a;
-      background: linear-gradient(99deg, #323f5b 74%, #7c8aa3 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.35rem;
-    }
-    .project-card {
-      background: var(--glass-white);
-      border-radius: var(--radius);
-      border: 1.3px solid var(--glass-border);
-      box-shadow: 0 8px 36px 0 rgba(40,55,80,0.13), 0 1.5px 7px rgba(96,121,157,0.07);
-      backdrop-filter: var(--glass-blur);
-      overflow: hidden;
-      transition: transform .24s cubic-bezier(.25,.82,.29,.98), box-shadow .27s, outline .26s;
-      position: relative;
-      z-index: 2;
-      margin-bottom: 0.85em;
-      outline: .5px solid transparent;
-      outline-offset: -1px;
-    }
-    .project-card:hover,
-    .project-card:focus-within {
-      transform: translateY(-9px) scale(1.012);
-      box-shadow: 0 16px 42px 0 rgba(98,131,209,0.17);
-      outline: 1.3px solid #b8d9fa7a;
-    }
-    .project-image {
-      height: 175px;
-      width: 100%;
-      background: linear-gradient(102deg, #e6effb 10%, #f5f8fc 100%);
-      display:flex; align-items:center; justify-content:center;
-      overflow: hidden;
-      border-bottom: 1.1px solid #e4e9f5;
-    }
-    .project-image svg text {
-      opacity: .92;
-      font-weight: 900;
-      filter: drop-shadow(0px 2px 16px #5e8ddb12);
-    }
-    .project-content {
-      padding: 1.58rem 1.33rem 1.3rem 1.33rem;
-      background: transparent;
-    }
-    .project-title {
-      font-size: 1.18rem;
-      font-weight: 700;
-      letter-spacing: -.011em;
-      margin-bottom: .41rem;
-      color: #465081;
-      text-shadow: 0 1.5px 14px #c0d9ff13;
-    }
-    .project-description {
-      color: #6486b2;
-      margin-bottom: 1.2rem;
-      font-size: 1.03rem;
-      min-height: 41px;
-      line-height: 1.72;
-    }
-    .project-link {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.01rem;
-      letter-spacing:.01em;
-      display: inline-flex;
-      align-items: center;
-      gap: .51em;
-      border-radius: 1em;
-      padding: .46em 1em .46em .86em;
-      transition: background var(--transition), color var(--transition);
-      background: rgba(205,228,252,.0);
-      border: none;
-    }
-    .project-link:hover, .project-link:focus {
-      background: #eaf1fd;
-      color: #2446a9;
-      outline: none;
-      text-decoration:underline;
-    }
-    /* --- FOOTER --- */
-    footer {
-      padding: 5rem 0 2.6rem 0;
-      background: linear-gradient(120deg,rgba(252,255,255,.81) 5%,rgba(193,208,240,0.83) 53%,rgba(172,192,244,0.89) 100%);
-      box-shadow: 0 -2px 40px 0 rgba(127,149,215,0.08);
-      backdrop-filter: blur(15px);
-      border-top-left-radius: 2.3rem;
-      border-top-right-radius: 2.3rem;
-      margin-top: 8rem;
-      font-size: 1rem;
-      position:relative;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-      gap: 2.9rem;
-      margin-bottom: 2.6rem;
-    }
-    .footer-col h3 {
-      font-size: 1.13rem;
-      font-weight: 700;
-      margin-bottom: 1.25rem;
-      color: #385289;
-      letter-spacing:.015em;
-    }
-    .footer-col p {
-      color: #6878a6;
-      font-size: .98rem;
-      margin-bottom:.11em;
-    }
-    .footer-col ul { list-style: none; padding:0;}
-    .footer-col li { margin-bottom: .91rem; }
-    .footer-col a {
-      color: #4e6ba9;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color var(--transition), text-decoration .2s;
-      font-size: .97rem;
-      border-radius: .7em;
-      padding: .08em .2em;
-    }
-    .footer-col a:focus,
-    .footer-col a:hover { color: #233a8b; text-decoration:underline; background:rgba(171,199,233,0.08);}
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 2.1rem;
-      border-top: 1px solid rgba(49,59,78,0.09);
-      font-size:0.98rem;
-      flex-wrap:wrap;
-      gap: 1.3rem;
-    }
-    .footer-bottom p {
-      color: #5c6d91;
-      font-size: 1rem;
-      letter-spacing:-.01em;
-    }
-    .social-links {
-      display: flex;
-      gap: 1.13rem;
-      margin-right: 2px;
-    }
-    .social-links a {
-      font-size: 1.07rem;
-      font-weight: 700;
-      color: #5b77bb;
-      text-decoration: none;
-      transition: color .18s, text-decoration .18s;
-      letter-spacing:.01em;
-      border-radius:.65em; padding:.08em .21em;
-    }
-    .social-links a:hover, .social-links a:focus {
-      color: #263b85;
-      text-decoration:underline;
-      background:rgba(205,228,252,.18);
-    }
-    /* --- MOBILE --- */
-    @media (max-width: 1100px){
-      .container { max-width: 94vw;}
-      .hero-content{padding:5.3rem 1.15rem 2.7rem 1.15rem;}
-    }
-    @media (max-width: 900px) {
-      .hero-bg { width: 99vw; opacity: .22; border-radius: 0 }
-      .hero-content { max-width: 100%; margin-top: 6rem; }
-      .section {padding:6.5rem 0 5rem 0;}
-      footer{margin-top:5rem; border-radius:1.6rem;}
-    }
-    @media (max-width: 770px) {
-      .container { padding: 0 .7rem;}
-      .header-container { flex-direction: row; }
-      .logo { font-size:1.21rem;}
-      nav {
-        position: fixed;
-        top: 0;
-        right: -130vw;
-        height: 100vh;
-        width: 81vw;
-        min-width:230px;
-        background: rgba(247,250,255,.97);
-        box-shadow: -14px 0 38px rgba(111,127,170,0.08);
-        border-left: 1.5px solid #d2e8ff;
-        border-top: none;
-        backdrop-filter: blur(26px);
-        transition: right .41s cubic-bezier(.29,.89,.53,1.06);
-        z-index: 998;
-        display: block;
-      }
-      nav.active { right: 0;}
-      nav ul { flex-direction: column; padding: 4.1rem 2.1rem; gap: 2.05rem; align-items:flex-start;}
-      nav a {
-        font-size: 1.16rem;
-        padding:.5em .8em;
-        border-radius:1.7em;
-        margin:0;
-      }
-      .mobile-menu-btn { display: block;}
-      .hero-content { text-align: left; padding-top:3.3em; padding-bottom:2.2em; margin-top:5.1em;}
-      .btn-group { flex-direction: column; gap: .91rem; align-items:center;}
-      .section-title{font-size:2.1rem;}
-      .footer-bottom {font-size:.92rem;}
-      #scrollToTopBtn{right:.8em;}
-    }
-    @media (max-width: 600px){
-      .section{padding:4.7em 0 3.1em 0;}
-      .container{padding:0 .23em;}
-      .footer-grid{gap:1.3em;}
-      .footer-bottom{padding-top:.8em; flex-direction:column;align-items:flex-start;gap:1.1em;}
-    }
-    @media (max-width: 450px){
-      .footer-bottom { flex-direction: column; gap:1em;}
-      .hero-content { padding:2.25em .6em 1.7em .7em; margin-top:3.3em;}
-      .section-title{font-size:1.33em;}
-      #scrollToTopBtn{bottom:1em;}
-    }
-    /* Hide scrollbars mobile */
-    ::-webkit-scrollbar { width: 0.55em; background:transparent;}
-    ::-webkit-scrollbar-thumb { background: #dde9fcbd; border-radius:1em;}
-  </style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(251, 251, 253, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            background: rgba(0, 122, 255, 0.08);
+        }
+
+        .nav-links a.active {
+            color: white;
+            background: var(--gradient);
+            box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+        }
+
+        .nav-links a.active::after {
+            display: none;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.3)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.2)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.4)"/><circle cx="70" cy="20" r="1.2" fill="rgba(255,255,255,0.3)"/></svg>');
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(0, 122, 255, 0.1);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .project-link.primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .project-link.secondary {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .team-card {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        .team-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .team-role {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .team-bio {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--background);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 80px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="footergrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23footergrid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .footer-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .social-links a:hover {
+            color: white !important;
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            height: 3px;
+            background: var(--gradient);
+            z-index: 999;
+            transition: width 0.3s ease;
+        }
+
+        /* Particle effect */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
 </head>
 <body>
-<header>
-  <div class="header-container container">
-    <a href="#" class="logo" tabindex="1">Velyzo</a>
-    <button class="mobile-menu-btn" aria-label="Öffne Navigation" aria-controls="mainnav" aria-expanded="false" tabindex="2">☰</button>
-    <nav id="mainnav" aria-label="Main Navigation">
-      <ul>
-        <li><a href="#home" tabindex="3">Home</a></li>
-        <li><a href="#projects" tabindex="4">Projects</a></li>
-        <li><a href="#about" tabindex="5">About</a></li>
-        <li><a href="#contact" tabindex="6">Contact</a></li>
-        <li><a href="https://github.com/Velyzo" target="_blank" rel="noopener" tabindex="7">GitHub</a></li>
-      </ul>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">Velyzo</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#team">Team</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
-  </div>
-</header>
 
-<section class="hero" id="home">
-  <div class="container">
-    <div class="hero-content">
-      <h1>Building the future of software</h1>
-      <p>Velyzo creates <b>innovative solutions</b> that push boundaries and <b>redefine user experiences</b>.</p>
-      <div class="btn-group">
-        <a href="#projects" class="btn" tabindex="8">View Projects</a>
-        <a href="https://github.com/Velyzo" class="btn btn-outline" target="_blank" rel="noopener" tabindex="9">GitHub</a>
-      </div>
-    </div>
-  </div>
-  <div class="hero-bg" aria-hidden="true"></div>
-</section>
-
-<section class="section" id="projects" tabindex="-1">
-  <div class="container">
-    <h2 class="section-title">Our Projects</h2>
-    <div class="projects-grid">
-
-      <!-- Velink (V) -->
-      <div class="project-card" tabindex="0" role="group" aria-labelledby="velink-title">
-        <div class="project-image">
-          <svg viewBox="0 0 200 200" width="100%" height="100%" aria-hidden="true">
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-                  font-size="120" font-family="Arial, sans-serif" fill="#94a3b8">V</text>
-          </svg>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>Welcome to Velyzo</h1>
+            <p>Innovative Coding Organization - Shaping the Future Through Code</p>
+            <a href="#about" class="cta-button">Discover More</a>
         </div>
-        <div class="project-content">
-          <h3 id="velink-title" class="project-title">Velink</h3>
-          <p class="project-description">A revolutionary link management platform with advanced analytics and customization.</p>
-          <a href="https://velink.me" target="_blank" rel="noopener" class="project-link" aria-label="Visit Velink project">Visit Project
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
+    </section>
 
-      <!-- Connecto (C) -->
-      <div class="project-card" tabindex="0" role="group" aria-labelledby="connecto-title">
-        <div class="project-image">
-          <svg viewBox="0 0 200 200" width="100%" height="100%" aria-hidden="true">
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-                  font-size="120" font-family="Arial, sans-serif" fill="#94a3b8">C</text>
-          </svg>
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Velyzo</h2>
+            <p class="section-subtitle">
+                We are a premium coding organization dedicated to creating innovative solutions 
+                and pushing the boundaries of technology through exceptional software development.
+            </p>
+            <div class="about-grid">
+                <div class="feature-card floating">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Innovation First</h3>
+                    <p>We embrace cutting-edge technologies and methodologies to deliver solutions that are ahead of their time.</p>
+                </div>
+                <div class="feature-card floating">
+                    <div class="feature-icon">💡</div>
+                    <h3>Creative Solutions</h3>
+                    <p>Our team combines technical expertise with creative thinking to solve complex problems elegantly.</p>
+                </div>
+                <div class="feature-card floating">
+                    <div class="feature-icon">⚡</div>
+                    <h3>High Performance</h3>
+                    <p>We prioritize performance and efficiency in every project, ensuring optimal user experiences.</p>
+                </div>
+            </div>
         </div>
-        <div class="project-content">
-          <h3 id="connecto-title" class="project-title">Connecto</h3>
-          <p class="project-description">A powerful messaging gateway and unified communications tool by Velyzo Core.</p>
-          <a href="https://github.com/Velyzo/Connecto" target="_blank" rel="noopener" class="project-link" aria-label="View Connecto on GitHub">
-            View on GitHub
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Our Projects</h2>
+            <p class="section-subtitle">
+                Explore our portfolio of innovative projects that showcase our expertise and commitment to excellence.
+            </p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Velyzo Framework</h3>
+                        <p class="project-description">
+                            A modern, lightweight framework for building scalable web applications with enhanced performance and developer experience.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Node.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/velyzo/framework" class="project-link primary">GitHub</a>
+                            <a href="https://velyzo-framework.com" class="project-link secondary">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Velyzo CLI</h3>
+                        <p class="project-description">
+                            A powerful command-line interface tool that streamlines development workflows and automates repetitive tasks.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">CLI</span>
+                            <span class="tech-tag">Automation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/velyzo/cli" class="project-link primary">GitHub</a>
+                            <a href="https://cli.velyzo.com" class="project-link secondary">Documentation</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Velyzo Studio</h3>
+                        <p class="project-description">
+                            An integrated development environment designed for modern web development with AI-powered code assistance.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Electron</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">AI/ML</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/velyzo/studio" class="project-link primary">GitHub</a>
+                            <a href="https://studio.velyzo.com" class="project-link secondary">Download</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Velyzo Mobile</h3>
+                        <p class="project-description">
+                            A cross-platform mobile development toolkit that enables rapid prototyping and deployment of mobile applications.
+                        </p>
+                        <div name="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Mobile</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/velyzo/mobile" class="project-link primary">GitHub</a>
+                            <a href="https://mobile.velyzo.com" class="project-link secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Eulionline (E) -->
-      <div class="project-card" tabindex="0" role="group" aria-labelledby="eulionline-title">
-        <div class="project-image">
-          <svg viewBox="0 0 200 200" width="100%" height="100%" aria-hidden="true">
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-                  font-size="120" font-family="Arial, sans-serif" fill="#94a3b8">E</text>
-          </svg>
+    <!-- Team Section -->
+    <section class="section" id="team">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <p class="section-subtitle">
+                Meet the talented individuals who make Velyzo's vision a reality through their expertise and dedication.
+            </p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">A</div>
+                    <h3 class="team-name">Alex Johnson</h3>
+                    <p class="team-role">Lead Developer & Founder</p>
+                    <p class="team-bio">Passionate about creating innovative solutions and leading development initiatives.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">S</div>
+                    <h3 class="team-name">Sarah Chen</h3>
+                    <p class="team-role">Frontend Architect</p>
+                    <p class="team-bio">Specializes in creating beautiful, performant user interfaces and experiences.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">M</div>
+                    <h3 class="team-name">Michael Rodriguez</h3>
+                    <p class="team-role">Backend Engineer</p>
+                    <p class="team-bio">Expert in scalable architecture and high-performance backend systems.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">E</div>
+                    <h3 class="team-name">Emma Thompson</h3>
+                    <p class="team-role">DevOps Specialist</p>
+                    <p class="team-bio">Ensures smooth deployment and maintains robust infrastructure systems.</p>
+                </div>
+            </div>
         </div>
-        <div class="project-content">
-          <h3 id="eulionline-title" class="project-title">Eulionline</h3>
-          <p class="project-description">An online learning portal designed for intuitive, flexible education access — powered by Velyzo.</p>
-          <a href="https://eulionline.velyzo.de" target="_blank" rel="noopener" class="project-link" aria-label="Visit Eulionline Platform">
-            Visit Platform
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Velyzo</div>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 30px; font-size: 1.1rem;">
+                Premium Coding Organization - Shaping the Future Through Code
+            </p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#team">Team</a>
+                <a href="https://github.com/velyzo" target="_blank">GitHub</a>
+                <a href="mailto:contact@velyzo.com">Email</a>
+            </div>
+            <div class="social-links" style="margin: 30px 0;">
+                <a href="https://github.com/velyzo" target="_blank" style="margin: 0 15px; font-size: 1.5rem; color: rgba(255, 255, 255, 0.7); transition: all 0.3s ease;">
+                    <span style="font-family: monospace;">{ }</span>
+                </a>
+                <a href="https://twitter.com/velyzo" target="_blank" style="margin: 0 15px; font-size: 1.5rem; color: rgba(255, 255, 255, 0.7); transition: all 0.3s ease;">
+                    <span>@</span>
+                </a>
+                <a href="https://linkedin.com/company/velyzo" target="_blank" style="margin: 0 15px; font-size: 1.5rem; color: rgba(255, 255, 255, 0.7); transition: all 0.3s ease;">
+                    <span>in</span>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Velyzo. All rights reserved. Crafted with passion and precision.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">
+                    Made with ❤️ by the Velyzo Team
+                </p>
+            </div>
         </div>
-      </div>
+    </footer>
 
-    </div>
-  </div>
-</section>
-
-<section class="section" id="about" tabindex="-1">
-  <div class="container">
-    <h2 class="section-title">About Velyzo</h2>
-    <p style="max-width:650px;margin:0 auto 2.3em auto;text-align:center;color:#5b7293;font-size:1.09em;">
-      Velyzo stands for <b>technology with vision</b>. Our team blends creative thinking, deep engineering, and
-      forward-thinking product design to shape tomorrow’s digital world. <br>
-      Our approach: <b>Intuitive. Secure. Scalable. Sustainable.</b>
-    </p>
-    <!-- Timeline or Team (optional future extension) -->
-  </div>
-</section>
-
-<footer id="contact" tabindex="-1">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>Velyzo</h3>
-        <p>Innovative software solutions for the modern world.</p>
-      </div>
-      <div class="footer-col">
-        <h3>Projects</h3>
-        <ul>
-          <li><a href="https://velink.me">Velink</a></li>
-          <li><a href="https://github.com/Velyzo">Velyzo</a></li>
-          <li><a href="https://eulionline.velyzo.de">Eulionline</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3>Connect</h3>
-        <ul>
-          <li><a href="mailto:info@Velyzo.dev">Email</a></li>
-          <li><a href="https://github.com/Velyzo">GitHub</a></li>
-          <li><a href="https://x.com/Velyzo_core">Twitter</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© <span id="thisYear"></span> Velyzo. All rights reserved.</p>
-      <div class="social-links">
-        <a href="https://github.com/Velyzo" aria-label="GitHub">GitHub</a>
-        <a href="https://x.com/Velyzo_core" aria-label="Twitter">Twitter</a>
-        <a href="https://discord.gg/mrgg7vuF48" aria-label="Discord">Discord</a>
-      </div>
-    </div>
-  </div>
-</footer>
-<button id="scrollToTopBtn" title="Back to top" aria-label="Back to top">
-  <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#32406a" stroke-width="2">
-    <path d="M12 19V6M12 6l-6 6M12 6l6 6" />
-  </svg>
-</button>
-<script>
-  // Mobile menu toggle, ARIA, body scroll lock
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const nav = document.querySelector('nav');
-  menuBtn.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    menuBtn.setAttribute("aria-expanded", nav.classList.contains("active"));
-    document.body.style.overflowY = nav.classList.contains("active") ? "hidden" : "";
-  });
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('active');
-      menuBtn.setAttribute("aria-expanded", "false");
-      document.body.style.overflowY = "";
-    });
-  });
-  // Scroll to section, set nav active on scroll
-  document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-    link.addEventListener("click", function(e){
-      e.preventDefault();
-      const ref = document.querySelector(this.getAttribute("href"));
-      if(ref){ ref.scrollIntoView({behavior:"smooth",block:"start",inline:"nearest"}); }
-      // Optional: Make the link visually active
-      document.querySelectorAll('nav a').forEach(el=>el.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
-  // Section observer for nav active state
-  let sections = document.querySelectorAll("section[id]");
-  let navLinks = document.querySelectorAll("nav a[href^='#']");
-  window.addEventListener("scroll", () => {
-    let scrollPos = window.scrollY+96;
-    sections.forEach(section => {
-      if (scrollPos > section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
-        navLinks.forEach(link=>{
-          link.classList.toggle("active", link.getAttribute("href") === "#"+section.id)
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
-      }
-    });
-  });
-  // Scroll-to-Top button
-  const scrollBtn = document.getElementById('scrollToTopBtn');
-  window.addEventListener('scroll', function(){
-    scrollBtn.classList.toggle("show",window.scrollY > 280);
-  });
-  scrollBtn.addEventListener('click',function(){
-    window.scrollTo({top:0,behavior:'smooth'});
-  });
-  // Set year in copyright
-  document.getElementById("thisYear").textContent = new Date().getFullYear();
-  // GSAP Animations
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.from('.hero h1', { duration: 1, y:44, opacity: 0, ease: 'power3.out'});
-  gsap.from('.hero p',  { duration: 1.12,y:38, opacity: 0, delay: 0.14, ease: 'power3.out'});
-  gsap.from('.btn-group',{ duration:.91, y:24, opacity: 0, delay:.31, ease:'power3.out' });
-  gsap.from('.hero-bg',  { duration:1.35,x:120, opacity:0, ease:'power3.out'});
-  gsap.utils.toArray('.project-card').forEach((card, i) => {
-    gsap.from(card, {
-      scrollTrigger: { trigger: card, start: 'top 87%', toggleActions: 'play none none none'},
-      y: 51, opacity: 0, duration: .9, delay: i*0.07, ease: 'power2.out'
-    });
-  });
-  gsap.utils.toArray('.section-title').forEach(title => {
-    gsap.from(title, {
-      scrollTrigger: { trigger: title, start: 'top 93%', toggleActions: 'play none none none'},
-      y: 20, opacity: 0, duration: .91, ease: 'power3.out'
-    });
-  });
-</script>
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const scrolled = window.pageYOffset;
+            
+            if (scrolled > 50) {
+                navbar.style.background = 'rgba(251, 251, 253, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(251, 251, 253, 0.8)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Scroll indicator
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const scrolled = window.pageYOffset;
+            const maxHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercentage = (scrolled / maxHeight) * 100;
+            scrollIndicator.style.width = scrollPercentage + '%';
+        });
+
+        // Active navigation link
+        const sections = document.querySelectorAll('section');
+        const navigationLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navigationLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Particle animation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinksContainer = document.querySelector('.nav-links');
+        
+        if (mobileMenu && navLinksContainer) {
+            mobileMenu.addEventListener('click', () => {
+                navLinksContainer.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+        }
+
+        // Form submission - Remove contact form functionality
+        // Contact form removed
+
+        // Floating animation delay
+        document.querySelectorAll('.floating').forEach((element, index) => {
+            element.style.animationDelay = (index * 0.5) + 's';
+        });
+
+        // Mouse parallax effect for hero section
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            
+            if (particles.length > 0) {
+                const x = (e.clientX / window.innerWidth) * 2;
+                const y = (e.clientY / window.innerHeight) * 2;
+                
+                particles.forEach((particle, index) => {
+                    const speed = (index % 5 + 1) * 0.3;
+                    particle.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
+                });
+            }
+        });
+
+        // Typing animation for hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize animations when page loads
+        window.addEventListener('load', () => {
+            createParticles();
+            
+            // Add loading animation
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Project card hover effects
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Team card hover effects
+        document.querySelectorAll('.team-card').forEach(card => {
+            const avatar = card.querySelector('.team-avatar');
+            
+            card.addEventListener('mouseenter', () => {
+                avatar.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                avatar.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Feature card stagger animation
+        const featureCards = document.querySelectorAll('.feature-card');
+        const featureObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+        });
+
+        featureCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            featureObserver.observe(card);
+        });
+
+        // Project card stagger animation
+        const projectCards = document.querySelectorAll('.project-card');
+        const projectObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 150);
+                }
+            });
+        });
+
+        projectCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            projectObserver.observe(card);
+        });
+
+        // Dynamic background color change based on section
+        if (typeof IntersectionObserver !== 'undefined') {
+            const sectionBgObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.id;
+                        const body = document.body;
+                        body.style.transition = 'background 0.5s ease';
+                        
+                        switch(sectionId) {
+                            case 'about':
+                                body.style.background = '#FBFBFD';
+                                break;
+                            case 'projects':
+                                body.style.background = 'linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%)';
+                                break;
+                            case 'team':
+                                body.style.background = '#FBFBFD';
+                                break;
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            sections.forEach(section => {
+                if (section.id !== 'home') {
+                    sectionBgObserver.observe(section);
+                }
+            });
+        }
+
+        // Add custom cursor for interactive elements
+        try {
+            const cursor = document.createElement('div');
+            cursor.className = 'custom-cursor';
+            cursor.style.cssText = `
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                background: rgba(0, 122, 255, 0.5);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transition: all 0.1s ease;
+                display: none;
+            `;
+            document.body.appendChild(cursor);
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX - 10 + 'px';
+                cursor.style.top = e.clientY - 10 + 'px';
+                cursor.style.display = 'block';
+            });
+
+            // Enhanced hover effects for interactive elements
+            document.querySelectorAll('a, button, .project-card, .team-card, .feature-card').forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'scale(2)';
+                    cursor.style.background = 'rgba(0, 122, 255, 0.8)';
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'scale(1)';
+                    cursor.style.background = 'rgba(0, 122, 255, 0.5)';
+                });
+            });
+        } catch (error) {
+            console.log('Custom cursor feature not supported');
+        }
+
+        // Add scroll-triggered animations
+        const scrollElements = document.querySelectorAll('.section-title, .section-subtitle');
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        });
+
+        scrollElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            scrollObserver.observe(element);
+        });
+    </script>
+
+    <style>
+        /* Additional responsive styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(251, 251, 253, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 50px;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-form {
+                margin: 0 20px;
+                padding: 20px;
+            }
+
+            .particles {
+                display: none;
+            }
+        }
+
+        /* Additional animations */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 122, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0); }
+        }
+
+        .cta-button {
+            animation: pulse 2s infinite;
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-primary: #FFFFFF;
+                --text-secondary: #A1A1A6;
+                --background: #000000;
+                --surface: #1C1C1E;
+                --border: #38383A;
+            }
+        }
+    </style>
 </body>
 </html>
