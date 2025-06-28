@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velyzo - Premium Coding Organization</title>
+    <title>Velyzo - Coding the Future</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100vw;
         }
 
         :root {
@@ -26,10 +31,14 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--background);
-            color: var(--text-primary);
+            background: #0a0a0a;
+            color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            min-height: 100vh;
         }
 
         /* Navigation */
@@ -38,13 +47,13 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(251, 251, 253, 0.85);
+            background: rgba(20, 20, 30, 0.98);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(40, 40, 60, 0.5);
             z-index: 1000;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
         }
 
         .nav-container {
@@ -77,24 +86,30 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 15px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            font-size: 14px;
             transition: all 0.3s ease;
             position: relative;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 10px 18px;
+            border-radius: 25px;
+            border: 1px solid transparent;
+            background: transparent;
+            letter-spacing: 0.3px;
         }
 
         .nav-links a:hover {
-            color: var(--primary-color);
-            background: rgba(0, 122, 255, 0.08);
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transform: translateY(-1px);
         }
 
         .nav-links a.active {
-            color: white;
-            background: var(--gradient);
-            box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+            color: #fff;
+            background: rgba(0, 122, 255, 0.12);
+            border: 1px solid rgba(0, 122, 255, 0.25);
+            box-shadow: 0 2px 12px rgba(0, 122, 255, 0.15);
         }
 
         .nav-links a.active::after {
@@ -105,15 +120,28 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
+            padding: 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2200;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: var(--text-primary);
-            margin: 3px 0;
-            transition: 0.3s;
+            width: 22px;
+            height: 2px;
+            background: #fff;
+            margin: 2px 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border-radius: 2px;
+            transform-origin: center;
         }
 
         /* Hero Section */
@@ -598,11 +626,223 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: linear-gradient(45deg, 
+                    rgba(0, 8, 20, 0.98) 0%, 
+                    rgba(10, 10, 30, 0.98) 50%, 
+                    rgba(20, 5, 25, 0.98) 100%);
+                backdrop-filter: blur(40px);
+                -webkit-backdrop-filter: blur(40px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                gap: 0;
+                transform: translateX(-100%);
+                transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                z-index: 2000;
+                overflow: hidden;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .nav-links::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="mobilegrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23mobilegrid)"/></svg>');
+                opacity: 0.5;
+                z-index: -1;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links li {
+                opacity: 0;
+                transform: translateY(50px);
+                transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                margin: 15px 0;
+                width: 80%;
+                max-width: 400px;
+            }
+
+            .nav-links.active li {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .nav-links.active li:nth-child(1) { transition-delay: 0.1s; }
+            .nav-links.active li:nth-child(2) { transition-delay: 0.2s; }
+            .nav-links.active li:nth-child(3) { transition-delay: 0.3s; }
+            .nav-links.active li:nth-child(4) { transition-delay: 0.4s; }
+
+            .nav-links a {
+                font-size: 2rem;
+                font-weight: 400;
+                padding: 20px 35px;
+                margin: 0;
+                border-radius: 20px;
+                width: 100%;
+                text-align: center;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                position: relative;
+                overflow: hidden;
+                letter-spacing: 1px;
+                text-transform: none;
+                display: block;
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+            }
+
+            .nav-links a::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+                transition: left 0.8s ease;
+            }
+
+            .nav-links a:hover::before,
+            .nav-links a.active::before {
+                left: 100%;
+            }
+
+            .nav-links a:hover,
+            .nav-links a.active {
+                background: rgba(0, 122, 255, 0.15);
+                border: 1px solid rgba(0, 122, 255, 0.4);
+                transform: scale(1.02);
+                box-shadow: 
+                    0 15px 40px rgba(0, 122, 255, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                color: #ffffff;
+                text-shadow: 0 0 15px rgba(0, 122, 255, 0.6);
+            }
+
+            .mobile-nav-close {
+                position: absolute;
+                top: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                background: rgba(255, 255, 255, 0.1);
+                border: 2px solid rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+            }
+
+            .mobile-nav-close:hover {
+                background: rgba(255, 255, 255, 0.2);
+                border: 2px solid rgba(255, 255, 255, 0.4);
+                transform: scale(1.1) rotate(90deg);
+            }
+
+            .mobile-nav-close::before,
+            .mobile-nav-close::after {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 2px;
+                background: #fff;
+                border-radius: 1px;
+            }
+
+            .mobile-nav-close::before {
+                transform: rotate(45deg);
+            }
+
+            .mobile-nav-close::after {
+                transform: rotate(-45deg);
             }
 
             .mobile-menu {
+                position: relative;
+                top: auto;
+                right: auto;
+                z-index: 2100;
+                padding: 12px;
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.08);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                cursor: pointer;
+                width: auto;
+                height: auto;
                 display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-menu:hover {
+                background: rgba(0, 122, 255, 0.15);
+                border: 1px solid rgba(0, 122, 255, 0.3);
+                transform: scale(1.05);
+                box-shadow: 0 6px 20px rgba(0, 122, 255, 0.2);
+            }
+
+            .mobile-menu span {
+                display: block;
+                width: 20px;
+                height: 2px;
+                background: #fff;
+                margin: 2px 0;
+                transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                border-radius: 2px;
+                transform-origin: center;
+            }
+
+            .mobile-menu.active {
+                background: rgba(255, 59, 48, 0.15);
+                border: 1px solid rgba(255, 59, 48, 0.3);
+                box-shadow: 0 6px 20px rgba(255, 59, 48, 0.2);
+            }
+
+            .mobile-menu.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 5px);
+                background: #fff;
+            }
+
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            .mobile-menu.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -5px);
+                background: #fff;
+            }
+
+            @keyframes slideInNav {
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
             }
 
             .hero h1 {
@@ -730,18 +970,18 @@
                 <div class="project-card">
                     <div class="project-image"></div>
                     <div class="project-content">
-                        <h3 class="project-title">Velyzo Framework</h3>
+                        <h3 class="project-title">Connecto</h3>
                         <p class="project-description">
-                            A modern, lightweight framework for building scalable web applications with enhanced performance and developer experience.
+                            HTTP request tool for iPhone and Apple Watch. Easily send and manage HTTP requests directly from your iOS devices with seamless synchronization.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">iOS</span>
+                            <span class="tech-tag">watchOS</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/velyzo/framework" class="project-link primary">GitHub</a>
-                            <a href="https://velyzo-framework.com" class="project-link secondary">Live Demo</a>
+                            <a href="https://github.com/Velyzo/Connecto" class="project-link primary">GitHub</a>
+                            <a href="#" class="project-link secondary">TestFlight</a>
                         </div>
                     </div>
                 </div>
@@ -749,37 +989,18 @@
                 <div class="project-card">
                     <div class="project-image"></div>
                     <div class="project-content">
-                        <h3 class="project-title">Velyzo CLI</h3>
+                        <h3 class="project-title">Velink</h3>
                         <p class="project-description">
-                            A powerful command-line interface tool that streamlines development workflows and automates repetitive tasks.
+                            Modern Linktree alternative with enhanced customization options. Create beautiful, personalized link pages to showcase all your important links in one place.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">CLI</span>
-                            <span class="tech-tag">Automation</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/velyzo/cli" class="project-link primary">GitHub</a>
-                            <a href="https://cli.velyzo.com" class="project-link secondary">Documentation</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Velyzo Studio</h3>
-                        <p class="project-description">
-                            An integrated development environment designed for modern web development with AI-powered code assistance.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Electron</span>
                             <span class="tech-tag">React</span>
-                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Web</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/velyzo/studio" class="project-link primary">GitHub</a>
-                            <a href="https://studio.velyzo.com" class="project-link secondary">Download</a>
+                            <a href="https://github.com/Velyzo/velink" class="project-link primary">GitHub</a>
+                            <a href="https://velink.me" class="project-link secondary">Live Demo</a>
                         </div>
                     </div>
                 </div>
@@ -787,18 +1008,37 @@
                 <div class="project-card">
                     <div class="project-image"></div>
                     <div class="project-content">
-                        <h3 class="project-title">Velyzo Mobile</h3>
+                        <h3 class="project-title">Stryd</h3>
                         <p class="project-description">
-                            A cross-platform mobile development toolkit that enables rapid prototyping and deployment of mobile applications.
+                            Advanced step counter and fitness comparison tool. Track your daily activity, compare performance with friends, and achieve your fitness goals together.
                         </p>
-                        <div name="project-tech">
+                        <div class="project-tech">
                             <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">Flutter</span>
                             <span class="tech-tag">Mobile</span>
+                            <span class="tech-tag">Health</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/velyzo/mobile" class="project-link primary">GitHub</a>
-                            <a href="https://mobile.velyzo.com" class="project-link secondary">Learn More</a>
+                            <a href="https://github.com/Velyzo/Stryd" class="project-link primary">GitHub</a>
+                            <a href="#" class="project-link secondary">Website Soon</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">PiVision</h3>
+                        <p class="project-description">
+                            Comprehensive Raspberry Pi monitoring tool for iPhone. Monitor your Pi's performance, system stats, and manage services remotely with an intuitive mobile interface.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">iOS</span>
+                            <span class="tech-tag">Raspberry Pi</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Velyzo/PiVision" class="project-link primary">GitHub</a>
+                            <a href="#" class="project-link secondary">TestFlight Soon</a>
                         </div>
                     </div>
                 </div>
@@ -815,59 +1055,41 @@
             </p>
             <div class="team-grid">
                 <div class="team-card">
-                    <div class="team-avatar">A</div>
-                    <h3 class="team-name">Alex Johnson</h3>
-                    <p class="team-role">Lead Developer & Founder</p>
-                    <p class="team-bio">Passionate about creating innovative solutions and leading development initiatives.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">S</div>
-                    <h3 class="team-name">Sarah Chen</h3>
-                    <p class="team-role">Frontend Architect</p>
-                    <p class="team-bio">Specializes in creating beautiful, performant user interfaces and experiences.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">M</div>
-                    <h3 class="team-name">Michael Rodriguez</h3>
-                    <p class="team-role">Backend Engineer</p>
-                    <p class="team-bio">Expert in scalable architecture and high-performance backend systems.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">E</div>
-                    <h3 class="team-name">Emma Thompson</h3>
-                    <p class="team-role">DevOps Specialist</p>
-                    <p class="team-bio">Ensures smooth deployment and maintains robust infrastructure systems.</p>
+                    <div class="team-avatar">D</div>
+                    <h3 class="team-name">Devin Oldenburg</h3>
+                    <p class="team-role">Founder & Full-Stack Developer</p>
+                    <p class="team-bio">Visionary leader who manages and develops everything at Velyzo. Expert in full-stack development, project management, and innovative technology solutions.</p>
                 </div>
             </div>
         </div>
     </section>
-
-
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">Velyzo</div>
             <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 30px; font-size: 1.1rem;">
-                Premium Coding Organization - Shaping the Future Through Code
+                Shaping the Future Through Code
             </p>
             <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#team">Team</a>
-                <a href="https://github.com/velyzo" target="_blank">GitHub</a>
                 <a href="mailto:contact@velyzo.com">Email</a>
+                <a href="/impressum.html" style="font-size: 0.9rem; opacity: 0.8;">Impressum</a>
             </div>
             <div class="social-links" style="margin: 30px 0;">
-                <a href="https://github.com/velyzo" target="_blank" style="margin: 0 15px; font-size: 1.5rem; color: rgba(255, 255, 255, 0.7); transition: all 0.3s ease;">
-                    <span style="font-family: monospace;">{ }</span>
+                <a href="https://github.com/velyzo" target="_blank" style="margin: 0 15px; font-size: 1.8rem; color: rgba(255, 255, 255, 0.7); transition: all 0.3s ease; display: inline-block;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
                 </a>
-                <a href="https://twitter.com/velyzo" target="_blank" style="margin: 0 15px; font-size: 1.5rem; color: rgba(255, 255, 255, 0.7); transition: all 0.3s ease;">
-                    <span>@</span>
+                <a href="https://x.com/velyzo_official" target="_blank" style="margin: 0 15px; font-size: 1.8rem; color: rgba(255, 255, 255, 0.7); transition: all 0.3s ease; display: inline-block;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
                 </a>
-                <a href="https://linkedin.com/company/velyzo" target="_blank" style="margin: 0 15px; font-size: 1.5rem; color: rgba(255, 255, 255, 0.7); transition: all 0.3s ease;">
-                    <span>in</span>
+                <a href="https://discord.gg/mrgg7vuF48" target="_blank" style="margin: 0 15px; font-size: 1.8rem; color: rgba(255, 255, 255, 0.7); transition: all 0.3s ease; display: inline-block;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;">
+                        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0190 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9460 2.4189-2.1568 2.4189Z"/>
+                    </svg>
                 </a>
             </div>
             <div class="footer-bottom">
@@ -894,18 +1116,11 @@
             });
         });
 
-        // Navbar scroll effect
+        // Navbar scroll effect (dark mode always)
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            const scrolled = window.pageYOffset;
-            
-            if (scrolled > 50) {
-                navbar.style.background = 'rgba(251, 251, 253, 0.95)';
-                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                navbar.style.background = 'rgba(251, 251, 253, 0.8)';
-                navbar.style.boxShadow = 'none';
-            }
+            navbar.style.background = 'rgba(20, 20, 30, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.25)';
         });
 
         // Scroll indicator
@@ -977,9 +1192,48 @@
         const navLinksContainer = document.querySelector('.nav-links');
         
         if (mobileMenu && navLinksContainer) {
+            const mobileNavClose = document.getElementById('mobileNavClose');
+            
             mobileMenu.addEventListener('click', () => {
                 navLinksContainer.classList.toggle('active');
                 mobileMenu.classList.toggle('active');
+                
+                // Prevent background scroll when menu is open
+                if (navLinksContainer.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Close menu on link click (mobile)
+            navLinksContainer.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navLinksContainer.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+
+            // Close menu when clicking the overlay (outside nav items)
+            navLinksContainer.addEventListener('click', (e) => {
+                // Only close if clicking the nav-links container itself, not its children
+                if (e.target === navLinksContainer) {
+                    navLinksContainer.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Handle escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && navLinksContainer.classList.contains('active')) {
+                    navLinksContainer.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
             });
         }
 
@@ -1106,17 +1360,8 @@
                         const body = document.body;
                         body.style.transition = 'background 0.5s ease';
                         
-                        switch(sectionId) {
-                            case 'about':
-                                body.style.background = '#FBFBFD';
-                                break;
-                            case 'projects':
-                                body.style.background = 'linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%)';
-                                break;
-                            case 'team':
-                                body.style.background = '#FBFBFD';
-                                break;
-                        }
+                        // Keep dark background for all sections
+                        body.style.background = '#0a0a0a';
                     }
                 });
             }, { threshold: 0.5 });
@@ -1187,49 +1432,62 @@
     <style>
         /* Additional responsive styles */
         @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
+            html, body {
+                overflow-x: hidden;
                 width: 100%;
-                height: calc(100vh - 70px);
-                background: rgba(251, 251, 253, 0.95);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 50px;
-                transition: left 0.3s ease;
+                max-width: 100vw;
             }
 
-            .nav-links.active {
-                left: 0;
+            .mobile-menu {
+                display: flex;
             }
 
-            .mobile-menu.active span:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
+            .container {
+                padding: 0 15px;
+                max-width: 100%;
             }
 
-            .mobile-menu.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .mobile-menu.active span:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
+            .section {
+                padding: 80px 0;
             }
 
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+                padding: 0 10px;
             }
 
-            .contact-form {
-                margin: 0 20px;
-                padding: 20px;
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 0 10px;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 25px;
+                padding: 0 10px;
             }
 
             .particles {
                 display: none;
+            }
+
+            /* Prevent horizontal scroll */
+            .hero, .section, .footer {
+                width: 100%;
+                max-width: 100vw;
+                overflow-x: hidden;
+            }
+
+            .nav-container {
+                padding: 0 15px;
+                width: 100%;
+            }
+
+            .hero-content {
+                padding: 0 15px;
+                max-width: 100%;
             }
         }
 
@@ -1244,15 +1502,13 @@
             animation: pulse 2s infinite;
         }
 
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --text-primary: #FFFFFF;
-                --text-secondary: #A1A1A6;
-                --background: #000000;
-                --surface: #1C1C1E;
-                --border: #38383A;
-            }
+        /* Always dark mode */
+        :root {
+            --text-primary: #FFFFFF;
+            --text-secondary: #A1A1A6;
+            --background: #0a0a0a;
+            --surface: #1C1C1E;
+            --border: #38383A;
         }
     </style>
 </body>
