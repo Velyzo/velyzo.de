@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velyzo - Coding the Future</title>
+    <link rel="icon" type="image/png" href="/vmini.png">
+    <meta name="description" content="Velyzo - Innovative coding organization developing practical mobile applications, web tools, and projects. Founded by Devin Oldenburg.">
+    <meta name="keywords" content="Velyzo, software development, mobile apps, web tools, coding organization, Devin Oldenburg">
+    <meta name="author" content="Velyzo">
+    <meta property="og:title" content="Velyzo - Coding the Future">
+    <meta property="og:description" content="Innovative coding organization developing practical mobile applications, web tools, and projects.">
+    <meta property="og:image" content="/vmini.png">
+    <meta property="og:url" content="https://velyzo.de">
+    <meta property="og:type" content="website">
     <style>
         * {
             margin: 0;
@@ -39,6 +48,32 @@
             padding: 0;
             width: 100vw;
             min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 122, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(88, 86, 214, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 59, 48, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(2deg);
+            }
         }
 
         /* Navigation */
@@ -181,11 +216,22 @@
             font-weight: 800;
             margin-bottom: 25px;
             animation: fadeInUp 1s ease-out;
-            background: linear-gradient(45deg, #ffffff, #e0e0e0);
+            background: linear-gradient(45deg, #ffffff, #e0e0e0, #007AFF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            background-size: 200% 200%;
+            animation: fadeInUp 1s ease-out, gradientShift 4s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .hero p {
@@ -195,6 +241,9 @@
             animation: fadeInUp 1s ease-out 0.2s both;
             line-height: 1.8;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-buttons {
@@ -213,12 +262,14 @@
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             position: relative;
             overflow: hidden;
+            transform: translateY(0);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button::before {
@@ -228,8 +279,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
         }
 
         .cta-button:hover::before {
@@ -237,10 +288,23 @@
         }
 
         .cta-button:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .cta-button.primary {
+            background: var(--gradient);
+            border: none;
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 8px 32px rgba(0, 122, 255, 0.4);
+        }
+
+        .cta-button.primary:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.6);
         }
 
         .cta-button.secondary {
@@ -572,41 +636,80 @@
         }
 
         .feature-card {
-            background: var(--surface);
+            background: rgba(30, 30, 40, 0.9);
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px var(--shadow);
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.1) 0%, rgba(88, 86, 214, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            transform: translateY(-16px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             background: var(--gradient);
-            border-radius: 15px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            font-size: 24px;
+            margin-bottom: 24px;
+            font-size: 28px;
             color: white;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 24px rgba(0, 122, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 32px rgba(0, 122, 255, 0.5);
         }
 
         .feature-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .feature-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+            font-size: 1.05rem;
         }
 
         /* Projects Section */
@@ -1483,20 +1586,20 @@
     <section class="stats-section">
         <div class="stats-grid">
             <div class="stat-item">
-                <div class="stat-number">5+</div>
+                <div class="stat-number">4</div>
                 <div class="stat-label">Active Projects</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">2K+</div>
-                <div class="stat-label">GitHub Stars</div>
+                <div class="stat-number">2025</div>
+                <div class="stat-label">Founded</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">100+</div>
-                <div class="stat-label">Contributors</div>
+                <div class="stat-number">Open</div>
+                <div class="stat-label">Source Focus</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">50K+</div>
-                <div class="stat-label">Downloads</div>
+                <div class="stat-number">1</div>
+                <div class="stat-label">Core Developer</div>
             </div>
         </div>
     </section>
@@ -1506,8 +1609,8 @@
         <div class="container">
             <h2 class="section-title">About Velyzo</h2>
             <p class="section-subtitle">
-                We are a premium coding organization dedicated to creating innovative solutions 
-                and pushing the boundaries of technology through exceptional software development.
+                Velyzo is a coding organization founded by Devin Oldenburg, focused on developing 
+                practical mobile applications, web tools, and open-source projects that serve real user needs.
             </p>
             <div class="about-grid">
                 <div class="feature-card floating">
@@ -1673,27 +1776,27 @@
                         <div class="timeline-date">2024</div>
                         <div class="timeline-title">Velyzo Founded</div>
                         <div class="timeline-description">
-                            Started as a vision to create innovative software solutions that make a difference in people's lives.
+                            Devin Oldenburg established Velyzo with the goal of creating practical software tools and mobile applications.
                         </div>
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">Early 2024</div>
-                        <div class="timeline-title">First Projects Launch</div>
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-title">Initial Projects</div>
                         <div class="timeline-description">
-                            Released our first mobile applications, focusing on utility and user experience.
+                            Development began on core projects including Connecto, Velink, Stryd, and PiVision.
                         </div>
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">Mid 2024</div>
-                        <div class="timeline-title">Open Source Initiative</div>
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-title">Open Source Commitment</div>
                         <div class="timeline-description">
-                            Committed to open source development, making our projects available to the community.
+                            All major projects were made open source and available on GitHub for community collaboration.
                         </div>
                     </div>
                     <div class="timeline-dot"></div>
@@ -1701,9 +1804,9 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">2025</div>
-                        <div class="timeline-title">Expanding Horizons</div>
+                        <div class="timeline-title">Continued Development</div>
                         <div class="timeline-description">
-                            Launching new projects and exploring AI integration, cloud solutions, and advanced mobile development.
+                            Ongoing improvement and maintenance of existing projects while exploring new development opportunities.
                         </div>
                     </div>
                     <div class="timeline-dot"></div>
@@ -1717,7 +1820,7 @@
         <div class="container">
             <h2 class="section-title">Our Team</h2>
             <p class="section-subtitle">
-                Meet the talented individuals who make Velyzo's vision a reality through their expertise and dedication.
+                The founder and core developer behind Velyzo's projects and vision.
             </p>
             <div class="team-grid">
                 <div class="team-card">
@@ -1770,7 +1873,7 @@
                     <h4>Resources</h4>
                     <ul>
                         <li><a href="https://github.com/velyzo">GitHub</a></li>
-                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/contact">Contact</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#team">Team</a></li>
                     </ul>
@@ -1789,7 +1892,7 @@
                 <div class="footer-section">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/contact">Contact</a></li>
                         <li><a href="/impressum.html">Impressum</a></li>
                         <li><a href="#about">Mission</a></li>
                         <li><a href="#team">Leadership</a></li>
