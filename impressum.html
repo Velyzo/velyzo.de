@@ -133,10 +133,45 @@
             border-radius: 20px;
             border: 1px solid var(--border);
             box-shadow: 0 10px 30px var(--shadow);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .impressum-section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .impressum-section:nth-child(1) { animation-delay: 0.1s; }
+        .impressum-section:nth-child(2) { animation-delay: 0.2s; }
+        .impressum-section:nth-child(3) { animation-delay: 0.3s; }
+        .impressum-section:nth-child(4) { animation-delay: 0.4s; }
+        .impressum-section:nth-child(5) { animation-delay: 0.5s; }
+        .impressum-section:nth-child(6) { animation-delay: 0.6s; }
+        .impressum-section:nth-child(7) { animation-delay: 0.7s; }
+        .impressum-section:nth-child(8) { animation-delay: 0.8s; }
+        .impressum-section:nth-child(9) { animation-delay: 0.9s; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .impressum-section:last-child {
@@ -144,16 +179,30 @@
         }
 
         .impressum-section h2 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 600;
             margin-bottom: 20px;
             color: var(--primary-color);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .impressum-section h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
         }
 
         .impressum-section h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 15px;
+            margin-top: 25px;
             color: var(--text-primary);
         }
 
@@ -163,31 +212,118 @@
             color: var(--text-secondary);
         }
 
+        .impressum-section ul {
+            margin-bottom: 20px;
+        }
+
+        .impressum-section ul li {
+            margin-bottom: 8px;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .impressum-section ul li::before {
+            content: '→';
+            position: absolute;
+            left: -10px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .impressum-section a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .impressum-section a:hover {
+            color: var(--secondary-color);
+            transform: translateX(3px);
+        }
+
+        .impressum-section a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        .impressum-section a:hover::after {
+            width: 100%;
+        }
+
         .contact-info {
             background: rgba(0, 122, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 15px;
             border: 1px solid rgba(0, 122, 255, 0.3);
             margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
         }
 
         .contact-info strong {
             color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .contact-info p:last-child {
+            margin-bottom: 0;
         }
 
         .back-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            color: var(--primary-color);
+            gap: 10px;
+            color: var(--text-primary);
+            background: var(--gradient);
+            padding: 12px 24px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             margin-top: 40px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
         }
 
         .back-link:hover {
-            transform: translateX(-5px);
+            transform: translateX(-5px) translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
+        }
+
+        .back-link::before {
+            content: '←';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover::before {
+            transform: translateX(-3px);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         .footer {
@@ -256,7 +392,8 @@
                     <p><strong>Velyzo</strong><br>
                     <strong>Represented by:</strong> Devin Oldenburg<br>
                     <strong>Email:</strong> contact@velyzo.com<br>
-                    <strong>Website:</strong> https://velyzo.de</p>
+                    <strong>Website:</strong> https://velyzo.de<br>
+                    <strong>Location:</strong> Germany</p>
                 </div>
             </div>
 
@@ -264,6 +401,26 @@
                 <h2>Responsible for content according to § 55 Abs. 2 RStV</h2>
                 <p>Devin Oldenburg<br>
                 Email: contact@velyzo.com</p>
+            </div>
+
+            <div class="impressum-section">
+                <h2>Business Information</h2>
+                <p>Velyzo is a software development initiative focused on creating innovative digital solutions. We specialize in web development, mobile applications, and custom software solutions for various industries.</p>
+                
+                <h3>Services</h3>
+                <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 1.8;">
+                    <li>Custom Web Development</li>
+                    <li>Mobile Application Development</li>
+                    <li>Software Architecture & Consulting</li>
+                    <li>Open Source Project Development</li>
+                    <li>Technical Support & Maintenance</li>
+                </ul>
+            </div>
+
+            <div class="impressum-section">
+                <h2>EU Dispute Resolution</h2>
+                <p>The European Commission provides a platform for online dispute resolution (OS): <a href="https://ec.europa.eu/consumers/odr/" style="color: var(--primary-color);">https://ec.europa.eu/consumers/odr/</a></p>
+                <p>We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
             </div>
 
             <div class="impressum-section">
@@ -288,18 +445,67 @@
             </div>
 
             <div class="impressum-section">
-                <h2>Privacy Policy</h2>
-                <p>This website does not collect personal data beyond standard server logs. We do not use cookies for tracking purposes. For any questions regarding data protection, please contact us at contact@velyzo.com.</p>
+                <h2>Data Protection & Privacy</h2>
+                <p>This website respects your privacy and follows GDPR guidelines. We collect minimal data necessary for the operation of our services:</p>
+                
+                <h3>Data Collection</h3>
+                <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 1.8;">
+                    <li>Standard server logs (IP address, browser information, access time)</li>
+                    <li>No personal data collection without explicit consent</li>
+                    <li>No tracking cookies for marketing purposes</li>
+                    <li>No data sharing with third parties</li>
+                </ul>
+                
+                <h3>Your Rights</h3>
+                <p>Under GDPR, you have the right to:</p>
+                <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 1.8;">
+                    <li>Access your personal data</li>
+                    <li>Rectify inaccurate data</li>
+                    <li>Erase your data</li>
+                    <li>Restrict processing</li>
+                    <li>Data portability</li>
+                    <li>Object to processing</li>
+                </ul>
+                
+                <p>For any questions regarding data protection, please contact us at contact@velyzo.com.</p>
             </div>
 
             <div class="impressum-section">
                 <h2>Project Information</h2>
-                <p>Please note that while many of our projects are open source and available on GitHub, not all projects developed by Velyzo are open source. Some projects may be proprietary or have restricted access depending on their nature and requirements.</p>
+                <p>Velyzo develops both open source and proprietary software solutions. While we contribute actively to the open source community, not all projects developed by Velyzo are open source. Project accessibility depends on various factors including:</p>
+                
+                <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 1.8;">
+                    <li>Client requirements and confidentiality agreements</li>
+                    <li>Commercial licensing considerations</li>
+                    <li>Security and intellectual property concerns</li>
+                    <li>Project maturity and stability</li>
+                </ul>
+                
+                <p>Our open source projects are available on GitHub, while proprietary projects may have restricted access. For inquiries about specific projects, please contact us directly.</p>
+            </div>
+
+            <div class="impressum-section">
+                <h2>Technical Information</h2>
+                <p>This website is hosted in Germany and complies with German and European Union regulations. We use modern web technologies to ensure optimal performance and security:</p>
+                
+                <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 1.8;">
+                    <li>SSL/TLS encryption for secure data transmission</li>
+                    <li>Regular security updates and monitoring</li>
+                    <li>Responsive design for all devices</li>
+                    <li>Optimized performance and accessibility</li>
+                </ul>
+            </div>
+
+            <div class="impressum-section">
+                <h2>Contact & Support</h2>
+                <p>For technical support, business inquiries, or general questions, please reach out to us through our <a href="/contact" style="color: var(--primary-color);">contact page</a> or email us directly at contact@velyzo.com.</p>
+                
+                <p>We typically respond to inquiries within 24-48 hours during business days.</p>
             </div>
         </div>
 
         <a href="/" class="back-link">
-            ← Back to Homepage
+            Back to Homepage
         </a>
     </div>
 
