@@ -7,6 +7,18 @@
         <priority>1.00</priority>
     </url>
     <url>
+        <loc>https://velyzo.de/contact</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://velyzo.de/impressum</loc>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.60</priority>
+    </url>
+    <url>
         <loc>https://velyzo.de/discord</loc>
         <lastmod>2025-01-09</lastmod>
         <changefreq>monthly</changefreq>
