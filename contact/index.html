@@ -1222,13 +1222,72 @@
             }
         }
 
-        // Mobile menu toggle
+        // Fixed mobile menu functionality
         const mobileMenu = document.getElementById('mobileMenu');
-        const navLinks = document.querySelector('.nav-links');
+        const navLinksContainer = document.querySelector('.nav-links');
         
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
+        function toggleMobileMenu() {
+            console.log('Mobile menu clicked'); // Debug
+            
+            if (!navLinksContainer || !mobileMenu) {
+                console.error('Mobile menu elements not found');
+                return;
+            }
+
+            const isActive = navLinksContainer.classList.contains('active');
+            
+            if (isActive) {
+                // Close menu
+                navLinksContainer.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                console.log('Menu closed');
+            } else {
+                // Open menu
+                navLinksContainer.classList.add('active');
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                console.log('Menu opened');
+            }
+        }
+
+        function closeMobileMenu() {
+            if (navLinksContainer && mobileMenu) {
+                navLinksContainer.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Attach event listeners
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', toggleMobileMenu);
+            mobileMenu.addEventListener('touchstart', toggleMobileMenu);
+        }
+
+        // Close menu on link click (mobile)
+        if (navLinksContainer) {
+            navLinksContainer.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        closeMobileMenu();
+                    }
+                });
+            });
+        }
+
+        // Handle escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+
+        // Fix for mobile menu on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+            }
         });
 
         // Scroll animations
