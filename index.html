@@ -145,6 +145,7 @@
     <link rel="canonical" href="https://velyzo.de">
     <link rel="alternate" hreflang="de" href="https://velyzo.de">
     <link rel="alternate" hreflang="en" href="https://velyzo.de/en">
+    <link rel="manifest" href="/manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://github.com">
@@ -1367,6 +1368,63 @@
             padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Performance optimizations */
+        .will-change-transform {
+            will-change: transform;
+        }
+
+        .will-change-opacity {
+            will-change: opacity;
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-color: #0066FF;
+                --text-primary: #FFFFFF;
+                --text-secondary: #CCCCCC;
+                --background: #000000;
+                --surface: #111111;
+                --border: #666666;
+            }
+        }
+
+        /* Focus indicators for accessibility */
+        .nav-links a:focus,
+        .cta-button:focus,
+        .project-link:focus,
+        .back-to-top:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Skip to content link for screen readers */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            transition: top 0.3s;
+            z-index: 10000;
+        }
+
+        .skip-to-content:focus {
+            top: 6px;
         }
 
         /* Animations */

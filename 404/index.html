@@ -181,27 +181,190 @@
 
         @media (max-width: 768px) {
             .error-code {
-                font-size: 6rem;
+                font-size: 5rem;
             }
 
             .error-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .error-description {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                padding: 0 10px;
             }
 
             .error-actions {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
             }
 
             .btn {
                 width: 100%;
-                max-width: 300px;
+                max-width: 280px;
                 justify-content: center;
+                padding: 15px 30px;
+                font-size: 0.95rem;
             }
+
+            .error-container {
+                padding: 30px 15px;
+            }
+
+            .floating-shapes .shape {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 4rem;
+            }
+
+            .error-title {
+                font-size: 1.5rem;
+            }
+
+            .error-description {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            .btn {
+                max-width: 250px;
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+
+            .error-container {
+                padding: 20px 10px;
+            }
+        }
+
+        /* Performance optimizations */
+        .will-change-transform {
+            will-change: transform;
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-color: #0066FF;
+                --text-primary: #FFFFFF;
+                --text-secondary: #CCCCCC;
+                --background: #000000;
+                --surface: #111111;
+                --border: #666666;
+            }
+        }
+
+        /* Focus indicators for accessibility */
+        .btn:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Enhanced animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .error-container {
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .error-code {
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .error-title {
+            animation: slideInUp 0.8s ease-out 0.4s both;
+        }
+
+        .error-description {
+            animation: slideInUp 0.8s ease-out 0.6s both;
+        }
+
+        .error-actions {
+            animation: slideInUp 0.8s ease-out 0.8s both;
+        }
+
+        /* Enhanced button hover effects */
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Page background enhancements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(0, 122, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(88, 86, 214, 0.1) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Loading animation improvements */
+        .error-container {
+            opacity: 0;
+        }
+
+        .loaded .error-container {
+            opacity: 1;
+        }
+
+        /* Enhanced gradient text */
+        .error-code {
+            background: linear-gradient(45deg, #007AFF 0%, #5856D6 25%, #AF52DE 50%, #FF3B30 75%, #007AFF 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
     </style>
 </head>
