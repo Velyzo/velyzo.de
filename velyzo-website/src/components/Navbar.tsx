@@ -32,6 +32,7 @@ const Navbar = () => {
     { label: t('nav.about'), href: '#about' },
     { label: t('nav.projects'), href: '#projects' },
     { label: t('nav.team'), href: '#team' },
+    { label: t('nav.support'), href: '#support' },
   ];
 
   useEffect(() => {

@@ -12,7 +12,7 @@ import {
   useTheme,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { GitHub, Launch, GetApp, Web } from '@mui/icons-material';
+import { GitHub, Launch, GetApp, Web, Code, Lock } from '@mui/icons-material';
 
 const Projects = () => {
   const theme = useTheme();
@@ -23,6 +23,7 @@ const Projects = () => {
       title: 'Connecto',
       description: t('projects.connecto.description'),
       technologies: ['Swift', 'iOS', 'watchOS'],
+      isOpenSource: true,
       links: {
         github: 'https://github.com/Velyzo/Connecto',
         testflight: '#',
@@ -33,6 +34,7 @@ const Projects = () => {
       title: 'WidgetDock',
       description: t('projects.widgetdock.description'),
       technologies: ['Swift', 'macOS', 'Touch Bar'],
+      isOpenSource: false,
       links: {
         website: '#',
         download: '#',
@@ -43,6 +45,7 @@ const Projects = () => {
       title: 'PassKit',
       description: t('projects.passkit.description'),
       technologies: ['Swift', 'macOS', 'iOS'],
+      isOpenSource: false,
       links: {
         website: '#',
         download: '#',
@@ -53,6 +56,7 @@ const Projects = () => {
       title: 'Velink',
       description: t('projects.velink.description'),
       technologies: ['React', 'Next.js', 'Web'],
+      isOpenSource: true,
       links: {
         github: 'https://github.com/Velyzo/velink',
         demo: 'https://velink.me/',
@@ -63,6 +67,7 @@ const Projects = () => {
       title: 'Stryd',
       description: t('projects.stryd.description'),
       technologies: ['React Native', 'Mobile', 'Health'],
+      isOpenSource: true,
       links: {
         github: 'https://github.com/Velyzo/Stryd',
         website: '#',
@@ -73,6 +78,7 @@ const Projects = () => {
       title: 'PiVision',
       description: t('projects.pivision.description'),
       technologies: ['Swift', 'iOS', 'Raspberry Pi'],
+      isOpenSource: true,
       links: {
         github: 'https://github.com/Velyzo/PiVision',
         testflight: '#',
@@ -187,16 +193,32 @@ const Projects = () => {
                 }}
               >
                 <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      mb: 2,
-                      fontWeight: 600,
-                      color: project.color,
-                    }}
-                  >
-                    {project.title}
-                  </Typography>
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        fontWeight: 600,
+                        color: project.color,
+                        flex: 1,
+                      }}
+                    >
+                      {project.title}
+                    </Typography>
+                    <Chip
+                      icon={project.isOpenSource ? <Code /> : <Lock />}
+                      label={project.isOpenSource ? t('projects.labels.openSource') : t('projects.labels.proprietary')}
+                      size="small"
+                      sx={{
+                        ml: 2,
+                        backgroundColor: project.isOpenSource ? 'rgba(76, 175, 80, 0.2)' : 'rgba(255, 152, 0, 0.2)',
+                        color: project.isOpenSource ? '#4caf50' : '#ff9800',
+                        border: project.isOpenSource ? '1px solid #4caf50' : '1px solid #ff9800',
+                        '& .MuiChip-icon': {
+                          color: project.isOpenSource ? '#4caf50' : '#ff9800',
+                        },
+                      }}
+                    />
+                  </Box>
                   <Typography
                     variant="body2"
                     sx={{

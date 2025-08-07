@@ -29,6 +29,7 @@ const resources = {
         about: 'About',
         projects: 'Projects',
         team: 'Team',
+        support: 'Support',
         contact: 'Contact'
       },
       hero: {
@@ -96,6 +97,10 @@ const resources = {
           website: 'Website',
           download: 'Download',
           testflight: 'TestFlight'
+        },
+        labels: {
+          openSource: 'Open Source',
+          proprietary: 'Proprietary'
         }
       },
       technologies: {
@@ -176,6 +181,35 @@ const resources = {
         webDev: 'Web Development',
         reactNative: 'React Native',
         customSolutions: 'Custom Solutions'
+      },
+      support: {
+        title: 'Support Our Work',
+        subtitle: 'Help us continue creating amazing free software and tools for developers worldwide.',
+        popular: 'Most Popular',
+        freeNotice: {
+          title: 'Always Free for Everyone',
+          description: 'All our core services and apps are completely free to use. We never charge for basic features - only optional premium tiers may be available in the future.'
+        },
+        collaborationNotice: {
+          title: 'We Don\'t Do Jobs - We Do Collaborations',
+          description: 'We don\'t work as hired developers or freelancers. Instead, if you have a great idea that excites us, we\'d love to collaborate with you as partners and build something amazing together!'
+        },
+        kofi: {
+          title: 'Buy us a Coffee',
+          description: 'Support our development with a small donation. Every coffee helps us stay motivated!',
+          action: 'Support on Ko-fi'
+        },
+        github: {
+          title: 'Star our Projects',
+          description: 'Give our repositories a star on GitHub. It helps other developers discover our work.',
+          action: 'Visit GitHub'
+        },
+        contribute: {
+          title: 'Join our Community',
+          description: 'Connect with us on Discord, share ideas, and help improve our projects together.',
+          action: 'Join Discord'
+        },
+        thankYou: 'Thank you for supporting open source development! ❤️'
       },
       impressum: {
         title: 'Legal Notice',
@@ -263,6 +297,7 @@ const resources = {
         about: 'About',
         projects: 'Projekte',
         team: 'Team',
+        support: 'Unterstützen',
         contact: 'Kontakt'
       },
       hero: {
@@ -330,6 +365,10 @@ const resources = {
           website: 'Website',
           download: 'Download',
           testflight: 'TestFlight'
+        },
+        labels: {
+          openSource: 'Open Source',
+          proprietary: 'Proprietär'
         }
       },
       technologies: {
@@ -410,6 +449,35 @@ const resources = {
         webDev: 'Web Development',
         reactNative: 'React Native',
         customSolutions: 'Custom Solutions'
+      },
+      support: {
+        title: 'Unterstütze Unsere Arbeit',
+        subtitle: 'Hilf uns dabei, weiterhin großartige kostenlose Software und Tools für Entwickler weltweit zu erstellen.',
+        popular: 'Am Beliebtesten',
+        freeNotice: {
+          title: 'Immer Kostenlos für Alle',
+          description: 'Alle unsere Kern-Services und Apps sind völlig kostenlos nutzbar. Wir berechnen niemals Geld für Grundfunktionen - nur optionale Premium-Stufen könnten in Zukunft verfügbar sein.'
+        },
+        collaborationNotice: {
+          title: 'Wir Machen Keine Jobs - Wir Machen Kollaborationen',
+          description: 'Wir arbeiten nicht als angestellte Entwickler oder Freelancer. Stattdessen, wenn du eine großartige Idee hast die uns begeistert, würden wir gerne mit dir als Partner zusammenarbeiten und gemeinsam etwas Fantastisches entwickeln!'
+        },
+        kofi: {
+          title: 'Spendiere uns einen Kaffee',
+          description: 'Unterstütze unsere Entwicklung mit einer kleinen Spende. Jeder Kaffee hilft uns motiviert zu bleiben!',
+          action: 'Auf Ko-fi unterstützen'
+        },
+        github: {
+          title: 'Bewerte unsere Projekte',
+          description: 'Gib unseren Repositories einen Stern auf GitHub. Das hilft anderen Entwicklern unsere Arbeit zu entdecken.',
+          action: 'GitHub besuchen'
+        },
+        contribute: {
+          title: 'Tritt unserer Community bei',
+          description: 'Verbinde dich mit uns auf Discord, teile Ideen und hilf mit, unsere Projekte gemeinsam zu verbessern.',
+          action: 'Discord beitreten'
+        },
+        thankYou: 'Vielen Dank für die Unterstützung der Open Source Entwicklung! ❤️'
       },
       impressum: {
         title: 'Impressum',
@@ -564,6 +632,10 @@ const resources = {
           website: 'Sitio Web',
           download: 'Descargar',
           testflight: 'TestFlight'
+        },
+        labels: {
+          openSource: 'Código Abierto',
+          proprietary: 'Propietario'
         }
       },
       technologies: {
@@ -797,6 +869,10 @@ const resources = {
           website: 'Site Web',
           download: 'Télécharger',
           testflight: 'TestFlight'
+        },
+        labels: {
+          openSource: 'Open Source',
+          proprietary: 'Propriétaire'
         }
       },
       technologies: {

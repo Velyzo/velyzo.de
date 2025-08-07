@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Velyzo",
+  "name": "Velyzo - Revolutionary Software Development",
+  "description": "Free iOS apps, web development, and custom solutions from Germany. Join our open source community.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +19,12 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "./",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#6366f1",
+  "background_color": "#0f172a",
+  "categories": ["productivity", "developer", "utilities"],
+  "lang": "en-US",
+  "orientation": "portrait-primary",
+  "scope": "./"
 }

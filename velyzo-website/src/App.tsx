@@ -13,6 +13,7 @@ import Projects from './components/Projects';
 import Technologies from './components/Technologies';
 import Journey from './components/Journey';
 import Team from './components/Team';
+import Support from './components/Support';
 import Footer from './components/Footer';
 import Contact from './components/Contact';
 import Impressum from './components/Impressum';
@@ -62,7 +63,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router basename="/velyzo.de">
+      <Router>
         <div className="App">
           <Navbar />
           <Routes>
@@ -74,6 +75,7 @@ function App() {
                 <Technologies />
                 <Journey />
                 <Team />
+                <Support />
               </>
             } />
             <Route path="/contact" element={<Contact />} />
