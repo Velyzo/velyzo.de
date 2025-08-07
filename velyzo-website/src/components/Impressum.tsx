@@ -57,7 +57,7 @@ const Impressum = () => {
             {t('impressum.contact')}
           </Typography>
           <Typography variant="body1" sx={{ mb: 1 }}>
-            E-Mail: contact@velyzo.com
+            E-Mail: mail@velyzo.de
           </Typography>
           <Typography variant="body1" sx={{ mb: 3 }}>
             Website: https://velyzo.de

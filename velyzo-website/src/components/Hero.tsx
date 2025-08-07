@@ -24,7 +24,7 @@ const Hero = () => {
   const { t } = useTranslation();
 
   const stats = [
-    { number: '4', label: t('hero.stats.activeProjects') },
+    { number: '73', label: t('hero.stats.activeProjects') },
     { number: '2024', label: t('hero.stats.founded') },
     { number: '100%', label: t('hero.stats.openSource') },
     { number: '1', label: t('hero.stats.coreDeveloper') },

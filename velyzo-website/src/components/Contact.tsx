@@ -93,8 +93,8 @@ const Contact = () => {
     {
       icon: <Email sx={{ fontSize: 30, color: theme.palette.primary.main }} />,
       title: t('contact.emailLabel'),
-      value: 'contact@velyzo.com',
-      action: () => window.open('mailto:contact@velyzo.com'),
+      value: 'mail@velyzo.de',
+      action: () => window.open('mailto:mail@velyzo.de'),
     },
     {
       icon: <LocationOn sx={{ fontSize: 30, color: theme.palette.secondary.main }} />,

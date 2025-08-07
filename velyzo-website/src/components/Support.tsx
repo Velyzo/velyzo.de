@@ -70,7 +70,7 @@ const Support = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'radial-gradient(circle at 30% 40%, rgba(255, 94, 91, 0.05) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%)',
+          background: 'radial-gradient(circle at 30% 40%, rgba(255, 94, 91, 0.03) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(99, 102, 241, 0.03) 0%, transparent 50%)',
           pointerEvents: 'none',
         },
       }}

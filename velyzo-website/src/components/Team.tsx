@@ -193,7 +193,7 @@ const Team = () => {
                     <Button
                       variant="outlined"
                       startIcon={<Email />}
-                      onClick={() => window.open('mailto:contact@velyzo.com', '_blank')}
+                      onClick={() => window.open('mailto:mail@velyzo.de', '_blank')}
                       sx={{
                         borderColor: theme.palette.text.secondary,
                         color: theme.palette.text.secondary,

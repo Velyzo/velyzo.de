@@ -24,13 +24,19 @@ const detectionOptions = {
 const resources = {
   en: {
     translation: {
-      nav: {
+        nav: {
         home: 'Home',
         about: 'About',
         projects: 'Projects',
         team: 'Team',
         support: 'Support',
-        contact: 'Contact'
+        contact: 'Contact',
+        more: 'More',
+        portfolio: 'Portfolio',
+        services: 'Services',
+        blog: 'Blog',
+        careers: 'Careers',
+        resources: 'Resources'
       },
       hero: {
         title: 'Revolutionary',
@@ -77,13 +83,13 @@ const resources = {
           description: 'HTTP request tool for iPhone and Apple Watch. Send and manage HTTP requests directly from your iOS devices with seamless synchronization.'
         },
         widgetdock: {
-          description: 'Innovative store and platform for Mac to add custom widgets to the Touch Bar of MacBook Pros. Discover, install and manage widgets.'
+          description: 'Comprehensive widget manager for macOS. Organize, customize and manage all your desktop widgets in one place.'
         },
         passkit: {
           description: 'Powerful macOS tool to read and display all available data and system information about a connected iOS device.'
         },
         velink: {
-          description: 'Modern Linktree alternative with advanced customization options. Create beautiful, personalized link pages.'
+          description: 'Modern link shortener with advanced analytics. Create beautiful, personalized short links and track their performance.'
         },
         stryd: {
           description: 'Advanced step counter and fitness comparison tool. Track your daily activity and compare performance with friends.'
@@ -98,10 +104,70 @@ const resources = {
           download: 'Download',
           testflight: 'TestFlight'
         },
-        labels: {
-          openSource: 'Open Source',
-          proprietary: 'Proprietary'
-        }
+        moreProjects: {
+          title: 'More Open Source Projects',
+          subtitle: 'Additional projects and contributions to the developer community',
+          close: 'Close',
+          viewOnGithub: 'View on GitHub',
+          projects: {
+            eulionline: {
+              name: 'Eulionline',
+              description: 'Online platform for educational resources and learning management'
+            },
+            dividendDreams: {
+              name: 'Dividend Dreams',
+              description: 'Investment tracking and dividend portfolio management tool'
+            },
+            animeWatcher: {
+              name: 'Anime Watcher',
+              description: 'Cross-platform anime tracking and discovery application'
+            },
+            photoManager: {
+              name: 'Photo Manager',
+              description: 'Advanced photo organization and management tool with AI features'
+            },
+            taskPlanner: {
+              name: 'Task Planner',
+              description: 'Comprehensive task management and productivity planning application'
+            },
+            codeSnippets: {
+              name: 'Code Snippets',
+              description: 'Developer tool for managing and organizing code snippets efficiently'
+            },
+            weatherApp: {
+              name: 'Weather Forecast',
+              description: 'Beautiful weather application with detailed forecasts and alerts'
+            },
+            musicPlayer: {
+              name: 'Music Player',
+              description: 'Modern music player with advanced audio features and playlist management'
+            },
+            fileOrganizer: {
+              name: 'File Organizer',
+              description: 'Intelligent file organization and cleanup utility for better storage management'
+            },
+            passwordManager: {
+              name: 'Password Manager',
+              description: 'Secure password management with encryption and cross-device synchronization'
+            },
+            noteTaker: {
+              name: 'Note Taker',
+              description: 'Rich text note-taking application with markdown support and organization'
+            },
+            exerciseTracker: {
+              name: 'Exercise Tracker',
+              description: 'Fitness tracking application for workouts, progress monitoring, and health analytics'
+            },
+            budgetTracker: {
+              name: 'Budget Tracker',
+              description: 'Personal finance management with expense tracking and budget planning'
+            },
+            habitBuilder: {
+              name: 'Habit Builder',
+              description: 'Habit tracking and building application with analytics and motivation features'
+            }
+          }
+        },
       },
       technologies: {
         title: 'Technologies We Use',
@@ -209,7 +275,22 @@ const resources = {
           description: 'Connect with us on Discord, share ideas, and help improve our projects together.',
           action: 'Join Discord'
         },
-        thankYou: 'Thank you for supporting open source development! ❤️'
+        thankYou: 'Thank you for supporting open source development! ❤️',
+        community: {
+          title: 'Become Part of the Community',
+          description: 'Join our growing developer community and help shape the future of software.',
+          members: 'Community Members',
+          projects: 'Community Projects',
+          contributions: 'Contributions This Month'
+        },
+        sponsor: {
+          title: 'Become a Sponsor',
+          description: 'Support our mission long-term and receive exclusive benefits.',
+          benefits: 'Sponsor Benefits',
+          priority: 'Priority Support',
+          access: 'Early Access to New Features',
+          recognition: 'Recognition on Our Website'
+        }
       },
       impressum: {
         title: 'Legal Notice',
@@ -298,7 +379,13 @@ const resources = {
         projects: 'Projekte',
         team: 'Team',
         support: 'Unterstützen',
-        contact: 'Kontakt'
+        contact: 'Kontakt',
+        more: 'Mehr',
+        portfolio: 'Portfolio',
+        services: 'Dienstleistungen',
+        blog: 'Blog',
+        careers: 'Karriere',
+        resources: 'Ressourcen'
       },
       hero: {
         title: 'Revolutionäre',
@@ -345,13 +432,13 @@ const resources = {
           description: 'HTTP request tool für iPhone und Apple Watch. Senden und verwalten Sie HTTP-Requests direkt von Ihren iOS-Geräten mit nahtloser Synchronisation.'
         },
         widgetdock: {
-          description: 'Innovativer Store und Plattform für Mac, um individuelle Widgets auf der Touch Bar von MacBook Pros hinzuzufügen. Entdecke, installiere und verwalte Widgets.'
+          description: 'Umfassendes Widget-Manager für macOS. Organisiere, passe an und verwalte all deine Desktop-Widgets an einem Ort.'
         },
         passkit: {
           description: 'Leistungsstarkes macOS-Tool, um alle verfügbaren Daten und Systeminformationen über ein angeschlossenes iOS-Gerät auszulesen und anzuzeigen.'
         },
         velink: {
-          description: 'Moderne Linktree-Alternative mit erweiterten Anpassungsoptionen. Erstellen Sie schöne, personalisierte Link-Seiten.'
+          description: 'Moderner Link-Shortener mit erweiterten Analytics. Erstelle schöne, personalisierte Kurz-Links und verfolge deren Performance.'
         },
         stryd: {
           description: 'Fortgeschrittener Schrittzähler und Fitness-Vergleichstool. Verfolgen Sie Ihre tägliche Aktivität und vergleichen Sie die Leistung mit Freunden.'
@@ -368,7 +455,15 @@ const resources = {
         },
         labels: {
           openSource: 'Open Source',
-          proprietary: 'Proprietär'
+          proprietary: 'Proprietär',
+          beta: 'Beta',
+          experimental: 'Experimentell',
+          stable: 'Stabil',
+          archived: 'Archiviert',
+          featured: 'Featured',
+          popular: 'Beliebt',
+          new: 'Neu',
+          updated: 'Aktualisiert'
         }
       },
       technologies: {
@@ -477,7 +572,22 @@ const resources = {
           description: 'Verbinde dich mit uns auf Discord, teile Ideen und hilf mit, unsere Projekte gemeinsam zu verbessern.',
           action: 'Discord beitreten'
         },
-        thankYou: 'Vielen Dank für die Unterstützung der Open Source Entwicklung! ❤️'
+        thankYou: 'Vielen Dank für die Unterstützung der Open Source Entwicklung! ❤️',
+        community: {
+          title: 'Werde Teil der Community',
+          description: 'Tritt unserer wachsenden Entwicklergemeinschaft bei und hilf dabei, die Zukunft der Software zu gestalten.',
+          members: 'Community-Mitglieder',
+          projects: 'Community-Projekte',
+          contributions: 'Beiträge diesen Monat'
+        },
+        sponsor: {
+          title: 'Sponsor werden',
+          description: 'Unterstütze unsere Mission langfristig und erhalte exklusive Vorteile.',
+          benefits: 'Sponsor-Vorteile',
+          priority: 'Prioritäts-Support',
+          access: 'Early Access zu neuen Features',
+          recognition: 'Anerkennung auf unserer Website'
+        }
       },
       impressum: {
         title: 'Impressum',

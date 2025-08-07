@@ -44,7 +44,7 @@ const Footer = () => {
     },
     {
       icon: <Email sx={{ fontSize: 20 }} />,
-      url: 'mailto:contact@velyzo.com',
+      url: 'mailto:mail@velyzo.de',
       label: 'Email',
     },
   ];
@@ -232,7 +232,7 @@ const Footer = () => {
                   py: 0.5,
                 }}
               >
-                contact@velyzo.com
+                mail@velyzo.de
               </Typography>
               <Typography
                 variant="body2"
