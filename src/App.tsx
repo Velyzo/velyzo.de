@@ -62,7 +62,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router basename="/velyzo.de">
+      <Router basename="/">
         <div className="App">
           <Navbar />
           <Routes>
