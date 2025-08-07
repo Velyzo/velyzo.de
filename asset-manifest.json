@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/velyzo.de/static/css/main.131a8b68.css",
-    "main.js": "/velyzo.de/static/js/main.5293013c.js",
+    "main.js": "/velyzo.de/static/js/main.d7aa12ac.js",
     "static/js/453.85ec2c64.chunk.js": "/velyzo.de/static/js/453.85ec2c64.chunk.js",
     "index.html": "/velyzo.de/index.html",
     "main.131a8b68.css.map": "/velyzo.de/static/css/main.131a8b68.css.map",
-    "main.5293013c.js.map": "/velyzo.de/static/js/main.5293013c.js.map",
+    "main.d7aa12ac.js.map": "/velyzo.de/static/js/main.d7aa12ac.js.map",
     "453.85ec2c64.chunk.js.map": "/velyzo.de/static/js/453.85ec2c64.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.131a8b68.css",
-    "static/js/main.5293013c.js"
+    "static/js/main.d7aa12ac.js"
   ]
 }
