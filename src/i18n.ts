@@ -167,7 +167,6 @@ const resources = {
         contact: 'Contact',
         copyright: '© {{year}} Velyzo. All rights reserved.',
         impressum: 'Legal Notice',
-        cookiePolicy: 'Cookie Policy',
         allRights: 'All rights reserved.',
         language: 'Language'
       },
@@ -401,7 +400,6 @@ const resources = {
         contact: 'Kontakt',
         copyright: '© {{year}} Velyzo. Alle Rechte vorbehalten.',
         impressum: 'Impressum',
-        cookiePolicy: 'Cookie-Richtlinie',
         allRights: 'Alle Rechte vorbehalten.',
         language: 'Sprache'
       },

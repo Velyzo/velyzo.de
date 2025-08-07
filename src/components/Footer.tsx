@@ -10,7 +10,7 @@ import {
 import { GitHub, Twitter, Email, Forum } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from './LanguageSwitcher';
+import LanguageSelector from './LanguageSelector';
 
 const Footer = () => {
   const theme = useTheme();
@@ -241,12 +241,12 @@ const Footer = () => {
                   py: 0.5,
                 }}
               >
-                {t('contact.germany')}
+                Germany
               </Typography>
               
               {/* Language Switcher */}
               <Box sx={{ mt: 3 }}>
-                <LanguageSwitcher />
+                <LanguageSelector variant="default" showLabel />
               </Box>
             </Box>
           </Box>
@@ -303,7 +303,7 @@ const Footer = () => {
                 },
               }}
             >
-              {t('footer.cookiePolicy')}
+              {t('cookiePolicy.title')}
             </Button>
           </Box>
         </Box>
