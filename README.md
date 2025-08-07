@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Website](https://img.shields.io/badge/🌐_Website-velyzo.github.io-FF5E5B?style=for-the-badge&logoColor=white)](https://velyzo.github.io)
+[![Website](https://img.shields.io/badge/🌐_Website-velyzo.de-FF5E5B?style=for-the-badge&logoColor=white)](https://velyzo.de)
 [![GitHub](https://img.shields.io/badge/GitHub-Velyzo-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/velyzo)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Buy_us_coffee-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/velyzo)
 [![Discord](https://img.shields.io/badge/Discord-Join_Community-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/mrgg7vuF48)
@@ -143,7 +143,7 @@ graph TD
 
 *Explore our complete portfolio including Eulionline, Dividend Dreams, Anime Watcher, and many more innovative tools and applications.*
 
-[![Explore All Projects](https://img.shields.io/badge/🚀_Explore_All_Projects-6366f1?style=for-the-badge&logoColor=white)](https://velyzo.github.io/#projects)
+[![Explore All Projects](https://img.shields.io/badge/🚀_Explore_All_Projects-6366f1?style=for-the-badge&logoColor=white)](https://velyzo.de/#projects)
 
 </div>
 
@@ -226,73 +226,6 @@ Although Velyzo is currently run by one person, we strongly believe in **collabo
 
 ---
 
-## 🎯 Our Journey
-
-```mermaid
-timeline
-    title Velyzo Evolution Timeline
-    
-    2019 : Velis Founded
-         : Initial concept and foundation
-         : Focus on practical software tools
-    
-    2020 : Core Projects Development
-         : Connecto, Velink, Stryd development begins
-         : Building fundamental applications
-    
-    2021 : Open Source Commitment
-         : All major projects made open source
-         : Community collaboration established
-    
-    2023 : Rebranding to Velyzo
-         : Stronger brand identity
-         : Expanded vision and capabilities
-    
-    2024 : Continued Innovation
-         : New project launches
-         : Enhanced community engagement
-    
-    2025 : Future Vision
-         : Next-generation solutions
-         : Global developer impact
-```
-
----
-
-## 💖 Support Our Work
-
-<div align="center">
-
-### 🎉 **Always Free for Everyone**
-
-All our core services and apps are **completely free to use**. We never charge for basic features - only optional premium tiers may be available in the future.
-
-### 🤝 **We Don't Do Jobs - We Do Collaborations**
-
-We don't work as hired developers or freelancers. Instead, if you have a great idea that excites us, we'd love to collaborate with you as partners and build something amazing together!
-
----
-
-<table>
-<tr>
-<td align="center" width="33%">
-
-### ☕ Buy us a Coffee
-Support our development with a small donation. Every coffee helps us stay motivated!
-
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/velyzo)
-
-</td>
-<td align="center" width="33%">
-
-### ⭐ Star Our Projects
-Give our repositories a star on GitHub. It helps other developers discover our work.
-
-[![GitHub](https://img.shields.io/badge/GitHub-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/velyzo)
-
-</td>
-<td align="center" width="33%">
-
 ### 🎮 Join Our Community
 Connect with us on Discord, share ideas, and help improve our projects together.
 
@@ -317,7 +250,7 @@ Connect with us on Discord, share ideas, and help improve our projects together.
 ### 📧 Get in Touch
 
 [![Email](https://img.shields.io/badge/📧_mail@velyzo.de-FF5E5B?style=for-the-badge&logoColor=white)](mailto:mail@velyzo.de)
-[![Website](https://img.shields.io/badge/🌐_velyzo.github.io-6366f1?style=for-the-badge&logoColor=white)](https://velyzo.github.io)
+[![Website](https://img.shields.io/badge/🌐_velyzo.de-6366f1?style=for-the-badge&logoColor=white)](https://velyzo.de)
 
 ### 🌍 Follow Us
 
@@ -337,7 +270,7 @@ Connect with us on Discord, share ideas, and help improve our projects together.
 
 ## 🚀 Ready to Build the Future Together?
 
-**[Explore Our Projects](https://velyzo.github.io/#projects)** • **[Join Our Community](https://discord.gg/mrgg7vuF48)** • **[Support Our Mission](https://ko-fi.com/velyzo)**
+**[Explore Our Projects](https://velyzo.de/#projects)** • **[Join Our Community](https://discord.gg/mrgg7vuF48)** • **[Support Our Mission](https://ko-fi.com/velyzo)**
 
 ---
 
@@ -384,6 +317,6 @@ npm run deploy
 
 ### 🌐 Live Website
 
-Visit our live website at **[velyzo.github.io](https://velyzo.github.io)** to see all our projects, learn about our mission, and get in touch!
+Visit our live website at **[velyzo.de](https://velyzo.de)** to see all our projects, learn about our mission, and get in touch!
 
 ### 📧 All contact emails standardized to: **mail@velyzo.de**
