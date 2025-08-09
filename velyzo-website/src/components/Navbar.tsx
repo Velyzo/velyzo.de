@@ -6,21 +6,25 @@ import {
   Button,
   Box,
   IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
   useMediaQuery,
   useTheme,
   Container,
 } from '@mui/material';
-import { motion } from 'framer-motion';
-import MenuIcon from '@mui/icons-material/Menu';
+import { 
+  Menu as MenuIcon, 
+  Home as HomeIcon,
+  Info as InfoIcon,
+  Work as WorkIcon,
+  Group as GroupIcon,
+  Favorite as FavoriteIcon,
+  Mail as MailIcon
+} from '@mui/icons-material';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -28,11 +32,11 @@ const Navbar = () => {
   const { t } = useTranslation();
 
   const navItems = [
-    { label: t('nav.home'), href: '/' },
-    { label: t('nav.about'), href: '#about' },
-    { label: t('nav.projects'), href: '#projects' },
-    { label: t('nav.team'), href: '#team' },
-    { label: t('nav.support'), href: '#support' },
+    { label: t('nav.home'), href: '/', icon: HomeIcon },
+    { label: t('nav.about'), href: '#about', icon: InfoIcon },
+    { label: t('nav.projects'), href: '#projects', icon: WorkIcon },
+    { label: t('nav.team'), href: '#team', icon: GroupIcon },
+    { label: t('nav.support'), href: '#support', icon: FavoriteIcon },
   ];
 
   useEffect(() => {
@@ -63,7 +67,7 @@ const Navbar = () => {
         }
       }
     }
-    setDrawerOpen(false);
+    setMobileMenuOpen(false);
   };
 
   return (
@@ -83,20 +87,23 @@ const Navbar = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
+              style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+              onClick={() => navigate('/')}
             >
               <Typography
                 variant="h5"
                 component="div"
                 sx={{
-                  flexGrow: 1,
                   fontWeight: 800,
-                  background: 'linear-gradient(45deg, #6366f1 30%, #ec4899 90%)',
+                  fontSize: { xs: '1.4rem', md: '1.6rem' },
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
                   backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  cursor: 'pointer',
+                  letterSpacing: '0.5px',
+                  textShadow: '0 0 30px rgba(102, 126, 234, 0.3)',
+                  marginLeft: 1,
                 }}
-                onClick={() => navigate('/')}
               >
                 Velyzo
               </Typography>
@@ -155,7 +162,7 @@ const Navbar = () => {
             {isMobile && (
               <IconButton
                 color="inherit"
-                onClick={() => setDrawerOpen(true)}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 edge="start"
               >
                 <MenuIcon />
@@ -165,35 +172,100 @@ const Navbar = () => {
         </Container>
       </AppBar>
 
-      <Drawer
-        anchor="right"
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-        PaperProps={{
-          sx: {
-            backgroundColor: theme.palette.background.paper,
-            width: 250,
-          },
-        }}
-      >
-        <List sx={{ pt: 4 }}>
-          {navItems.map((item) => (
-            <ListItem
-              key={item.label}
-              onClick={() => handleNavClick(item.href)}
-              sx={{ cursor: 'pointer', '&:hover': { backgroundColor: 'rgba(99, 102, 241, 0.1)' } }}
+      {/* Mobile Full-Width Navigation */}
+      {isMobile && (
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              style={{
+                position: 'fixed',
+                top: '64px',
+                left: 0,
+                right: 0,
+                zIndex: 1200,
+                background: 'rgba(15, 23, 42, 0.98)',
+                backdropFilter: 'blur(20px)',
+                borderBottom: `1px solid ${theme.palette.divider}`,
+              }}
             >
-              <ListItemText primary={item.label} />
-            </ListItem>
-          ))}
-          <ListItem 
-            onClick={() => navigate('/contact')}
-            sx={{ cursor: 'pointer', '&:hover': { backgroundColor: 'rgba(99, 102, 241, 0.1)' } }}
-          >
-            <ListItemText primary={t('nav.contact')} />
-          </ListItem>
-        </List>
-      </Drawer>
+              <Container maxWidth="xl">
+                <Box sx={{ py: 2 }}>
+                  {/* Navigation Items */}
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mb: 2 }}>
+                    {navItems.map((item, index) => {
+                      const Icon = item.icon;
+                      return (
+                        <motion.div
+                          key={item.label}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: index * 0.1 }}
+                        >
+                          <Button
+                            fullWidth
+                            startIcon={<Icon />}
+                            onClick={() => handleNavClick(item.href)}
+                            sx={{
+                              justifyContent: 'flex-start',
+                              py: 1.5,
+                              px: 2,
+                              borderRadius: 2,
+                              textTransform: 'none',
+                              fontWeight: 500,
+                              color: theme.palette.text.primary,
+                              '&:hover': {
+                                backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                                transform: 'translateX(8px)',
+                                transition: 'all 0.2s ease',
+                              },
+                            }}
+                          >
+                            {item.label}
+                          </Button>
+                        </motion.div>
+                      );
+                    })}
+                  </Box>
+                  
+                  {/* Contact Button */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.6 }}
+                  >
+                    <Button
+                      fullWidth
+                      startIcon={<MailIcon />}
+                      onClick={() => { navigate('/contact'); setMobileMenuOpen(false); }}
+                      sx={{
+                        py: 1.5,
+                        px: 2,
+                        borderRadius: 2,
+                        textTransform: 'none',
+                        fontWeight: 600,
+                        background: 'linear-gradient(45deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2))',
+                        border: '1px solid rgba(99, 102, 241, 0.3)',
+                        color: theme.palette.primary.main,
+                        '&:hover': {
+                          background: 'linear-gradient(45deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3))',
+                          transform: 'translateX(8px)',
+                          transition: 'all 0.2s ease',
+                        },
+                      }}
+                    >
+                      {t('nav.contact')}
+                    </Button>
+                  </motion.div>
+                </Box>
+              </Container>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
     </>
   );
 };

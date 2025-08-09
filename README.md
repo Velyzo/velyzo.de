@@ -15,7 +15,7 @@
 
 ---
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=6366F1&center=true&vCenter=true&width=600&lines=Revolutionary+Software+Development;iOS+%7C+Web+%7C+Open+Source;Building+the+Future+Together" alt="Typing SVG" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=667eea&center=true&vCenter=true&width=600&lines=Revolutionary+Software+Development;iOS+%7C+Web+%7C+Open+Source;Building+the+Future+Together;Professional+%26+Modern+Design" alt="Typing SVG" />
 
 </div>
 
@@ -284,7 +284,7 @@ Connect with us on Discord, share ideas, and help improve our projects together.
 
 ## 🚀 Development & Deployment
 
-This website is built with modern technologies and deployed automatically to GitHub Pages.
+This website is built with modern technologies and deployed automatically to GitHub Pages. **Optimized for low-memory environments (1GB RAM servers)**.
 
 ### 🛠 Built With
 
@@ -294,6 +294,7 @@ This website is built with modern technologies and deployed automatically to Git
 - **Framer Motion 12.23.12** - Smooth animations and interactions
 - **React Router DOM 7.7.1** - Client-side routing
 - **react-i18next** - Multi-language support (EN/DE/ES/FR)
+- **CRACO** - Custom webpack configuration for memory optimization
 
 ### ⚡ Quick Start
 
@@ -303,17 +304,34 @@ git clone https://github.com/Velyzo/velyzo.de.git
 cd velyzo.de/velyzo-website
 
 # Install dependencies
-npm install
+npm install --legacy-peer-deps
 
-# Start development server
+# Start development server (optimized for low RAM)
 npm start
 
-# Build for production
-npm run build
+# OR use the ultra-optimized startup script
+chmod +x start.sh
+./start.sh
+
+# Build for production (memory-optimized)
+npm run build:prod
 
 # Deploy to GitHub Pages
 npm run deploy
+
+# Run production server locally
+npm run serve
 ```
+
+### 🎯 Memory Optimization Features
+
+- **Node.js Memory Limit**: 768MB for 1GB RAM servers
+- **Ultra Low Memory Script**: `start.sh` - Guaranteed Port 80
+- **Webpack Optimization**: Code splitting and tree shaking
+- **Build Optimization**: Source maps disabled, runtime chunk inlined
+- **Docker Support**: Multi-stage build with nginx (256MB limit)
+- **Development Mode**: Reduced memory footprint with fast refresh disabled
+- **Automatic Port Management**: Kills conflicting processes automatically
 
 ### 🌐 Live Website
 

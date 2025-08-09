@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velyzo Logo Renderer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .logo-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            align-items: center;
+            justify-items: center;
+        }
+        
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .logo-label {
+            color: #e2e8f0;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .size-variants {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        h1 {
+            color: #f1f5f9;
+            text-align: center;
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .export-info {
+            color: #94a3b8;
+            text-align: center;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .download-btn {
+            background: linear-gradient(45deg, #6366f1 30%, #ec4899 90%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(45deg, #5b5cf6 30%, #db2777 90%);
+            transform: translateY(-2px);
+        }
+        
+        .logo-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .download-section {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .preset-download {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            color: #e2e8f0;
+        }
+        
+        .preset-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Velyzo Logo Collection</h1>
+    
+    <div class="logo-container">
+        <div class="logo-grid">
+            <!-- Default Variant -->
+            <div class="logo-item">
+                <div class="logo-wrapper">
+                    <div id="logo-default-64"></div>
+                    <button class="download-btn" onclick="downloadLogo('logo-default-64', 'velyzo-logo-default-64px')">Download PNG</button>
+                </div>
+                <div class="logo-label">Default (64px)</div>
+            </div>
+            
+            <!-- Minimal Variant -->
+            <div class="logo-item">
+                <div class="logo-wrapper">
+                    <div id="logo-minimal-64"></div>
+                    <button class="download-btn" onclick="downloadLogo('logo-minimal-64', 'velyzo-logo-minimal-64px')">Download PNG</button>
+                </div>
+                <div class="logo-label">Minimal (64px)</div>
+            </div>
+            
+            <!-- Animated Variant -->
+            <div class="logo-item">
+                <div class="logo-wrapper">
+                    <div id="logo-animated-64"></div>
+                    <button class="download-btn" onclick="downloadLogo('logo-animated-64', 'velyzo-logo-animated-64px')">Download PNG</button>
+                </div>
+                <div class="logo-label">Animated (64px)</div>
+            </div>
+            
+            <!-- Size Variants -->
+            <div class="logo-item" style="grid-column: span 3;">
+                <div class="size-variants">
+                    <div id="logo-default-32"></div>
+                    <div id="logo-default-48"></div>
+                    <div id="logo-default-64-2"></div>
+                    <div id="logo-default-96"></div>
+                    <div id="logo-default-128"></div>
+                </div>
+                <div class="logo-label">Size Variants (32px - 128px)</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="download-section">
+        <h2 style="color: #f1f5f9; text-align: center; margin: 0 0 20px 0;">Ready-to-Use Logo Downloads</h2>
+        <div class="download-grid">
+            <div class="preset-download">
+                <div class="preset-title">Favicon Package</div>
+                <p style="font-size: 14px; margin: 10px 0;">16px, 32px, 48px</p>
+                <button class="download-btn" onclick="downloadPresetPack('favicon')">Download Pack</button>
+            </div>
+            
+            <div class="preset-download">
+                <div class="preset-title">App Icons</div>
+                <p style="font-size: 14px; margin: 10px 0;">64px, 128px, 256px</p>
+                <button class="download-btn" onclick="downloadPresetPack('app')">Download Pack</button>
+            </div>
+            
+            <div class="preset-download">
+                <div class="preset-title">Print & Marketing</div>
+                <p style="font-size: 14px; margin: 10px 0;">512px, 1024px, 2048px</p>
+                <button class="download-btn" onclick="downloadPresetPack('print')">Download Pack</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="export-info">
+        Click "Download PNG" buttons to save individual logos, or use the preset packs for common use cases. All logos are generated with transparent backgrounds and professional quality.
+    </div>
+
+    <script>
+        // Convert SVG to PNG and download
+        function downloadLogo(containerId, filename) {
+            const container = document.getElementById(containerId);
+            const svg = container.querySelector('svg');
+            
+            if (!svg) {
+                alert('Logo not found!');
+                return;
+            }
+            
+            // Create canvas
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+            const url = URL.createObjectURL(svgBlob);
+            
+            // Create image
+            const img = new Image();
+            img.onload = function() {
+                // Set canvas size with higher resolution for crisp PNG
+                const scale = 4; // 4x resolution for high quality
+                canvas.width = this.width * scale;
+                canvas.height = this.height * scale;
+                
+                // Scale context and draw
+                ctx.scale(scale, scale);
+                ctx.drawImage(this, 0, 0);
+                
+                // Create download link
+                canvas.toBlob(function(blob) {
+                    const downloadUrl = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = downloadUrl;
+                    link.download = filename + '.png';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(downloadUrl);
+                }, 'image/png');
+                
+                URL.revokeObjectURL(url);
+            };
+            img.src = url;
+        }
+        
+        // Download preset packs
+        function downloadPresetPack(packType) {
+            let sizes = [];
+            let packName = '';
+            
+            switch(packType) {
+                case 'favicon':
+                    sizes = [16, 32, 48];
+                    packName = 'velyzo-favicon-pack';
+                    break;
+                case 'app':
+                    sizes = [64, 128, 256];
+                    packName = 'velyzo-app-icons';
+                    break;
+                case 'print':
+                    sizes = [512, 1024, 2048];
+                    packName = 'velyzo-print-logos';
+                    break;
+            }
+            
+            // Generate and download each size
+            sizes.forEach((size, index) => {
+                setTimeout(() => {
+                    generateAndDownload(size, `${packName}-${size}px`);
+                }, index * 500); // Stagger downloads
+            });
+        }
+        
+        // Generate logo of specific size and download
+        function generateAndDownload(size, filename) {
+            // Create temporary container
+            const tempContainer = document.createElement('div');
+            tempContainer.id = 'temp-' + Date.now();
+            tempContainer.style.position = 'absolute';
+            tempContainer.style.left = '-9999px';
+            document.body.appendChild(tempContainer);
+            
+            // Render logo using legacy function that matches our download function
+            renderLogo(tempContainer.id, size, 'default');
+            
+            // Download
+            setTimeout(() => {
+                downloadLogo(tempContainer.id, filename);
+                // Cleanup
+                setTimeout(() => document.body.removeChild(tempContainer), 1000);
+            }, 100);
+        }
+        
+        // Enhanced render function for any container
+        function renderLogoToContainer(containerId, size = 64, variant = 'default') {
+            const container = document.getElementById(containerId);
+            
+            let gradientId, shadowId, svgContent;
+            
+            switch (variant) {
+                case 'minimal':
+                    gradientId = `velyzoGrad-${size}-${containerId}`;
+                    shadowId = `shadow-${size}-${containerId}`;
+                    svgContent = `
+                        <defs>
+                            <linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="${shadowId}" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.2" flood-color="#000000"/>
+                            </filter>
+                        </defs>
+                        <rect x="6" y="6" width="${size-12}" height="${size-12}" rx="${size/5.33}" ry="${size/5.33}" fill="url(#${gradientId})" filter="url(#${shadowId})" />
+                        <path d="M ${size*0.34} ${size*0.34} L ${size*0.5} ${size*0.66} L ${size*0.66} ${size*0.34}" stroke="#ffffff" stroke-width="${size*0.055}" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                        <path d="M ${size*0.39} ${size*0.41} L ${size*0.5} ${size*0.59} L ${size*0.61} ${size*0.41}" stroke="#ffffff" stroke-width="${size*0.0125}" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.4" />
+                    `;
+                    break;
+                    
+                case 'animated':
+                    gradientId = `animatedGrad-${size}-${containerId}`;
+                    shadowId = `glow-${size}-${containerId}`;
+                    svgContent = `
+                        <defs>
+                            <linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="${shadowId}" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="${size*0.047}" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <rect x="6" y="6" width="${size-12}" height="${size-12}" rx="${size/5.33}" ry="${size/5.33}" fill="url(#${gradientId})" filter="url(#${shadowId})" />
+                        <path d="M ${size*0.34} ${size*0.34} L ${size*0.5} ${size*0.66} L ${size*0.66} ${size*0.34}" stroke="#ffffff" stroke-width="${size*0.0625}" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                        <path d="M ${size*0.39} ${size*0.41} L ${size*0.5} ${size*0.59} L ${size*0.61} ${size*0.41}" stroke="#ffffff" stroke-width="${size*0.016}" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.5" />
+                    `;
+                    break;
+                    
+                default:
+                    gradientId = `defaultGrad-${size}-${containerId}`;
+                    shadowId = `defaultShadow-${size}-${containerId}`;
+                    svgContent = `
+                        <defs>
+                            <linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="${shadowId}" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="${size*0.047}" stdDeviation="${size*0.063}" flood-opacity="0.15" flood-color="#1e293b"/>
+                            </filter>
+                        </defs>
+                        <rect x="6" y="6" width="${size-12}" height="${size-12}" rx="${size/5.33}" ry="${size/5.33}" fill="url(#${gradientId})" filter="url(#${shadowId})" />
+                        <path d="M ${size*0.34} ${size*0.34} L ${size*0.5} ${size*0.66} L ${size*0.66} ${size*0.34}" stroke="#ffffff" stroke-width="${size*0.055}" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                        <path d="M ${size*0.39} ${size*0.41} L ${size*0.5} ${size*0.59} L ${size*0.61} ${size*0.41}" stroke="#ffffff" stroke-width="${size*0.0125}" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.4" />
+                    `;
+                    break;
+            }
+            
+            container.innerHTML = `
+                <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="display: block;">
+                    ${svgContent}
+                </svg>
+            `;
+        }
+        
+        // Legacy render function (for backward compatibility) 
+        function renderLogo(containerId, size = 64, variant = 'default') {
+            const container = document.getElementById(containerId);
+            
+            let gradientId, shadowId, svgContent;
+            
+            switch (variant) {
+                case 'minimal':
+                    gradientId = `velyzoGrad-${size}-${containerId}`;
+                    shadowId = `shadow-${size}-${containerId}`;
+                    svgContent = `
+                        <defs>
+                            <linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="${shadowId}" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.2" flood-color="#000000"/>
+                            </filter>
+                        </defs>
+                        <rect x="6" y="6" width="52" height="52" rx="12" ry="12" fill="url(#${gradientId})" filter="url(#${shadowId})" />
+                        <path d="M 22 22 L 32 42 L 42 22" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                        <path d="M 25 26 L 32 38 L 39 26" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.4" />
+                    `;
+                    break;
+                    
+                case 'animated':
+                    gradientId = `animatedGrad-${size}-${containerId}`;
+                    shadowId = `glow-${size}-${containerId}`;
+                    svgContent = `
+                        <defs>
+                            <linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="${shadowId}" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <rect x="6" y="6" width="52" height="52" rx="12" ry="12" fill="url(#${gradientId})" filter="url(#${shadowId})" />
+                        <path d="M 22 22 L 32 42 L 42 22" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                        <path d="M 25 26 L 32 38 L 39 26" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.5" />
+                    `;
+                    break;
+                    
+                default:
+                    gradientId = `defaultGrad-${size}-${containerId}`;
+                    shadowId = `defaultShadow-${size}-${containerId}`;
+                    svgContent = `
+                        <defs>
+                            <linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="${shadowId}" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.15" flood-color="#1e293b"/>
+                            </filter>
+                        </defs>
+                        <rect x="6" y="6" width="52" height="52" rx="12" ry="12" fill="url(#${gradientId})" filter="url(#${shadowId})" />
+                        <path d="M 22 22 L 32 42 L 42 22" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                        <path d="M 25 26 L 32 38 L 39 26" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.4" />
+                    `;
+                    break;
+            }
+            
+            container.innerHTML = `
+                <svg width="${size}" height="${size}" viewBox="0 0 64 64" style="display: block;">
+                    ${svgContent}
+                </svg>
+            `;
+        }
+        
+        // Download function for PNG export
+        function downloadLogo(containerId, filename) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            const svg = container.querySelector('svg');
+            if (!svg) return;
+            
+            // Create a copy of the SVG
+            const svgData = new XMLSerializer().serializeToString(svg);
+            
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // High resolution canvas for crisp PNG
+            const scale = 4;
+            const size = parseInt(svg.getAttribute('width')) || 64;
+            canvas.width = size * scale;
+            canvas.height = size * scale;
+            ctx.scale(scale, scale);
+            
+            const img = new Image();
+            const svgBlob = new Blob([svgData], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(svgBlob);
+            
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, size, size);
+                
+                canvas.toBlob(function(blob) {
+                    const link = document.createElement('a');
+                    link.download = filename + '.png';
+                    link.href = URL.createObjectURL(blob);
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(url);
+                }, 'image/png');
+            };
+            
+            img.src = url;
+        }
+        
+        // Render all logos
+        renderLogo('logo-default-64', 64, 'default');
+        renderLogo('logo-minimal-64', 64, 'minimal');
+        renderLogo('logo-animated-64', 64, 'animated');
+        
+        renderLogo('logo-default-32', 32, 'default');
+        renderLogo('logo-default-48', 48, 'default');
+        renderLogo('logo-default-64-2', 64, 'default');
+        renderLogo('logo-default-96', 96, 'default');
+        renderLogo('logo-default-128', 128, 'default');
+    </script>
+</body>
+</html>

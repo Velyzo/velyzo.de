@@ -22,11 +22,17 @@ jobs:
         
     - name: Install dependencies
       working-directory: ./velyzo-website
-      run: npm ci
+      run: npm ci --legacy-peer-deps
+      env:
+        NODE_OPTIONS: --max-old-space-size=768
         
     - name: Build
       working-directory: ./velyzo-website
-      run: npm run build
+      run: npm run build:prod
+      env:
+        NODE_OPTIONS: --max-old-space-size=768
+        GENERATE_SOURCEMAP: false
+        INLINE_RUNTIME_CHUNK: false
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3

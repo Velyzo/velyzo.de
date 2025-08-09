@@ -86,7 +86,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
               <Typography
                 variant="h1"
@@ -97,6 +97,7 @@ const Hero = () => {
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   fontSize: { xs: '2.5rem', md: '3.5rem' },
+                  textAlign: 'center',
                 }}
               >
                 {t('hero.title')}
@@ -119,7 +120,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
               <Typography
                 variant="h6"
@@ -128,6 +129,8 @@ const Hero = () => {
                   color: theme.palette.text.secondary,
                   maxWidth: 600,
                   lineHeight: 1.6,
+                  textAlign: 'center',
+                  mx: 'auto',
                 }}
               >
                 {t('hero.description')}
@@ -137,7 +140,8 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              style={{ textAlign: 'center' }}
             >
               <Box sx={{ display: 'flex', gap: 2, mb: 6, flexWrap: 'wrap' }}>
                 <Button

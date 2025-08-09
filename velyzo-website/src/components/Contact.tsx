@@ -379,6 +379,44 @@ const Contact = () => {
                     >
                       {isSubmitting ? t('contact.sending') : t('contact.sendMessage')}
                     </Button>
+                    
+                    {/* Important notice about direct email */}
+                    <Box
+                      sx={{
+                        mt: 3,
+                        p: 2,
+                        backgroundColor: 'rgba(99, 102, 241, 0.05)',
+                        borderRadius: 2,
+                        border: '1px solid rgba(99, 102, 241, 0.2)',
+                      }}
+                    >
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: theme.palette.text.secondary,
+                          textAlign: 'center',
+                          fontSize: '0.9rem',
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        📧 <strong>Wichtiger Hinweis:</strong> Für dringende und geschäftskritische Anfragen kontaktieren Sie uns bitte direkt per E-Mail an{' '}
+                        <Box
+                          component="a"
+                          href="mailto:hello@velyzo.de"
+                          sx={{
+                            color: theme.palette.primary.main,
+                            textDecoration: 'none',
+                            fontWeight: 600,
+                            '&:hover': {
+                              textDecoration: 'underline',
+                            },
+                          }}
+                        >
+                          hello@velyzo.de
+                        </Box>{' '}
+                        – so garantieren wir Ihnen eine prioritäre und zeitnahe Bearbeitung.
+                      </Typography>
+                    </Box>
                   </Box>
                 </form>
               </CardContent>

@@ -1,0 +1,37 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Professional corporate gradient -->
+    <linearGradient id="corporateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Subtle corporate shadow -->
+    <filter id="corporateShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-opacity="0.12" flood-color="#000000"/>
+    </filter>
+  </defs>
+  
+  <!-- Professional rounded square with perfect proportions -->
+  <rect x="20" y="20" width="160" height="160" rx="32" ry="32"
+        fill="url(#corporateGrad)"
+        filter="url(#corporateShadow)" />
+  
+  <!-- Clean, sophisticated V design -->
+  <path d="M 70 70 L 100 130 L 130 70" 
+        stroke="#ffffff" 
+        stroke-width="10" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        fill="none"
+        opacity="1" />
+  
+  <!-- Professional accent line for depth -->
+  <path d="M 76 78 L 100 118 L 124 78" 
+        stroke="#ffffff" 
+        stroke-width="2.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        fill="none"
+        opacity="0.35" />
+</svg>

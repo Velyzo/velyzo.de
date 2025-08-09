@@ -33,12 +33,18 @@ jobs:
     - name: Install dependencies
       run: |
         cd velyzo-website
-        npm ci
+        npm ci --legacy-peer-deps
+      env:
+        NODE_OPTIONS: --max-old-space-size=768
         
     - name: Build React app
       run: |
         cd velyzo-website
-        npm run build
+        npm run build:prod
+      env:
+        NODE_OPTIONS: --max-old-space-size=768
+        GENERATE_SOURCEMAP: false
+        INLINE_RUNTIME_CHUNK: false
         
     - name: Setup Pages
       uses: actions/configure-pages@v4

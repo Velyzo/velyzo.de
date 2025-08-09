@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  velyzo-website:
+    build: .
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    # Memory limits for 1GB RAM server
+    mem_limit: 256m
+    mem_reservation: 128m
+    # CPU limits to prevent overload
+    cpus: '0.5'
+    environment:
+      - NODE_ENV=production
+    # Health check
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
